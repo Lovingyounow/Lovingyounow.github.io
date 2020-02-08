@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Lovingyounow.github.io">
-  <title>Hexo</title>
+  <title>PAT 乙级 1048 数字加密  | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://lovingyounow.github.io/index.html">
+  <meta name="description" content="题目：   本题要求实现一种数字加密方法。首先固定一个加密用正整数 A，对任一正整数 B，将其每 1 位数字与 A 的对应位置上的数字进行以下运算：对奇数位，对应位的数字相加后对 13 取余——这里用 J 代表 10、Q 代表 11、K 代表 12；对偶数位，用 B 的数字减去 A 的数字，若结果为负数，则再加 10。这里令个位为第 1 位。 输入格式：输入在一行中依次给出 A 和 B，均为不超过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT 乙级 1048 数字加密 ">
+<meta property="og:url" content="https://lovingyounow.github.io/2020/02/08/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="题目：   本题要求实现一种数字加密方法。首先固定一个加密用正整数 A，对任一正整数 B，将其每 1 位数字与 A 的对应位置上的数字进行以下运算：对奇数位，对应位的数字相加后对 13 取余——这里用 J 代表 10、Q 代表 11、K 代表 12；对偶数位，用 B 的数字减去 A 的数字，若结果为负数，则再加 10。这里令个位为第 1 位。 输入格式：输入在一行中依次给出 A 和 B，均为不超过">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-08T12:55:08.016Z">
+<meta property="article:modified_time" content="2020-02-08T12:59:45.191Z">
 <meta property="article:author" content="Codingboy">
 <meta name="twitter:card" content="summary">
   
@@ -150,603 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-PAT乙级 1005 继续(3n+1)猜想" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-PAT 乙级 1048 数字加密 " class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/">PAT乙级 1005 继续(3n+1)猜想</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/08/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/" class="archive-article-date">
-  	<time datetime="2020-02-08T13:04:41.129Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>卡拉兹(Callatz)猜想已经在1001中给出了描述。在这个题目里，情况稍微有些复杂。</p>
-<p>当我们验证卡拉兹猜想的时候，为了避免重复计算，可以记录下递推过程中遇到的每一个数。例如对 n=3 进行验证的时候，我们需要计算 3、5、8、4、2、1，则当我们对 n=5、8、4、2 进行验证的时候，就可以直接判定卡拉兹猜想的真伪，而不需要重复计算，因为这 4 个数已经在验证3的时候遇到过了，我们称 5、8、4、2 是被 3“覆盖”的数。我们称一个数列中的某个数 n 为“关键数”，如果 n 不能被数列中的其他数字所覆盖。</p>
-<p>现在给定一系列待验证的数字，我们只需要验证其中的几个关键数，就可以不必再重复验证余下的数字。你的任务就是找出这些关键数字，并按从大到小的顺序输出它们。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>每个测试输入包含 1 个测试用例，第 1 行给出一个正整数 K (&lt;100)，第 2 行给出 K 个互不相同的待验证的正整数 n (1&lt;n≤100)的值，数字间用空格隔开。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>每个测试用例的输出占一行，按从大到小的顺序输出关键数字。数字间用 1 个空格隔开，但一行中最后一个数字后没有空格。</p>
-<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><p>6<br>3 5 6 7 8 11</p>
-<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><p>7 6</p>
-<p><strong>解题思路：</strong><br>这一题本身没有什么难度用散列做即可，但还是有不少细节需要注意：</p>
-<ol>
-<li>首先是数组开的大小我一开始用的是1000但显示有两个测试点段错误，我自己写了个代码发现用27，最高可以算到4616，所以数组要开大一点。</li>
-<li>其次需要按照从大到小的顺序输出，一开始只是以为从N-1到0遍历就行，其实要先排序再遍历。如下：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sort(a,a+N);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = N<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b[a[i]] == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>,a[i]);</span><br><span class="line">			sum--;</span><br><span class="line">			<span class="keyword">if</span>(sum)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<strong>代码：</strong></li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">10000</span>];</span><br><span class="line">	<span class="keyword">int</span> b[<span class="number">10000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">		<span class="keyword">int</span> m = a[i];</span><br><span class="line">		b[m]++;</span><br><span class="line">		<span class="keyword">while</span>(m!=<span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(m%<span class="number">2</span>==<span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				m/=<span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				m = (m*<span class="number">3</span>+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			b[m]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = N<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b[a[i]] == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			sum++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+N);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = N<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b[a[i]] == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d"</span>,a[i]);</span><br><span class="line">			sum--;</span><br><span class="line">			<span class="keyword">if</span>(sum)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/08/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT甲级1033 To Fill or Not to Fill 贪心算法的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/PAT%E7%94%B2%E7%BA%A71033%20To%20Fill%20or%20Not%20to%20Fill%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/">PAT甲级1033 To Fill or Not to Fill 贪心算法的使用</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/08/PAT%E7%94%B2%E7%BA%A71033%20To%20Fill%20or%20Not%20to%20Fill%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-02-08T13:04:41.063Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>With highways available, driving a car from Hangzhou to any other city is easy. But since the tank capacity of a car is limited, we have to find gas stations on the way from time to time. Different gas station may give different price. You are asked to carefully design the cheapest route to go.</p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h2><p>Each input file contains one test case. For each case, the first line contains 4 positive numbers: C​max​(≤ 100), the maximum capacity of the tank; D (≤30000), the distance between Hangzhou and the destination city; D​avg​​(≤20), the average distance per unit gas that the car can run; and N (≤ 500), the total number of gas stations. Then N lines follow, each contains a pair of non-negative numbers: P​i​​ , the unit gas price, and D​i​​(≤D), the distance between this station and Hangzhou, for i=1,⋯,N. All the numbers in a line are separated by a space.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h2><p>For each test case, print the cheapest price in a line, accurate up to 2 decimal places. It is assumed that the tank is empty at the beginning. If it is impossible to reach the destination, print The maximum travel distance = X where X is the maximum possible distance the car can run, accurate up to 2 decimal places.</p>
-<h2 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1:"></a>Sample Input 1:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">50 1300 12 8</span><br><span class="line">6.00 1250</span><br><span class="line">7.00 600</span><br><span class="line">7.00 150</span><br><span class="line">7.10 0</span><br><span class="line">7.20 200</span><br><span class="line">7.50 400</span><br><span class="line">7.30 1000</span><br><span class="line">6.85 300</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1:"></a>Sample Output 1:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">749.17</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2:"></a>Sample Input 2:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">50 1300 12 2</span><br><span class="line">7.10 0</span><br><span class="line">7.00 600</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2:"></a>Sample Output 2:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The maximum travel distance = 1200.00</span><br></pre></td></tr></table></figure>
-
-<h2 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h2><p>从A到B的距离为D，路程中有N个加油站，油箱的容积为C，每升油可以行驶Davg。给出每个加油站距离起点A的距离以及每升油的单价。如果能到达B则输出最少加油需要多少钱，如果不能到达终点输出最长的行驶距离。</p>
-<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><ul>
-<li>首先需要对输入的加油站信息根据距起点的距离进行排序:</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>号加油站：<span class="number">7.10</span> <span class="number">0</span></span><br><span class="line"><span class="number">1</span>号加油站：<span class="number">7.00</span> <span class="number">150</span></span><br><span class="line"><span class="number">2</span>号加油站：<span class="number">7.20</span> <span class="number">200</span></span><br><span class="line"><span class="number">3</span>号加油站：<span class="number">6.85</span> <span class="number">300</span></span><br><span class="line"><span class="number">4</span>号加油站：<span class="number">7.50</span> <span class="number">400</span></span><br><span class="line"><span class="number">5</span>号加油站：<span class="number">7.00</span> <span class="number">600</span></span><br><span class="line"><span class="number">6</span>号加油站：<span class="number">7.30</span> <span class="number">1000</span></span><br><span class="line"><span class="number">7</span>号加油站：<span class="number">6.00</span> <span class="number">1250</span></span><br><span class="line">终点：<span class="number">0.00</span> <span class="number">13000</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>具体的过程为从当前位置开始到加满油后所能到达的最远距离中存在的加油站中寻找价格比当前的加油站单价低的加油站temp，把油加到正好行驶到temp，此时剩余的油<strong>release = 0</strong>；如果没有比当前加油站单价低的则寻找其中价格最低的加油站作为下一加油点，<strong>同时在当前加油站把油加满</strong> <strong>（因为当前的价格在下一行驶范围内价格最低，所以加的油越多越好，做题时没有考虑这一点导致算不对）</strong>此处要算剩余的油release。如果当前加满油后不能行驶到最近的下一加油站表明不能行驶到终点，最大行驶距离为当前加油站距起点距离加上加满油后最大行驶距离。</li>
-<li>范例1的具体行驶过程为从0号加油站-&gt;1号-&gt;3号(因为下一加油站单价比此处高所以加满油)-&gt;5号(此处同上也加满油)-&gt;6号-&gt;7号-&gt;终点</li>
-<li><font face = "黑体" color = red >排序后需要判断第一个加油站到起点距离是否为零，不为零则直接输出最远行驶距离为0.00.</font><h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2></li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">station</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">double</span> price;</span><br><span class="line">	<span class="keyword">double</span> distance;</span><br><span class="line">&#125;a[<span class="number">1000</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(struct station a,struct station b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.distance &lt; b.distance;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">double</span> money = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">double</span> release;</span><br><span class="line">	<span class="keyword">double</span> C,sum_dis,avg_run;</span><br><span class="line">	<span class="keyword">int</span> S;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%lf %lf %lf %d"</span>,&amp;C,&amp;sum_dis,&amp;avg_run,&amp;S);</span><br><span class="line">	<span class="keyword">double</span> run_max = C * avg_run;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; S;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lf %lf"</span>,&amp;a[i].price,&amp;a[i].distance);</span><br><span class="line">	&#125;</span><br><span class="line">	a[S].distance = sum_dis;</span><br><span class="line">	a[S].price = <span class="number">0</span>;</span><br><span class="line">	sort(a,a+S,cmp);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; S;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d号加油站：%.2f %.0f\n"</span>,i,a[i].price,a[i].distance);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(a[<span class="number">0</span>].distance!=<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"The maximum travel distance = 0.00"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> flag = <span class="number">0</span>;      <span class="comment">//若找到比当前加油站价格低的置为1 </span></span><br><span class="line">	<span class="keyword">double</span> min = <span class="number">10000</span>;</span><br><span class="line">	<span class="keyword">int</span> i,j,temp;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; S;)</span><br><span class="line">	&#123;</span><br><span class="line">		flag = <span class="number">0</span>; </span><br><span class="line">		min = <span class="number">10000</span>;</span><br><span class="line">		<span class="keyword">for</span>(j = i+<span class="number">1</span>;a[i].distance+run_max &gt;= a[j].distance&amp;&amp;j &lt;= S;j++)</span><br><span class="line">		&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[j].price &lt; a[i].price)   <span class="comment">//找到比当前加油站价格低的直接跳出循环 </span></span><br><span class="line">				&#123;</span><br><span class="line">					money += ((a[j].distance - a[i].distance)/avg_run - release)*a[i].price;</span><br><span class="line">					release = <span class="number">0</span>;</span><br><span class="line">					i = j;</span><br><span class="line">					flag = <span class="number">1</span>;</span><br><span class="line">					<span class="keyword">break</span>;  </span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(a[j].price &lt; min)    <span class="comment">//没有比当前加油站价格低的寻找价格最低的加油站 </span></span><br><span class="line">				&#123;</span><br><span class="line">					temp = j;</span><br><span class="line">					min = a[j].price;	</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(j == i + <span class="number">1</span>)                    <span class="comment">//如果当前加油站加满油后不能行使到下一加油站，不能行使到终点 </span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"The maximum travel distance = %.2f"</span>,a[i].distance+run_max);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(flag == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			money += (C - release) * a[i].price;</span><br><span class="line">			release = C - (a[temp].distance - a[i].distance)/avg_run;</span><br><span class="line">			i = temp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%.2f"</span>,money);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/08/PAT%E7%94%B2%E7%BA%A71033%20To%20Fill%20or%20Not%20to%20Fill%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT甲级 1080 Graduate Admission" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/PAT%E7%94%B2%E7%BA%A7%201080%20Graduate%20Admission/">PAT甲级 1080 Graduate Admission</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/08/PAT%E7%94%B2%E7%BA%A7%201080%20Graduate%20Admission/" class="archive-article-date">
-  	<time datetime="2020-02-08T13:04:41.003Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>It is said that in 2011, there are about 100 graduate schools ready to proceed over 40,000 applications in Zhejiang Province. It would help a lot if you could write a program to automate the admission procedure.</p>
-<p>Each applicant will have to provide two grades: the national entrance exam grade GE​, and the interview grade GI​​ . The final grade of an applicant is (G​E​​ +G​I​​ )/2. The admission rules are:<br>The applicants are ranked according to their final grades, and will be admitted one by one from the top of the rank list.</p>
-<p>If there is a tied final grade, the applicants will be ranked according to their national entrance exam grade G​E​​ . If still tied, their ranks must be the same.</p>
-<p>Each applicant may have K choices and the admission will be done according to his/her choices: if according to the rank list, it is one’s turn to be admitted; and if the quota of one’s most preferred shcool is not exceeded, then one will be admitted to this school, or one’s other choices will be considered one by one in order. If one gets rejected by all of preferred schools, then this unfortunate applicant will be rejected.</p>
-<p>If there is a tied rank, and if the corresponding applicants are applying to the same school, then that school must admit all the applicants with the same rank, even if its quota will be exceeded.</p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h2><p>Each input file contains one test case.</p>
-<p>Each case starts with a line containing three positive integers: N (≤40,000), the total number of applicants; M (≤100), the total number of graduate schools; and K (≤5), the number of choices an applicant may have.</p>
-<p>In the next line, separated by a space, there are M positive integers. The i-th integer is the quota of the i-th graduate school respectively.</p>
-<p>Then N lines follow, each contains 2+K integers separated by a space. The first 2 integers are the applicant’s GEand G​I​​ , respectively. The next K integers represent the preferred schools. For the sake of simplicity, we assume that the schools are numbered from 0 to M−1, and the applicants are numbered from 0 to N−1.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h2><p>For each test case you should output the admission results for all the graduate schools. The results of each school must occupy a line, which contains the applicants’ numbers that school admits. The numbers must be in increasing order and be separated by a space. There must be no extra space at the end of each line. If no applicant is admitted by a school, you must output an empty line correspondingly.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">11 6 3</span><br><span class="line">2 1 2 2 2 3</span><br><span class="line">100 100 0 1 2</span><br><span class="line">60 60 2 3 5</span><br><span class="line">100 90 0 3 4</span><br><span class="line">90 100 1 2 0</span><br><span class="line">90 90 5 1 3</span><br><span class="line">80 90 1 0 2</span><br><span class="line">80 80 0 1 2</span><br><span class="line">80 80 0 1 2</span><br><span class="line">80 70 1 3 2</span><br><span class="line">70 80 1 2 3</span><br><span class="line">100 100 0 2 4</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0 10</span><br><span class="line">3</span><br><span class="line">5 6 7</span><br><span class="line">2 8</span><br><span class="line"></span><br><span class="line">1 4</span><br></pre></td></tr></table></figure>
-
-<h2 id="解题思路及变量解释："><a href="#解题思路及变量解释：" class="headerlink" title="解题思路及变量解释："></a>解题思路及变量解释：</h2><ol>
-<li><p>本题用到了两个结构体，<strong>struct applicant</strong>用于存储候选人相关消息其中<strong>rank</strong>表示成绩在所有人中的排名。<strong>struct   school</strong>用于存储学校相关信息，其中<strong>accept</strong>数组用于记录被录取学生的学号，初值为0。<strong>rank</strong>表示已录取学生的最低排名初值为0。</p>
-</li>
-<li><p>判断是否被录取主要分为两步。第一步判断当前学生的排名是否等于心仪学校录取的最低排名，相等则录取。若不相等则判断心仪学校的配额是否大于0，大于0则录取并将当前学校的排名赋值给心仪学校的最低录取排名。如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a[i].rank == b[a[i].prefer_school[j]].rank)</span><br><span class="line">&#123;&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(b[a[i].prefer_school[j]].quota &gt; <span class="number">0</span>)</span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>a[i].prefer_school[j]表示第i个学生的第j个心仪学校。</p>
-</li>
-<li><p>学校接受的学生的学生要表示为accept[a[i].ID],因为排序后结构体数组的下标已经不是学生的ID号。</p>
-</li>
-</ol>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">applicant</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> ID; </span><br><span class="line">	<span class="keyword">int</span> gradeE;</span><br><span class="line">	<span class="keyword">int</span> gradeI;</span><br><span class="line">	<span class="keyword">int</span> prefer_school[<span class="number">5</span>];</span><br><span class="line">	<span class="keyword">int</span> rank;</span><br><span class="line">&#125;a[<span class="number">50000</span>]; </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">school</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> quota;</span><br><span class="line">	<span class="keyword">int</span> rank;</span><br><span class="line">	<span class="keyword">int</span> people;</span><br><span class="line">	<span class="keyword">int</span> accept[<span class="number">50000</span>];</span><br><span class="line">&#125;b[<span class="number">100</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(struct applicant m,struct applicant n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(m.gradeE+m.gradeI!=n.gradeE+n.gradeI)</span><br><span class="line">		<span class="keyword">return</span> m.gradeE+m.gradeI &gt; n.gradeE+n.gradeI;</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		<span class="keyword">return</span> m.gradeE &gt; n.gradeE;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N,M,K;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;N,&amp;M,&amp;K);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;b[i].quota);</span><br><span class="line">		b[i].rank = <span class="number">0</span>;</span><br><span class="line">		b[i].people = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">memset</span>(b[i].accept,<span class="number">0</span>,<span class="keyword">sizeof</span>(b[i].accept));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a[i].gradeE,&amp;a[i].gradeI);</span><br><span class="line">		a[i].ID = i;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; K;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i].prefer_school[j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+N,cmp);</span><br><span class="line">	a[<span class="number">0</span>].rank = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i].gradeE + a[i].gradeI!=a[i<span class="number">-1</span>].gradeE+a[i<span class="number">-1</span>].gradeI||(a[i].gradeE + a[i].gradeI==a[i<span class="number">-1</span>].gradeE+a[i<span class="number">-1</span>].gradeI)&amp;&amp;a[i].gradeE!=a[i<span class="number">-1</span>].gradeE)</span><br><span class="line">			a[i].rank = i + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			a[i].rank = a[i - <span class="number">1</span>].rank;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; K;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i].rank == b[a[i].prefer_school[j]].rank)</span><br><span class="line">			&#123;</span><br><span class="line">				b[a[i].prefer_school[j]].accept[a[i].ID] = <span class="number">1</span>;</span><br><span class="line">				b[a[i].prefer_school[j]].people++;</span><br><span class="line">				b[a[i].prefer_school[j]].quota--;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(b[a[i].prefer_school[j]].quota &gt; <span class="number">0</span>)</span><br><span class="line">			</span><br><span class="line">			&#123;</span><br><span class="line">				b[a[i].prefer_school[j]].accept[a[i].ID] = <span class="number">1</span>;</span><br><span class="line">				b[a[i].prefer_school[j]].quota--;</span><br><span class="line">				b[a[i].prefer_school[j]].people++;</span><br><span class="line">				b[a[i].prefer_school[j]].rank = a[i].rank;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b[i].people != <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>,m = <span class="number">0</span>;m &lt; b[i].people;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(b[i].accept[j] == <span class="number">1</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%d"</span>,j); </span><br><span class="line">					m++;</span><br><span class="line">					<span class="keyword">if</span>(m != b[i].people)</span><br><span class="line">					&#123;</span><br><span class="line">						<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>第55-58行判断语句比较长可以换一下逻辑缩短代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>((a[i].gradeE + a[i].gradeI==a[i<span class="number">-1</span>].gradeE+a[i<span class="number">-1</span>].gradeI)&amp;&amp;(a[i].gradeE == a[i - <span class="number">1</span>].gradeE))</span><br><span class="line">			a[i].rank = a[i - <span class="number">1</span>].rank;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			a[i].rank = i + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/08/PAT%E7%94%B2%E7%BA%A7%201080%20Graduate%20Admission/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT甲级 1025 PAT Ranking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/PAT%E7%94%B2%E7%BA%A7%201025%20PAT%20Ranking/">PAT甲级 1025 PAT Ranking</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/08/PAT%E7%94%B2%E7%BA%A7%201025%20PAT%20Ranking/" class="archive-article-date">
-  	<time datetime="2020-02-08T13:04:40.955Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Programming Ability Test (PAT) is organized by the College of Computer Science and Technology of Zhejiang University. Each test is supposed to run simultaneously in several places, and the ranklists will be merged immediately after the test. Now it is your job to write a program to correctly merge all the ranklists and generate the final rank.</p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h2><p>Each input file contains one test case. For each case, the first line contains a positive number N (≤100), the number of test locations. Then N ranklists follow, each starts with a line containing a positive integer K (≤300), the number of testees, and then K lines containing the registration number (a 13-digit number) and the total score of each testee. All the numbers in a line are separated by a space.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h2><p>For each test case, first print in one line the total number of testees. Then print the final ranklist in the following format:</p>
-<p>registration_number final_rank location_number local_rank</p>
-<p>The locations are numbered from 1 to N. The output must be sorted in nondecreasing order of the final ranks. The testees with the same score must have the same rank, and the output must be sorted in nondecreasing order of their registration numbers.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h2><p>2<br>5<br>1234567890001 95<br>1234567890005 100<br>1234567890003 95<br>1234567890002 77<br>1234567890004 85<br>4<br>1234567890013 65<br>1234567890011 25<br>1234567890014 100<br>1234567890012 85</p>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h2><p>9<br>1234567890005 1 1 1<br>1234567890014 1 2 1<br>1234567890001 3 1 2<br>1234567890003 3 1 2<br>1234567890004 5 1 4<br>1234567890012 5 2 2<br>1234567890002 7 1 5<br>1234567890013 8 2 3<br>1234567890011 9 2 4</p>
-<p><strong>解题思路：</strong></p>
-<ol>
-<li>题目要求对每个考场的成绩进行排名，再对于所有人进行排名。用结构体存储每个考生的信息及排名，每次先对输入当前考场的考生进行排名，最后再对所有考生进行排名。用<strong>num_people</strong>存储总人数，再用<strong>testee</strong>存储存储考场的人数，所以sort函数的开始位置:<strong>start = num_people -  testee</strong>。结束位置:<strong>end = num_people</strong>。所以每次对考场中人数排名的sort函数为<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(a+start,a+end,cmp);</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<ol start="2">
-<li>对于sort函数中比较函数cmp的编写，题目要求先按照成绩从大到小进行排名，成绩相同则按照考生号从小到大进行排名。</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(struct PAT a,struct PAT b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.grade!=b.grade)</span><br><span class="line">		<span class="keyword">return</span> a.grade &gt; b.grade;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">strcmp</span>(a.id,b.id) &lt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>代码</strong>：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">PAT</span></span></span><br><span class="line"><span class="class">	&#123;</span></span><br><span class="line">		<span class="keyword">char</span> id[<span class="number">15</span>];</span><br><span class="line">		<span class="keyword">int</span> grade;</span><br><span class="line">		<span class="keyword">int</span> rank;		 <span class="comment">//总排名 </span></span><br><span class="line">		<span class="keyword">int</span> lo_rank;  	 <span class="comment">//考点排名 </span></span><br><span class="line">		<span class="keyword">int</span> location;    <span class="comment">//考点 </span></span><br><span class="line">	&#125;a[<span class="number">50000</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(struct PAT a,struct PAT b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.grade!=b.grade)</span><br><span class="line">		<span class="keyword">return</span> a.grade &gt; b.grade;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">strcmp</span>(a.id,b.id) &lt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;						<span class="comment">//考点数 </span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">	<span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> end = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> sum_people = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> testee;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;testee);					<span class="comment">//考场的考生数 </span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; testee;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%s %d"</span>,a[sum_people].id,&amp;a[sum_people].grade);</span><br><span class="line">			a[sum_people].location = i;</span><br><span class="line">			sum_people++;</span><br><span class="line">		&#125;</span><br><span class="line">		start = sum_people - testee;</span><br><span class="line">		end = sum_people;</span><br><span class="line">		sort(a+start,a+end,cmp);</span><br><span class="line">		a[start].lo_rank = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> m = start+<span class="number">1</span>,j = <span class="number">2</span>;m &lt; end;m++,j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[m].grade!=a[m<span class="number">-1</span>].grade)</span><br><span class="line">			&#123;</span><br><span class="line">				a[m].lo_rank = j;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				a[m].lo_rank = a[m<span class="number">-1</span>].lo_rank;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+end,cmp);</span><br><span class="line">	a[<span class="number">0</span>].rank = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> m = <span class="number">1</span>;m &lt; end;m++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[m].grade!=a[m<span class="number">-1</span>].grade)</span><br><span class="line">		&#123;</span><br><span class="line">			a[m].rank = m + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			a[m].rank= a[m<span class="number">-1</span>].rank;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,end);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; sum_people;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s %d %d %d\n"</span>,a[i].id,a[i].rank,a[i].location,a[i].lo_rank);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对所有的考生排名可以采取以下直接输出的方式替换55-71行代码，避免先记录排名再输出，减少代码量。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> rank = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,end);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; sum_people;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(i &gt; <span class="number">0</span>&amp;&amp;a[i].grade!=a[i<span class="number">-1</span>].grade)</span><br><span class="line">			rank = i + <span class="number">1</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%s %d %d %d\n"</span>,a[i].id,rank,a[i].location,a[i].lo_rank);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/08/PAT%E7%94%B2%E7%BA%A7%201025%20PAT%20Ranking/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT 乙级 1030 完美数列(二分查找 及 upper_bound（）函数的使用)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/PAT%20%E4%B9%99%E7%BA%A7%201030%20%E5%AE%8C%E7%BE%8E%E6%95%B0%E5%88%97(%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%20%E5%8F%8A%20upper_bound%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8)/">PAT 乙级 1030 完美数列(二分查找 及 upper_bound（）函数的使用)</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/08/PAT%20%E4%B9%99%E7%BA%A7%201030%20%E5%AE%8C%E7%BE%8E%E6%95%B0%E5%88%97(%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%20%E5%8F%8A%20upper_bound%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8)/" class="archive-article-date">
-  	<time datetime="2020-02-08T13:04:40.907Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给定一个正整数数列，和正整数 p，设这个数列中的最大值是 M，最小值是 m，如果 M≤mp，则称这个数列是完美数列。</p>
-<p>现在给定参数 p 和一些正整数，请你从中选择尽可能多的数构成一个完美数列。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入第一行给出两个正整数 N 和 p，其中 N（≤10^5^)是输入的正整数的个数，p（≤10^9^）是给定的参数。第二行给出 N 个正整数，每个数不超过10^9^。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中输出最多可以选择多少个数可以用它们组成一个完美数列。</p>
-<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> <span class="number">8</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">20</span> <span class="number">4</span> <span class="number">5</span> <span class="number">1</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
-<p><font color = DeepSkyBlue size = 4>解题思路：<font>对数组排序后遍历数组寻找从当前位置i开始第一个超过P*a[i]的元素的下标,即可求出有多少数在这个范围内。</p>
-<p><font color = Red size = 4>注意：需要通过二分查找减少复杂度否则测试点4超时，所求长度的初值需要置为1，否则测试点3不能通过。P乘以数组元素后可能会超过10^9^所以需要用long long存储。</p>
-<h2 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarysearch</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> left,<span class="keyword">int</span> right,LL P)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	LL number = a[left] * P;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(left &lt; right)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(a[mid] &lt;= number)</span><br><span class="line">			left = mid + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			right = mid; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	LL P;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %lld"</span>,&amp;N,&amp;P);</span><br><span class="line">	<span class="keyword">int</span> a[N];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+N);</span><br><span class="line">	<span class="keyword">int</span> maxlength = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N - <span class="number">1</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> right = binarysearch(a,i,N,P);</span><br><span class="line">		<span class="keyword">if</span>(right - i &gt; maxlength)</span><br><span class="line">			maxlength = right - i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,maxlength);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><font color = DeepSkyBlue size = 4>还可以直接用upper_bound()函数寻找第一个大于所求元素在数组中的地址。<font color = DeepSky size = 4>注意：这里返回的是地址,通过减去数组名获得下标。</font></font></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	LL P;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %lld"</span>,&amp;N,&amp;P);</span><br><span class="line">	<span class="keyword">int</span> a[N];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+N);</span><br><span class="line">	<span class="keyword">int</span> maxlength = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N - <span class="number">1</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> right = upper_bound(a+i,a+N,P*a[i]) - a;</span><br><span class="line">		<span class="keyword">if</span>(right - i &gt; maxlength)</span><br><span class="line">			maxlength = right - i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,maxlength);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/08/PAT%20%E4%B9%99%E7%BA%A7%201030%20%E5%AE%8C%E7%BE%8E%E6%95%B0%E5%88%97(%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%20%E5%8F%8A%20upper_bound%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT 甲级 1075 PAT Judge(第5个测试点解决方法)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/">PAT 甲级 1075 PAT Judge(第5个测试点解决方法)</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/08/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/" class="archive-article-date">
-  	<time datetime="2020-02-08T13:04:40.854Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>The ranklist of PAT is generated from the status list, which shows the scores of the submissions. This time you are supposed to generate the ranklist for PAT.</p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h2><p>Each input file contains one test case. For each case, the first line contains 3 positive integers, N (≤10^4​​ ), the total number of users, K (≤5), the total number of problems, and M (≤10^5​​ ), the total number of submissions. It is then assumed that the user id’s…are 5-digit numbers from 00001 to N, and the problem id’s are from 1 to K. The next line contains K positive integers p[i] (i=1, …, K), where p[i] corresponds to the full mark of the i-th problem. Then M lines follow, each gives the information of a submission in the following format:</p>
-<p><strong>user_id problem_id partial_score_obtained</strong></p>
-<p>where partial_score_obtained is either −1 if the submission cannot even pass the compiler, or is an integer in the range [0, p[problem_id]]. All the numbers in a line are separated by a space.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h2><p>For each test case, you are supposed to output the ranklist in the following format:</p>
-<p>rank user_id total_score s[1] … s[K]</p>
-<p>where rank is calculated according to the total_score, and all the users with the same total_score obtain the same rank; and s[i] is the partial score obtained for the i-th problem. If a user has never submitted a solution for a problem, then “-“ must be printed at the corresponding position. If a user has submitted several solutions to solve one problem, then the highest score will be counted.</p>
-<p>The ranklist must be printed in non-decreasing order of the ranks. For those who have the same rank, users must be sorted in nonincreasing order according to the number of perfectly solved problems. And if there is still a tie, then they must be printed in increasing order of their id’s. For those who has never submitted any solution that can pass the compiler, or has never submitted any solution, they must NOT be shown on the ranklist. It is guaranteed that at least one user can be shown on the ranklist.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h2><p>7 4 20<br>20 25 25 30<br>00002 2 12<br>00007 4 17<br>00005 1 19<br>00007 2 25<br>00005 1 20<br>00002 2 2<br>00005 1 15<br>00001 1 18<br>00004 3 25<br>00002 2 25<br>00005 3 22<br>00006 4 -1<br>00001 2 18<br>00002 1 20<br>00004 1 15<br>00002 4 18<br>00001 3 4<br>00001 4 2<br>00005 2 -1<br>00004 2 0</p>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h2><p>1 00002 63 20 25 - 18<br>2 00005 42 20 0 22 -<br>2 00007 42 - 25 - 17<br>2 00001 42 18 18 4 2<br>5 00004 40 15 0 25 -</p>
-<p><strong>解题思路：</strong></p>
-<ol>
-<li>输入的成绩为-1指未通过编译，根据题意所有题目都未通过编译或者都未提交的考生不输出，能够输出的考生若有题目成绩为 -1 则输出 0，有题目未提交输出’-‘。所以将每个考生的所有题目初值设为-2,如果输入的题目成绩大于当前考生的成绩则更新考生成绩。若输入的成绩大于-1将flag置为1.表示当前考生能够输出。</li>
-<li>输出顺序先比较排名，若排名相同比较得满分的题目数，若仍然相同按照考生ID升序输出。所以编写如下cmp函数。</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(struct submission a,struct submission b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.total != b.total)</span><br><span class="line">		<span class="keyword">return</span> a.total &gt; b.total;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.perfect != b.perfect)</span><br><span class="line">		<span class="keyword">return</span> a.perfect &gt; b.perfect;</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		<span class="keyword">return</span> a.ID &lt; b.ID;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>完整代码：</strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">submission</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> ID;</span><br><span class="line">	<span class="keyword">int</span> score[<span class="number">5</span>];</span><br><span class="line">	<span class="keyword">int</span> total;</span><br><span class="line">	<span class="keyword">int</span> perfect;</span><br><span class="line">	<span class="keyword">int</span> rank;</span><br><span class="line">	<span class="keyword">int</span> flag;</span><br><span class="line">&#125;a[<span class="number">10000</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(struct submission a,struct submission b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a.total != b.total)</span><br><span class="line">		<span class="keyword">return</span> a.total &gt; b.total;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.perfect != b.perfect)</span><br><span class="line">		<span class="keyword">return</span> a.perfect &gt; b.perfect;</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		<span class="keyword">return</span> a.ID &lt; b.ID;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N,K,M;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;N,&amp;K,&amp;M);</span><br><span class="line">	<span class="keyword">int</span> perfect_grade[K];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; K;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;perfect_grade[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		a[i].ID = i + <span class="number">1</span>;</span><br><span class="line">		a[i].perfect = <span class="number">0</span>;</span><br><span class="line">		a[i].flag = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; K;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			a[i].score[j] = <span class="number">-2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> tempid,temppro,tempscore;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;tempid,&amp;temppro,&amp;tempscore);</span><br><span class="line">		<span class="keyword">if</span>(a[tempid - <span class="number">1</span>].score[temppro - <span class="number">1</span>] == perfect_grade[temppro - <span class="number">1</span>])</span><br><span class="line">			<span class="keyword">continue</span>;  											<span class="comment">//重要否则第五个测试点通不过 </span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(a[tempid - <span class="number">1</span>].score[temppro - <span class="number">1</span>] &lt; tempscore)</span><br><span class="line">		&#123;</span><br><span class="line">			a[tempid - <span class="number">1</span>].score[temppro - <span class="number">1</span>] = tempscore;</span><br><span class="line">			<span class="keyword">if</span>(	a[tempid - <span class="number">1</span>].score[temppro - <span class="number">1</span>] &gt; <span class="number">-1</span>)</span><br><span class="line">				a[tempid - <span class="number">1</span>].flag = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(tempscore == perfect_grade[temppro - <span class="number">1</span>])</span><br><span class="line">		&#123;</span><br><span class="line">			a[tempid - <span class="number">1</span>].perfect++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> temptotal = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; K;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i].score[j]&gt;=<span class="number">0</span>)</span><br><span class="line">				temptotal+=a[i].score[j];</span><br><span class="line">		&#125;</span><br><span class="line">		a[i].total = temptotal;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+N,cmp);</span><br><span class="line">	a[<span class="number">0</span>].rank = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i].total != a[i - <span class="number">1</span>].total)</span><br><span class="line">			a[i].rank = i + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			a[i].rank = a[i - <span class="number">1</span>].rank;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i].flag == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d %05d %d "</span>,a[i].rank,a[i].ID,a[i].total);</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; K;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[i].score[j] == <span class="number">-1</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"0"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(a[i].score[j]!=<span class="number">-2</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%d"</span>,a[i].score[j]);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"-"</span>);</span><br><span class="line">				<span class="keyword">if</span>(j!=K<span class="number">-1</span>)</span><br><span class="line">					<span class="built_in">putchar</span>(<span class="string">' '</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(i!=N<span class="number">-1</span>)</span><br><span class="line">				<span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>要点：</strong></p>
-<ol>
-<li>如果考生某题已经获得满分，若输入仍为该题则判断下一输入否则第5个测试点不通过。</li>
-<li>输出格式需注意每一行最后无多余空格，最后一行无换行，否则格式错误。</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/08/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT 甲级 1038 Recover the Smallest Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/">PAT 甲级 1038 Recover the Smallest Number</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/08/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/" class="archive-article-date">
-  	<time datetime="2020-02-08T13:04:40.758Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given a collection of number segments, you are supposed to recover the smallest number from them. For example, given { 32, 321, 3214, 0229, 87 }, we can recover many numbers such like 32-321-3214-0229-87 or 0229-32-87-321-3214 with respect to different orders of combinations of these segments, and the smallest number is 0229-321-3214-32-87.</p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h2><p>Each input file contains one test case. Each case gives a positive integer N (≤10<br>​4) followed by N number segments. Each segment contains a non-negative integer of no more than 8 digits. All the numbers in a line are separated by a space.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h2><p>For each test case, print the smallest number in one line. Notice that the first digit must not be zero.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h2><p>5 32 321 3214 0229 87</p>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h2><p>22932132143287</p>
-<p><font face = "微软雅黑" color=DeepSkyBlue size = 4>解题思路：</font><br>1.这一题直接用简单的排序并不行，比如32和321，按字典序排序后32在321前面，然而321输出在前面得到的数字小。所以排序函数如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b &lt; b + a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.对于前导0的处理使用erase（）函数消除，若字符串的长度为零则输出0.</p>
-<p><font face = "微软雅黑" color=DeepSkyBlue size = 4>代码：</font></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b &lt; b + a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N,P;</span><br><span class="line">	<span class="built_in">string</span> a[<span class="number">10000</span>];</span><br><span class="line">	<span class="built_in">string</span> out;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; N ;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+N,cmp);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		out+=a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(out.size()!=<span class="number">0</span>&amp;&amp;out[<span class="number">0</span>]==<span class="string">'0'</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		out.erase(out.begin());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(out.size() == <span class="number">0</span>)</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"0"</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; out;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/08/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT 乙级 1048 数字加密 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/">PAT 乙级 1048 数字加密 </a>
+    <h1 class="article-title" itemprop="name">
+      PAT 乙级 1048 数字加密 
     </h1>
   
 
@@ -776,6 +191,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -783,16 +219,79 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/08/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lovingyounow.github.io/2020/02/08/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/02/08/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PAT 甲级 1038 Recover the Smallest Number
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -812,8 +311,14 @@
 
 
 
+  
+  
+  
 
   
+
+  
+
   
 
 
@@ -836,8 +341,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

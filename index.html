@@ -148,6 +148,158 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/17/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">java学习笔记</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/02/17/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-02-17T12:13:56.845Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##<center>java基本语法</center></p>
+<ul>
+<li>要输入加如下语句:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in)</span><br></pre></td></tr></table></figure></li>
+<li>把值读入int变量a<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = in.nextInt();</span><br></pre></td></tr></table></figure></li>
+<li>final 关键字用于定义常量<h3 id="数组使用"><a href="#数组使用" class="headerlink" title="数组使用"></a>数组使用</h3></li>
+<li>定义数组：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] ns = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br></pre></td></tr></table></figure></li>
+<li>for each循环的使用<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] ns = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">5</span>;i++)</span><br><span class="line">	ns[i] = i;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> n:ns)</span><br><span class="line">	System.out.println(n);</span><br></pre></td></tr></table></figure></li>
+<li>定义二维数组：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">5</span>];</span><br><span class="line"><span class="comment">//初始化二维数组</span></span><br><span class="line"><span class="keyword">int</span>[][] a = &#123;</span><br><span class="line">    &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,</span><br><span class="line">    &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>包裹类型</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>基础类型</th>
+<th>包裹类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Character</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>1. 通过int的包裹类型求int所能表示的最大最小的值</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(Integer.MAX_VALUE);</span><br><span class="line">System.out.println(Integer.MIN_VALUE);</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>2. char的包裹类型</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(Character.isLowerCase(<span class="string">'a'</span>));</span><br><span class="line">System.out.println(Character.toLowerCase(<span class="string">'A'</span>));</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>- Math类的使用</td>
+<td></td>
+</tr>
+<tr>
+<td>abs 绝对值</td>
+<td></td>
+</tr>
+<tr>
+<td>pow 幂次</td>
+<td></td>
+</tr>
+<tr>
+<td>random 随机数</td>
+<td></td>
+</tr>
+<tr>
+<td>round 四舍五入</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(Math.<span class="built_in">abs</span>(<span class="number">-12</span>));</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><ul>
+<li>定义<br><code>String s = new String(&quot;a string&quot;);
+String s = &quot;hello&quot;;</code><br>先创建一个String的对象,用”a string”初始化这个对象，创建管理这个对象的变量s</li>
+<li>String是一个类，String的变量是对象的管理者而非所有者</li>
+<li>字符串可以用 + 连接</li>
+<li>字符串读入<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = in.next();<span class="comment">//读入一个单词</span></span><br><span class="line">s = in.nextLine();<span class="comment">//读入一行</span></span><br></pre></td></tr></table></figure></li>
+<li>字符串内容是否相等用.equals()<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s = in.next();  <span class="comment">//读入bye</span></span><br><span class="line">System.out.println(s==<span class="string">"bye"</span>);   <span class="comment">//输出false</span></span><br><span class="line">System.out.println(s.equals(<span class="string">"bye"</span>)); <span class="comment">//输出true</span></span><br></pre></td></tr></table></figure></li>
+<li>两个字符串比较s1.compaareTo(s2)<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"abe"</span>;</span><br><span class="line">String s2 = <span class="string">"abd"</span>;</span><br><span class="line">System.out.println(s1.compareTo(s2));</span><br><span class="line">System.out.println(<span class="string">"abd"</span>.compareTo(s2));</span><br></pre></td></tr></table></figure></li>
+<li>求字符串长度用.length()有括号，数组没有<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"abe"</span>;</span><br><span class="line">System.out.println(s1.length());</span><br></pre></td></tr></table></figure></li>
+<li>去某个字符<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"abe"</span>;</span><br><span class="line">System.out.println(s1.charAt(<span class="number">0</span>));<span class="comment">//输出a</span></span><br></pre></td></tr></table></figure>
+<font color = red>字符串不能用for each循环</font></li>
+<li>得到字串<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"0123456789汉字"</span>;</span><br><span class="line">System.out.println(s1.substring(<span class="number">2</span>)); <span class="comment">//23456789汉字</span></span><br><span class="line">System.out.println(s1.substring(<span class="number">2</span>,<span class="number">4</span>)); <span class="comment">//23</span></span><br></pre></td></tr></table></figure></li>
+<li>寻找某个字符串是否存在<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"0123A56783汉字"</span>;</span><br><span class="line">System.out.println(s1.indexOf(<span class="string">'4'</span>)); <span class="comment">//-1</span></span><br><span class="line">System.out.println(s1.indexOf(<span class="string">'A'</span>)); <span class="comment">//4</span></span><br><span class="line">System.out.println(s1.indexOf(<span class="string">"A56"</span>));<span class="comment">//4</span></span><br><span class="line">System.out.println(s1.indexOf(<span class="string">'3'</span>));<span class="comment">//3</span></span><br><span class="line"><span class="keyword">int</span> loc = s1.indexOf(<span class="string">'3'</span>);</span><br><span class="line">System.out.println(s1.indexOf(<span class="string">'3'</span>,loc));<span class="comment">//3</span></span><br><span class="line">System.out.println(s1.indexOf(<span class="string">'3'</span>,loc+<span class="number">1</span>));<span class="comment">//9</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>以上操作都不能改变字符串自己</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/17/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-简易计算器（栈与队列的使用）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -851,87 +1003,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/02/04/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT 乙级 1048 数字加密 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/02/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/">PAT 乙级 1048 数字加密 </a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/02/02/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/" class="archive-article-date">
-  	<time datetime="2020-02-02T01:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>   本题要求实现一种数字加密方法。首先固定一个加密用正整数 A，对任一正整数 B，将其每 1 位数字与 A 的对应位置上的数字进行以下运算：对奇数位，对应位的数字相加后对 13 取余——这里用 J 代表 10、Q 代表 11、K 代表 12；对偶数位，用 B 的数字减去 A 的数字，若结果为负数，则再加 10。这里令个位为第 1 位。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在一行中依次给出 A 和 B，均为不超过 100 位的正整数，其间以空格分隔。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中输出加密后的结果。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/02/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/">展开全文 >></a>
         </p>
       
 

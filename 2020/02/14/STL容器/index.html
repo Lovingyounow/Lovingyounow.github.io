@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://Lovingyounow.github.io">
   <title>STL容器 | Codingboy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="STL总结1. vector()头文件：include 定义：动态数组 vector &lt;int&gt; name; vector &lt;int&gt; name[10];类似二维数组，一个维度长度固定 vector &lt;vector&lt; int&gt; &gt; name;两个维度的长度都不固定">
+  <meta name="description" content="STL总结1. vector()头文件：include&lt;vector&gt; 定义：动态数组 vector &lt;int&gt; name; vector &lt;int&gt; name[10];类似二维数组，一个维度长度固定 vector &lt;vector&lt; int&gt; &gt; name;两个维度的长度都不固定">
 <meta property="og:type" content="article">
 <meta property="og:title" content="STL容器">
 <meta property="og:url" content="https://lovingyounow.github.io/2020/02/14/STL%E5%AE%B9%E5%99%A8/index.html">
 <meta property="og:site_name" content="Codingboy的博客">
-<meta property="og:description" content="STL总结1. vector()头文件：include 定义：动态数组 vector &lt;int&gt; name; vector &lt;int&gt; name[10];类似二维数组，一个维度长度固定 vector &lt;vector&lt; int&gt; &gt; name;两个维度的长度都不固定">
+<meta property="og:description" content="STL总结1. vector()头文件：include&lt;vector&gt; 定义：动态数组 vector &lt;int&gt; name; vector &lt;int&gt; name[10];类似二维数组，一个维度长度固定 vector &lt;vector&lt; int&gt; &gt; name;两个维度的长度都不固定">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-14T03:58:49.958Z">
-<meta property="article:modified_time" content="2020-02-14T12:40:56.725Z">
+<meta property="article:modified_time" content="2020-02-16T13:52:25.916Z">
 <meta property="article:author" content="Codingboy">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -177,7 +177,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="STL总结"><a href="#STL总结" class="headerlink" title="STL总结"></a>STL总结</h1><h3 id="1-vector"><a href="#1-vector" class="headerlink" title="1. vector()"></a>1. vector()</h3><p>头文件：include<vector></p>
+        <h1 id="STL总结"><a href="#STL总结" class="headerlink" title="STL总结"></a>STL总结</h1><h3 id="1-vector"><a href="#1-vector" class="headerlink" title="1. vector()"></a>1. vector()</h3><p>头文件：include&lt;vector&gt;</p>
 <h4 id="定义：动态数组"><a href="#定义：动态数组" class="headerlink" title="定义：动态数组"></a>定义：动态数组</h4><ul>
 <li>vector &lt;int&gt; name;</li>
 <li>vector &lt;int&gt; name[10];类似二维数组，一个维度长度固定</li>
@@ -193,7 +193,7 @@
 </ul>
 <ol>
 <li>push_back()<br>在vector最后添加元素。 <strong>O(1)</strong></li>
-<li>pop——back()<br>删除vector的尾元素。  <strong>O(1)</strong></li>
+<li>pop_back()<br>删除vector的尾元素。  <strong>O(1)</strong></li>
 <li>size()<br>元素个数。<strong>O(1)</strong></li>
 <li>clear()<br>清空所有元素。  <strong>O(N)</strong></li>
 <li>insert(it,x)<br>向迭代器it处插入x  <strong>O(N)</strong></li>
@@ -201,7 +201,7 @@
 </ol>
 <ul>
 <li>删除单个元素erase(it)    <strong>O(N)</strong></li>
-<li>删除区间内元素erase(first,last) <strong>O(N)</strong><br><code>name.erase(name.begin(),name.end()) = name.clear()</code></li>
+<li>删除区间内元素erase(first,last) <strong>O(N)</strong><br><code>name.erase(name.begin(),name.end()) 与 name.clear()功能相同</code></li>
 </ul>
 <h3 id="2-set"><a href="#2-set" class="headerlink" title="2. set()"></a>2. set()</h3><h4 id="定义：元素有序，不重复的容器"><a href="#定义：元素有序，不重复的容器" class="headerlink" title="定义：元素有序，不重复的容器"></a>定义：元素有序，不重复的容器</h4><ul>
 <li>set&lt; int&gt; name<h4 id="set内元素的访问："><a href="#set内元素的访问：" class="headerlink" title="set内元素的访问："></a>set内元素的访问：</h4></li>
@@ -225,7 +225,7 @@
 <h4 id="定义"><a href="#定义" class="headerlink" title="定义:"></a>定义:</h4><p>string str</p>
 <h4 id="string中内容的访问："><a href="#string中内容的访问：" class="headerlink" title="string中内容的访问："></a>string中内容的访问：</h4><ul>
 <li>通过下标访问<br>读入和输出整个字符串只能用cin，cout<br>或者是通过c_str()将string转换成字符串数组<br><code>printf(&quot;%s&quot;,str.c_str());</code></li>
-<li>通过迭代器访问<br>string：：iterator it<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(it = str.begin();it!=name.end();it++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>,*it);</span><br></pre></td></tr></table></figure>
+<li>通过迭代器访问<br>string::iterator it<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(it = str.begin();it!=name.end();it++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>,*it);</span><br></pre></td></tr></table></figure>
 <h4 id="常用函数：-1"><a href="#常用函数：-1" class="headerlink" title="常用函数："></a>常用函数：</h4></li>
 </ul>
 <ol>
@@ -265,7 +265,7 @@
 <li>通过下标访问<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; mp;</span><br><span class="line">mp[<span class="string">'c'</span>] = <span class="number">30</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d"</span>,mp[<span class="string">'c'</span>]);</span><br></pre></td></tr></table></figure>
 输出为30。</li>
 <li>通过迭代器访问  <font color = blue>map的迭代器的定义与使用与其他容器不同</font><br>定义：map&lt;typename1,typename2&gt;::iterator it<br>it同时访问键和值。通过it-&gt;first访问键，it-&gt;second访问值。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; mp;</span><br><span class="line">mp[<span class="string">'c'</span>] = <span class="number">30</span>;</span><br><span class="line">mp[<span class="string">'a'</span>] = <span class="number">10</span>;</span><br><span class="line">mp[<span class="string">'d'</span>] = <span class="number">40</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it = mp.begin();it!=mp.end();it++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%c %d\n"</span>,it-&gt;first,it-&gt;second);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-map根据键从小到大排序。</li>
+<font color = red>map根据键从小到大排序。</font></li>
 </ul>
 <h4 id="常用函数：-2"><a href="#常用函数：-2" class="headerlink" title="常用函数："></a>常用函数：</h4><ol>
 <li>find(key) <strong>O(logN)</strong></li>
@@ -595,6 +595,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
             
             <div class="clearfix"></div>

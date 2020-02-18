@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Lovingyounow.github.io">
-  <title>Archives: 2020/2 | Codingboy的博客</title>
+  <title>PAT 甲级 1032 Sharing (25分)测试点三坑 | Codingboy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Codingboy的博客">
-<meta property="og:url" content="https://lovingyounow.github.io/archives/2020/02/page/2/index.html">
+  <meta name="description" content="To store English words, one method is to use linked lists and store a word letter by letter. To save some space, we may let the words share the same sublist if they share the same suffix. For example,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT 甲级 1032 Sharing (25分)测试点三坑">
+<meta property="og:url" content="https://lovingyounow.github.io/2020/02/18/PAT-%E7%94%B2%E7%BA%A7-1032-Sharing-25%E5%88%86-%E6%B5%8B%E8%AF%95%E7%82%B9%E4%B8%89%E5%9D%91/index.html">
 <meta property="og:site_name" content="Codingboy的博客">
+<meta property="og:description" content="To store English words, one method is to use linked lists and store a word letter by letter. To save some space, we may let the words share the same sublist if they share the same suffix. For example,">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lovingyounow.github.io/2020/02/18/PAT-%E7%94%B2%E7%BA%A7-1032-Sharing-25%E5%88%86-%E6%B5%8B%E8%AF%95%E7%82%B9%E4%B8%89%E5%9D%91/A1032.jpg">
+<meta property="article:published_time" content="2020-02-18T12:42:41.000Z">
+<meta property="article:modified_time" content="2020-02-18T12:57:43.453Z">
 <meta property="article:author" content="Codingboy">
+<meta property="article:tag" content="PAT">
+<meta property="article:tag" content="链表">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lovingyounow.github.io/2020/02/18/PAT-%E7%94%B2%E7%BA%A7-1032-Sharing-25%E5%88%86-%E6%B5%8B%E8%AF%95%E7%82%B9%E4%B8%89%E5%9D%91/A1032.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Codingboy的博客" type="application/atom+xml">
   
@@ -146,37 +154,87 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-PAT-甲级-1032-Sharing-25分-测试点三坑" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PAT 甲级 1032 Sharing (25分)测试点三坑
+    </h1>
+  
+
+        
+        
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+<a href="/2020/02/18/PAT-%E7%94%B2%E7%BA%A7-1032-Sharing-25%E5%88%86-%E6%B5%8B%E8%AF%95%E7%82%B9%E4%B8%89%E5%9D%91/" class="archive-article-date">
+  	<time datetime="2020-02-18T12:42:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>To store English words, one method is to use linked lists and store a word letter by letter. To save some space, we may let the words share the same sublist if they share the same suffix. For example, loading and being are stored as showed in Figure 1.</p>
+<a id="more"></a>
+<p><img src="/2020/02/18/PAT-%E7%94%B2%E7%BA%A7-1032-Sharing-25%E5%88%86-%E6%B5%8B%E8%AF%95%E7%82%B9%E4%B8%89%E5%9D%91/A1032.jpg" alt></p>
+<p>Figure 1</p>
+<p>You are supposed to find the starting position of the common suffix (e.g. the position of i in Figure 1).</p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h2><p>Each input file contains one test case. For each case, the first line contains two addresses of nodes and a positive N (≤10^5^), where the two addresses are the addresses of the first nodes of the two words, and N is the total number of nodes. The address of a node is a 5-digit positive integer, and NULL is represented by −1.</p>
+<p>Then N lines follow, each describes a node in the format:</p>
+<p>Address Data Next</p>
+<p>whereAddress is the position of the node, Data is the letter contained by this node which is an English letter chosen from { a-z, A-Z }, and Next is the position of the next node.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h2><p>For each case, simply output the 5-digit starting position of the common suffix. If the two words have no common suffix, output -1 instead.</p>
+<h2 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1:"></a>Sample Input 1:</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">11111</span> <span class="number">22222</span> <span class="number">9</span></span><br><span class="line"><span class="number">67890</span> i <span class="number">00002</span></span><br><span class="line"><span class="number">00010</span> a <span class="number">12345</span></span><br><span class="line"><span class="number">00003</span> g <span class="number">-1</span></span><br><span class="line"><span class="number">12345</span> D <span class="number">67890</span></span><br><span class="line"><span class="number">00002</span> n <span class="number">00003</span></span><br><span class="line"><span class="number">22222</span> B <span class="number">23456</span></span><br><span class="line"><span class="number">11111</span> L <span class="number">00001</span></span><br><span class="line"><span class="number">23456</span> e <span class="number">67890</span></span><br><span class="line"><span class="number">00001</span> o <span class="number">00010</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1:"></a>Sample Output 1:</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">67890</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2:"></a>Sample Input 2:</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">00001</span> <span class="number">00002</span> <span class="number">4</span></span><br><span class="line"><span class="number">00001</span> a <span class="number">10001</span></span><br><span class="line"><span class="number">10001</span> s <span class="number">-1</span></span><br><span class="line"><span class="number">00002</span> a <span class="number">10002</span></span><br><span class="line"><span class="number">10002</span> t <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2:"></a>Sample Output 2:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br></pre></td></tr></table></figure>
+
+<h4 id="解题思路：本题数据量不大通过静态链表操作，不可用暴力搜索来做。首先从第一个字符的起始地址遍历将遍历到的flag置1，再通过第二个字符的起始地址开始遍历若结构体中flag为1说明找到了开始相同的第一个字母所在位置。"><a href="#解题思路：本题数据量不大通过静态链表操作，不可用暴力搜索来做。首先从第一个字符的起始地址遍历将遍历到的flag置1，再通过第二个字符的起始地址开始遍历若结构体中flag为1说明找到了开始相同的第一个字母所在位置。" class="headerlink" title="解题思路：本题数据量不大通过静态链表操作，不可用暴力搜索来做。首先从第一个字符的起始地址遍历将遍历到的flag置1，再通过第二个字符的起始地址开始遍历若结构体中flag为1说明找到了开始相同的第一个字母所在位置。"></a><font color="DeepSkyBlue">解题思路：本题数据量不大通过静态链表操作，不可用暴力搜索来做。首先从第一个字符的起始地址遍历将遍历到的flag置1，再通过第二个字符的起始地址开始遍历若结构体中flag为1说明找到了开始相同的第一个字母所在位置。</font></h4><h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">char</span> a;</span><br><span class="line">	<span class="keyword">int</span> next;</span><br><span class="line">	<span class="keyword">int</span> flag;</span><br><span class="line">&#125;Node[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N,temp1,temp2,tempnum,tempnext;</span><br><span class="line">	<span class="keyword">char</span> a;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;temp1,&amp;temp2,&amp;N);</span><br><span class="line">	<span class="keyword">while</span>(N--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %c %d"</span>,&amp;tempnum,&amp;a,&amp;tempnext);</span><br><span class="line">		Node[tempnum].a = a;</span><br><span class="line">		Node[tempnum].next = tempnext;</span><br><span class="line">		Node[tempnum].flag = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> p = temp1; </span><br><span class="line">	<span class="keyword">while</span>(p != <span class="number">-1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		Node[temp1].flag = <span class="number">1</span>;</span><br><span class="line">		temp1 = p;</span><br><span class="line">		p = Node[p].next;</span><br><span class="line">	&#125;</span><br><span class="line">	p = temp2;</span><br><span class="line">	<span class="keyword">while</span>(p != <span class="number">-1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(Node[temp2].flag == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%05d"</span>,temp2);</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			temp2 = p;</span><br><span class="line">			p = Node[p].next;</span><br><span class="line">		&#125;</span><br><span class="line">			</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"-1"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><font color="red">第三个测试点不通过是因为循环结束的条件有问题，一开始我循环才用如下代码测试点三不通过。因为最后一个结构体没有遍历到。</font></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(Node[temp1].next!=<span class="number">-1</span>)</span><br><span class="line">&#123;</span><br><span class="line">	Node[temp1].flag = <span class="number">1</span>;</span><br><span class="line">	temp1 = Node[temp1].next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(Node[temp2].next!=<span class="number">-1</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(Node[temp2].flag == <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%05d"</span>,temp2);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	    temp2 = Node[temp2].next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/04/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/" class="archive-article-date">
-  	<time datetime="2020-02-04T09:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/04/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/">PAT 甲级 1075 PAT Judge(第5个测试点解决方法)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -186,114 +244,111 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lovingyounow.github.io/2020/02/18/PAT-%E7%94%B2%E7%BA%A7-1032-Sharing-25%E5%88%86-%E6%B5%8B%E8%AF%95%E7%82%B9%E4%B8%89%E5%9D%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/02/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/" class="archive-article-date">
-  	<time datetime="2020-02-02T01:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/17/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/02/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/">PAT 乙级 1048 数字加密 </a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/01/PAT%E7%94%B2%E7%BA%A7%201025%20PAT%20Ranking/" class="archive-article-date">
-  	<time datetime="2020-02-01T05:42:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/01/PAT%E7%94%B2%E7%BA%A7%201025%20PAT%20Ranking/">PAT甲级 1025 PAT Ranking</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/02/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/02/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -328,8 +383,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

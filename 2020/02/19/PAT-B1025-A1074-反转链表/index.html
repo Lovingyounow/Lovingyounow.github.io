@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Lovingyounow.github.io">
-  <title>Codingboy的博客</title>
+  <title>PAT B1025/A1074 反转链表 | Codingboy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Codingboy的博客">
-<meta property="og:url" content="https://lovingyounow.github.io/page/2/index.html">
+  <meta name="description" content="Given a constant K and a singly linked list L, you are supposed to reverse the links of every K elements on L. For example, given L being 1→2→3→4→5→6, if K&#x3D;3, then you must output 3→2→1→6→5→4; if K&#x3D;4,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT B1025&#x2F;A1074 反转链表">
+<meta property="og:url" content="https://lovingyounow.github.io/2020/02/19/PAT-B1025-A1074-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Codingboy的博客">
+<meta property="og:description" content="Given a constant K and a singly linked list L, you are supposed to reverse the links of every K elements on L. For example, given L being 1→2→3→4→5→6, if K&#x3D;3, then you must output 3→2→1→6→5→4; if K&#x3D;4,">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-19T08:07:25.000Z">
+<meta property="article:modified_time" content="2020-02-19T08:19:17.077Z">
 <meta property="article:author" content="Codingboy">
+<meta property="article:tag" content="PAT">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Codingboy的博客" type="application/atom+xml">
@@ -146,37 +151,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-PAT 甲级 1038 Recover the Smallest Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-PAT-B1025-A1074-反转链表" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/06/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/">Recover the Smallest Number</a>
+    <h1 class="article-title" itemprop="name">
+      PAT B1025/A1074 反转链表
     </h1>
   
 
         
         
-<a href="/2020/02/06/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/" class="archive-article-date">
-  	<time datetime="2020-02-06T09:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+<a href="/2020/02/19/PAT-B1025-A1074-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2020-02-19T08:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given a collection of number segments, you are supposed to recover the smallest number from them. For example, given { 32, 321, 3214, 0229, 87 }, we can recover many numbers such like 32-321-3214-0229-87 or 0229-32-87-321-3214 with respect to different orders of combinations of these segments, and the smallest number is 0229-321-3214-32-87.</p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h2><p>Each input file contains one test case. Each case gives a positive integer N (≤10<br>​4) followed by N number segments. Each segment contains a non-negative integer of no more than 8 digits. All the numbers in a line are separated by a space.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h2><p>For each test case, print the smallest number in one line. Notice that the first digit must not be zero.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h2><p>5 32 321 3214 0229 87</p>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h2><p>22932132143287</p>
-        
+        <p>Given a constant K and a singly linked list L, you are supposed to reverse the links of every K elements on L. For example, given L being 1→2→3→4→5→6, if K=3, then you must output 3→2→1→6→5→4; if K=4, you must output 4→3→2→1→5→6.</p>
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains the address of the first node, a positive N (≤10^5^​) which is the total number of nodes, and a positive K (≤N) which is the length of the sublist to be reversed. The address of a node is a 5-digit nonnegative integer, and NULL is represented by -1.</p>
+<a id="more"></a>
+
+<p>Then N lines follow, each describes a node in the format:</p>
+<p>Address Data Next</p>
+<p>where Address is the position of the node, Data is an integer, and Next is the position of the next node.</p>
+<h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each case, output the resulting ordered linked list. Each node occupies a line, and is printed in the same format as in the input.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">00100</span> <span class="number">6</span> <span class="number">4</span></span><br><span class="line"><span class="number">00000</span> <span class="number">4</span> <span class="number">99999</span></span><br><span class="line"><span class="number">00100</span> <span class="number">1</span> <span class="number">12309</span></span><br><span class="line"><span class="number">68237</span> <span class="number">6</span> <span class="number">-1</span></span><br><span class="line"><span class="number">33218</span> <span class="number">3</span> <span class="number">00000</span></span><br><span class="line"><span class="number">99999</span> <span class="number">5</span> <span class="number">68237</span></span><br><span class="line"><span class="number">12309</span> <span class="number">2</span> <span class="number">33218</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">00000</span> <span class="number">4</span> <span class="number">33218</span></span><br><span class="line"><span class="number">33218</span> <span class="number">3</span> <span class="number">12309</span></span><br><span class="line"><span class="number">12309</span> <span class="number">2</span> <span class="number">00100</span></span><br><span class="line"><span class="number">00100</span> <span class="number">1</span> <span class="number">99999</span></span><br><span class="line"><span class="number">99999</span> <span class="number">5</span> <span class="number">68237</span></span><br><span class="line"><span class="number">68237</span> <span class="number">6</span> <span class="number">-1</span></span><br></pre></td></tr></table></figure>
+<p>####<font color="DeepSkyBlue"> 解题思路：本题先找出在链中的所有节点，之后通过reverse函数把每一个小块的数据反转。</font></p>
+<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> address;</span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="keyword">int</span> next;</span><br><span class="line">&#125;a[<span class="number">100000</span>],b[<span class="number">100000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> start,N,K,address,sum = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;start,&amp;N,&amp;K);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;address);</span><br><span class="line">		a[address].address = address;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a[address].data,&amp;a[address].next);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = start;i!=<span class="number">-1</span>;i = a[i].next)</span><br><span class="line">		b[sum++] = a[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; sum - sum % K;i+=K)</span><br><span class="line">		reverse(b+i,b+i+K);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; sum - <span class="number">1</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%05d %d %05d\n"</span>,b[i].address,b[i].data,b[i+<span class="number">1</span>].address);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%05d %d -1"</span>,b[sum - <span class="number">1</span>].address,b[sum - <span class="number">1</span>].data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一开始没有考虑到用reverse函数实现反转，通过直接输出的方式写的比较复杂</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> address;</span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="keyword">int</span> next;</span><br><span class="line">	<span class="keyword">int</span> flag;</span><br><span class="line">&#125;a[<span class="number">100000</span>],b[<span class="number">100000</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> start,N,K,address,sum = <span class="number">0</span>,num;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;start,&amp;N,&amp;K);</span><br><span class="line">	num = N;</span><br><span class="line">	<span class="keyword">while</span>(num--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;address);</span><br><span class="line">		a[address].address = address;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a[address].data,&amp;a[address].next);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = start;i!=<span class="number">-1</span>;i = a[i].next)</span><br><span class="line">	&#123;</span><br><span class="line">		b[sum++] = a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> remain = sum % K;</span><br><span class="line">	<span class="keyword">int</span> cir = sum / K;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= cir;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		temp = K*i;</span><br><span class="line">		<span class="keyword">if</span>(i!=cir)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= K;j++)</span><br><span class="line">			&#123;	</span><br><span class="line">				<span class="keyword">if</span>(j == K)</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%05d %d %05d\n"</span>,b[temp - j].address,b[temp - j].data,b[temp + K - <span class="number">1</span>].address);</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%05d %d %05d\n"</span>,b[temp - j].address,b[temp - j].data,b[temp - j - <span class="number">1</span>].address);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= K;j++)</span><br><span class="line">			&#123;	</span><br><span class="line">				<span class="keyword">if</span>(j &lt; K)</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%05d %d %05d\n"</span>,b[temp - j].address,b[temp - j].data,b[temp - j - <span class="number">1</span>].address);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(j == K&amp;&amp;remain == <span class="number">0</span>)</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%05d %d -1\n"</span>,b[temp - j].address,b[temp - j].data);</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">"%05d %d %05d\n"</span>,b[temp - j].address,b[temp - j].data,b[temp].address);</span><br><span class="line">					<span class="keyword">for</span>(<span class="keyword">int</span> i = temp;i &lt; sum;i++)</span><br><span class="line">					&#123;</span><br><span class="line">						<span class="keyword">if</span>(i != sum - <span class="number">1</span>)</span><br><span class="line">							<span class="built_in">printf</span>(<span class="string">"%05d %d %05d\n"</span>,b[i].address,b[i].data,b[i].next);</span><br><span class="line">						<span class="keyword">else</span></span><br><span class="line">							<span class="built_in">printf</span>(<span class="string">"%05d %d -1"</span>,b[i].address,b[i].data);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(cir == <span class="number">0</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; sum;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(i!=sum - <span class="number">1</span>)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%05d %d %05d\n"</span>,b[i].address,b[i].data,b[i+<span class="number">1</span>].address);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%05d %d -1\n"</span>,b[i].address,b[i].data);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -189,10 +228,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -200,16 +235,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/06/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lovingyounow.github.io/2020/02/19/PAT-B1025-A1074-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/18/PAT-%E7%94%B2%E7%BA%A7-1032-Sharing-25%E5%88%86-%E6%B5%8B%E8%AF%95%E7%82%B9%E4%B8%89%E5%9D%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PAT 甲级 1032 Sharing (25分)测试点三坑</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -229,503 +323,14 @@
 
 
 
-
-  
-    <article id="post-PAT 乙级 1030 完美数列(二分查找 及 upper_bound（）函数的使用)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/05/PAT%20%E4%B9%99%E7%BA%A7%201030%20%E5%AE%8C%E7%BE%8E%E6%95%B0%E5%88%97(%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%20%E5%8F%8A%20upper_bound%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8)/">PAT 乙级 1030 完美数列(二分查找 及 upper_bound（）函数的使用)</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/02/05/PAT%20%E4%B9%99%E7%BA%A7%201030%20%E5%AE%8C%E7%BE%8E%E6%95%B0%E5%88%97(%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%20%E5%8F%8A%20upper_bound%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8)/" class="archive-article-date">
-  	<time datetime="2020-02-05T07:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给定一个正整数数列，和正整数 p，设这个数列中的最大值是 M，最小值是 m，如果 M≤mp，则称这个数列是完美数列。</p>
-<p>现在给定参数 p 和一些正整数，请你从中选择尽可能多的数构成一个完美数列。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入第一行给出两个正整数 N 和 p，其中 N（≤10^5^)是输入的正整数的个数，p（≤10^9^）是给定的参数。第二行给出 N 个正整数，每个数不超过10^9^。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中输出最多可以选择多少个数可以用它们组成一个完美数列。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/05/PAT%20%E4%B9%99%E7%BA%A7%201030%20%E5%AE%8C%E7%BE%8E%E6%95%B0%E5%88%97(%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%20%E5%8F%8A%20upper_bound%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT 甲级 1075 PAT Judge(第5个测试点解决方法)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/04/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/">PAT 甲级 1075 PAT Judge(第5个测试点解决方法)</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/02/04/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/" class="archive-article-date">
-  	<time datetime="2020-02-04T09:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>The ranklist of PAT is generated from the status list, which shows the scores of the submissions. This time you are supposed to generate the ranklist for PAT.</p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h2><p>Each input file contains one test case. For each case, the first line contains 3 positive integers, N (≤10^4​​ ), the total number of users, K (≤5), the total number of problems, and M (≤10^5​​ ), the total number of submissions. It is then assumed that the user id’s…are 5-digit numbers from 00001 to N, and the problem id’s are from 1 to K. The next line contains K positive integers p[i] (i=1, …, K), where p[i] corresponds to the full mark of the i-th problem. Then M lines follow, each gives the information of a submission in the following format:</p>
-<p><strong>user_id problem_id partial_score_obtained</strong></p>
-<p>where partial_score_obtained is either −1 if the submission cannot even pass the compiler, or is an integer in the range [0, p[problem_id]]. All the numbers in a line are separated by a space.</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/04/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT 乙级 1048 数字加密 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/02/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/">PAT 乙级 1048 数字加密 </a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/02/02/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/" class="archive-article-date">
-  	<time datetime="2020-02-02T01:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>   本题要求实现一种数字加密方法。首先固定一个加密用正整数 A，对任一正整数 B，将其每 1 位数字与 A 的对应位置上的数字进行以下运算：对奇数位，对应位的数字相加后对 13 取余——这里用 J 代表 10、Q 代表 11、K 代表 12；对偶数位，用 B 的数字减去 A 的数字，若结果为负数，则再加 10。这里令个位为第 1 位。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在一行中依次给出 A 和 B，均为不超过 100 位的正整数，其间以空格分隔。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中输出加密后的结果。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/02/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT甲级 1025 PAT Ranking" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/01/PAT%E7%94%B2%E7%BA%A7%201025%20PAT%20Ranking/">PAT甲级 1025 PAT Ranking</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/02/01/PAT%E7%94%B2%E7%BA%A7%201025%20PAT%20Ranking/" class="archive-article-date">
-  	<time datetime="2020-02-01T05:42:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Programming Ability Test (PAT) is organized by the College of Computer Science and Technology of Zhejiang University. Each test is supposed to run simultaneously in several places, and the ranklists will be merged immediately after the test. Now it is your job to write a program to correctly merge all the ranklists and generate the final rank.</p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h2><p>Each input file contains one test case. For each case, the first line contains a positive number N (≤100), the number of test locations. Then N ranklists follow, each starts with a line containing a positive integer K (≤300), the number of testees, and then K lines containing the registration number (a 13-digit number) and the total score of each testee. All the numbers in a line are separated by a space.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h2><p>For each test case, first print in one line the total number of testees. Then print the final ranklist in the following format:</p>
-<p>registration_number final_rank location_number local_rank</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/01/PAT%E7%94%B2%E7%BA%A7%201025%20PAT%20Ranking/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT甲级 1080 Graduate Admission" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/28/PAT%E7%94%B2%E7%BA%A7%201080%20Graduate%20Admission/">PAT甲级 1080 Graduate Admission</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/01/28/PAT%E7%94%B2%E7%BA%A7%201080%20Graduate%20Admission/" class="archive-article-date">
-  	<time datetime="2020-01-28T04:41:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>It is said that in 2011, there are about 100 graduate schools ready to proceed over 40,000 applications in Zhejiang Province. It would help a lot if you could write a program to automate the admission procedure.</p>
-<p>Each applicant will have to provide two grades: the national entrance exam grade GE​, and the interview grade GI​​ . The final grade of an applicant is (G​E​​ +G​I​​ )/2. The admission rules are:<br>The applicants are ranked according to their final grades, and will be admitted one by one from the top of the rank list.</p>
-<p>If there is a tied final grade, the applicants will be ranked according to their national entrance exam grade G​E​​ . If still tied, their ranks must be the same.</p>
-<p>Each applicant may have K choices and the admission will be done according to his/her choices: if according to the rank list, it is one’s turn to be admitted; and if the quota of one’s most preferred shcool is not exceeded, then one will be admitted to this school, or one’s other choices will be considered one by one in order. If one gets rejected by all of preferred schools, then this unfortunate applicant will be rejected.</p>
-<p>If there is a tied rank, and if the corresponding applicants are applying to the same school, then that school must admit all the applicants with the same rank, even if its quota will be exceeded.</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/28/PAT%E7%94%B2%E7%BA%A7%201080%20Graduate%20Admission/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT乙级 1005 继续(3n+1)猜想" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/25/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/">PAT乙级 1005 继续(3n+1)猜想</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/01/25/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/" class="archive-article-date">
-  	<time datetime="2020-01-25T06:24:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>卡拉兹(Callatz)猜想已经在1001中给出了描述。在这个题目里，情况稍微有些复杂。</p>
-<p>当我们验证卡拉兹猜想的时候，为了避免重复计算，可以记录下递推过程中遇到的每一个数。例如对 n=3 进行验证的时候，我们需要计算 3、5、8、4、2、1，则当我们对 n=5、8、4、2 进行验证的时候，就可以直接判定卡拉兹猜想的真伪，而不需要重复计算，因为这 4 个数已经在验证3的时候遇到过了，我们称 5、8、4、2 是被 3“覆盖”的数。我们称一个数列中的某个数 n 为“关键数”，如果 n 不能被数列中的其他数字所覆盖。</p>
-<p>现在给定一系列待验证的数字，我们只需要验证其中的几个关键数，就可以不必再重复验证余下的数字。你的任务就是找出这些关键数字，并按从大到小的顺序输出它们。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/25/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -759,8 +364,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

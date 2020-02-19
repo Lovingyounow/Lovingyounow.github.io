@@ -148,6 +148,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-PAT-B1025-A1074-反转链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/19/PAT-B1025-A1074-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">PAT B1025/A1074 反转链表</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/02/19/PAT-B1025-A1074-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2020-02-19T08:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given a constant K and a singly linked list L, you are supposed to reverse the links of every K elements on L. For example, given L being 1→2→3→4→5→6, if K=3, then you must output 3→2→1→6→5→4; if K=4, you must output 4→3→2→1→5→6.</p>
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains the address of the first node, a positive N (≤10^5^​) which is the total number of nodes, and a positive K (≤N) which is the length of the sublist to be reversed. The address of a node is a 5-digit nonnegative integer, and NULL is represented by -1.</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/19/PAT-B1025-A1074-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-PAT-甲级-1032-Sharing-25分-测试点三坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -258,7 +334,7 @@
 </ol>
 <ul>
 <li><p>malloc函数<br>在stdlib.h头文件中，返回类型是申请的同变量类型的指针。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">typename* p = (typename*)malloc(sizeof(typename));</span><br><span class="line"><span class="keyword">int</span>* p = (<span class="keyword">int</span> *)malloc(sizeof(<span class="keyword">int</span>))</span><br><span class="line">node* p = (node *)malloc(sizeof(node))</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typename* p = (typename*)malloc(sizeof(typename))</span><br><span class="line">;</span><br><span class="line"><span class="keyword">int</span>* p = (<span class="keyword">int</span> *)malloc(sizeof(<span class="keyword">int</span>))</span><br><span class="line">node* p = (node *)malloc(sizeof(node))</span><br></pre></td></tr></table></figure>
 <p>malloc(sizeof(node)),malloc 向内存申请一块大小为sizeof(node)的空间，返回指向这片空间的指针<strong>void*</strong>,申请失败返回空指针NULL。</p></li></ul>
         
       
@@ -858,89 +934,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/02/07/PAT%E7%94%B2%E7%BA%A71033%20To%20Fill%20or%20Not%20to%20Fill%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-PAT 甲级 1038 Recover the Smallest Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/06/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/">Recover the Smallest Number</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/02/06/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/" class="archive-article-date">
-  	<time datetime="2020-02-06T09:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given a collection of number segments, you are supposed to recover the smallest number from them. For example, given { 32, 321, 3214, 0229, 87 }, we can recover many numbers such like 32-321-3214-0229-87 or 0229-32-87-321-3214 with respect to different orders of combinations of these segments, and the smallest number is 0229-321-3214-32-87.</p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h2><p>Each input file contains one test case. Each case gives a positive integer N (≤10<br>​4) followed by N number segments. Each segment contains a non-negative integer of no more than 8 digits. All the numbers in a line are separated by a space.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h2><p>For each test case, print the smallest number in one line. Notice that the first digit must not be zero.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h2><p>5 32 321 3214 0229 87</p>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h2><p>22932132143287</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/06/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/">展开全文 >></a>
         </p>
       
 

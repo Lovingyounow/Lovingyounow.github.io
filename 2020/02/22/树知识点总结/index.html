@@ -16,7 +16,7 @@
 <meta property="og:description" content="树知识点总结 结点的深度：从根节点往下数 结点的高度：从最底层往上数  二叉树 自己既是自己的祖先结点，也是自己的子孙结点  二叉树的基本操作 二叉树的存储结构和普通链表不同的是二叉树每个结点有两个指针域 12345struct node&amp;#123;    typename data;    node* lchild;    node* rchild;&amp;#125;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-22T04:52:37.000Z">
-<meta property="article:modified_time" content="2020-02-22T13:03:57.920Z">
+<meta property="article:modified_time" content="2020-02-22T15:21:37.790Z">
 <meta property="article:author" content="Codingboy">
 <meta property="article:tag" content="知识点总结">
 <meta property="article:tag" content="树">
@@ -205,7 +205,7 @@
 </li>
 </ol>
 <h3 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h3><ol>
-<li><p>先序遍历（跟左右）</p>
+<li><p>先序遍历（根左右）</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preorder</span><span class="params">(node* root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(root == <span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,root-&gt;data);<span class="comment">//访问根结点root</span></span><br><span class="line">	preorder(root-&gt;lchild);   <span class="comment">//访问左子树 </span></span><br><span class="line">	preorder(root-&gt;rchild);   <span class="comment">//访问右子树 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>先序遍历序列的第一个一定是根结点。</p>
 </li>
@@ -217,8 +217,12 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postorder</span><span class="params">(node* root)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(root == <span class="literal">NULL</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	postorder(root-&gt;lchild);</span><br><span class="line">	postorder(root-&gt;rchild);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,root-&gt;data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>后序遍历最后一个是根结点</p>
 </li>
-<li><p>层序遍历</p>
-</li>
+<li><p>层序遍历<br>类似BFS</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">layerorder</span><span class="params">(node* root)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;node*&gt; q; <span class="comment">//队列里是存地址</span></span><br><span class="line">	q.push(root) ; 	<span class="comment">//根结点地址入队</span></span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		node* now = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d"</span>,now-&gt;data);</span><br><span class="line">		<span class="keyword">if</span>(now-&gt;lchild != <span class="literal">NULL</span>) q.push(now-&gt;lchild);</span><br><span class="line">		<span class="keyword">if</span>(now-&gt;rchild != <span class="literal">NULL</span>) q.push(now-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一般层序遍历要求层次所以修改结构体</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="keyword">int</span> layer;</span><br><span class="line">	node* lchild;</span><br><span class="line">	node* rchild;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>计算每一个节点的层次：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">layerorder</span><span class="params">(node* root)</span></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;node*&gt; q;</span><br><span class="line">	root-&gt;layer = <span class="number">1</span>;</span><br><span class="line">	q.push(root);</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		node* now = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">if</span>(now-&gt;lchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">			now-&gt;lchild-&gt;layer = now-&gt;layer + <span class="number">1</span>;</span><br><span class="line">			q.push(now-&gt;lchild);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(now-&gt;rchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">			now-&gt;rchild-&gt;layer = now-&gt;layer + <span class="number">1</span>;</span><br><span class="line">			q.push(now-&gt;rchild);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
@@ -589,7 +593,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">有任何问题欢迎找我讨论哦&lt;br&gt;&lt;br&gt;QQ：836790896&lt;br&gt;谢谢大家</div>
   	  	
     	</section>
     

@@ -15,12 +15,14 @@
 <meta property="og:site_name" content="Codingboy的博客">
 <meta property="og:description" content="树知识点总结 结点的深度：从根节点往下数 结点的高度：从最底层往上数  二叉树 自己既是自己的祖先结点，也是自己的子孙结点  二叉树的基本操作 二叉树的存储结构和普通链表不同的是二叉树每个结点有两个指针域 12345struct node&amp;#123;    typename data;    node* lchild;    node* rchild;&amp;#125;">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lovingyounow.github.io/2020/02/22/%E6%A0%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/%E6%A0%91.png">
 <meta property="article:published_time" content="2020-02-22T04:52:37.000Z">
-<meta property="article:modified_time" content="2020-02-22T15:21:37.790Z">
+<meta property="article:modified_time" content="2020-02-23T05:34:44.070Z">
 <meta property="article:author" content="Codingboy">
 <meta property="article:tag" content="知识点总结">
 <meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lovingyounow.github.io/2020/02/22/%E6%A0%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/%E6%A0%91.png">
   
     <link rel="alternative" href="/atom.xml" title="Codingboy的博客" type="application/atom+xml">
   
@@ -196,8 +198,8 @@
 <li><p>二叉树结点的查找与修改</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">search</span><span class="params">(node* root,<span class="keyword">int</span> x,<span class="keyword">int</span> newdata)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(root == <span class="literal">NULL</span>)</span><br><span class="line">		<span class="keyword">return</span>; <span class="comment">//空树，递归边界</span></span><br><span class="line">	<span class="keyword">if</span>(root-&gt;data == x) </span><br><span class="line">		root-&gt;data =newdata;</span><br><span class="line">	search(root-&gt;lchild,x,newdata);</span><br><span class="line">	search(root-&gt;rchild,x,newdata);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>二叉树结点的插入</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(node* &amp;root,<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(root == <span class="literal">NULL</span>)&#123;</span><br><span class="line">		root = newNode(x);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>()&#123;</span><br><span class="line">		insert(root-&gt;rchild,x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>()&#123;</span><br><span class="line">		insert(root-&gt;rchild,x)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><font color="red" size="3">如果函数中需要新建结点，对二叉树的结构做出修改需要加上引用&amp;。如果只是修改当前已有<br>结点的内容或是遍历树，不要加引用</font></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(node* &amp;root,<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(root == <span class="literal">NULL</span>)&#123;</span><br><span class="line">		root = newNode(x);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	insert(root-&gt;lchild,x);</span><br><span class="line">	insert(root-&gt;rchild,x)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><font color="red" size="3">如果函数中需要新建结点，对二叉树的结构做出修改需要加上引用&amp;。如果只是修改当前已有结点的内容或是遍历树，不要加引用</font></p>
 </li>
 <li><p>二叉树的建立</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">node* <span class="title">Create</span><span class="params">(<span class="keyword">int</span> data[],<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	node* root = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">		insert(root,data[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -222,7 +224,13 @@
 <p>一般层序遍历要求层次所以修改结构体</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="keyword">int</span> layer;</span><br><span class="line">	node* lchild;</span><br><span class="line">	node* rchild;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>计算每一个节点的层次：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">layerorder</span><span class="params">(node* root)</span></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;node*&gt; q;</span><br><span class="line">	root-&gt;layer = <span class="number">1</span>;</span><br><span class="line">	q.push(root);</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		node* now = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">if</span>(now-&gt;lchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">			now-&gt;lchild-&gt;layer = now-&gt;layer + <span class="number">1</span>;</span><br><span class="line">			q.push(now-&gt;lchild);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(now-&gt;rchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">			now-&gt;rchild-&gt;layer = now-&gt;layer + <span class="number">1</span>;</span><br><span class="line">			q.push(now-&gt;rchild);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">layerorder</span><span class="params">(node* root)</span></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;node*&gt; q;</span><br><span class="line">	root-&gt;layer = <span class="number">1</span>;</span><br><span class="line">	q.push(root);</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		node* now = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">if</span>(now-&gt;lchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">			now-&gt;lchild-&gt;layer = now-&gt;layer + <span class="number">1</span>;</span><br><span class="line">			q.push(now-&gt;lchild);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(now-&gt;rchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">			now-&gt;rchild-&gt;layer = now-&gt;layer + <span class="number">1</span>;</span><br><span class="line">			q.push(now-&gt;rchild);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="先序与中序构建二叉树"><a href="#先序与中序构建二叉树" class="headerlink" title="先序与中序构建二叉树"></a>先序与中序构建二叉树</h4><p><img src="/2020/02/22/%E6%A0%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/%E6%A0%91.png" alt><br>```cpp<br>node* create(int preL,int preR,int inL,int inR) {<br> if(preL &gt; preR){</p>
+<pre><code>return NULL;</code></pre><p> }<br> node* root = new node;<br> root-&gt;data = pre[preL];<br> int k;<br> for(k = inL;k &lt;= inR;k++){ //在中序序列找到根结点 </p>
+<pre><code>if(in[k] == pre[preL]){
+    break;
+}</code></pre><p> }<br> int numLeft = k - inL;//左子树结点个数<br> //左子树先序区间为[preL+1,preL+numLeft],中序区间为[inL,k-1]<br> root-&gt;lchild = create(preL + 1,preL+numLeft,inL,k - 1);<br> root-&gt;rchild = create(preL + numLeft + 1,preR,k + 1,inR);<br> return root;<br>}<br>```y</p>
+</li>
 </ol>
 
       
@@ -562,27 +570,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="https://blog.csdn.net/lovingcgq" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>CSDN博客</a>
             </li>
           
         </ul>

@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lovingyounow.github.io/2020/02/22/%E6%A0%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/%E6%A0%91.png">
 <meta property="article:published_time" content="2020-02-22T04:52:37.000Z">
-<meta property="article:modified_time" content="2020-02-23T05:44:15.665Z">
+<meta property="article:modified_time" content="2020-02-23T05:56:14.324Z">
 <meta property="article:author" content="Codingboy">
 <meta property="article:tag" content="知识点总结">
 <meta property="article:tag" content="树">
@@ -226,7 +226,8 @@
 <p>计算每一个节点的层次：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">layerorder</span><span class="params">(node* root)</span></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;node*&gt; q;</span><br><span class="line">	root-&gt;layer = <span class="number">1</span>;</span><br><span class="line">	q.push(root);</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		node* now = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">if</span>(now-&gt;lchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">			now-&gt;lchild-&gt;layer = now-&gt;layer + <span class="number">1</span>;</span><br><span class="line">			q.push(now-&gt;lchild);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(now-&gt;rchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">			now-&gt;rchild-&gt;layer = now-&gt;layer + <span class="number">1</span>;</span><br><span class="line">			q.push(now-&gt;rchild);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="先序与中序构建二叉树"><a href="#先序与中序构建二叉树" class="headerlink" title="先序与中序构建二叉树"></a>先序与中序构建二叉树</h4><p><img src="/2020/02/22/%E6%A0%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/%E6%A0%91.png" alt></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">node* <span class="title">create</span><span class="params">(<span class="keyword">int</span> preL,<span class="keyword">int</span> preR,<span class="keyword">int</span> inL,<span class="keyword">int</span> inR)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(preL &gt; preR)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	node* root = <span class="keyword">new</span> node;</span><br><span class="line">	root-&gt;data = pre[preL];</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">for</span>(k = inL;k &lt;= inR;k++)&#123; <span class="comment">//在中序序列找到根结点 </span></span><br><span class="line">		<span class="keyword">if</span>(in[k] == pre[preL])&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> numLeft = k - inL;<span class="comment">//左子树结点个数</span></span><br><span class="line">	<span class="comment">//左子树先序区间为[preL+1,preL+numLeft],中序区间为[inL,k-1] </span></span><br><span class="line">	root-&gt;lchild = create(preL + <span class="number">1</span>,preL+numLeft,inL,k - <span class="number">1</span>);</span><br><span class="line">	root-&gt;rchild = create(preL + numLeft + <span class="number">1</span>,preR,k + <span class="number">1</span>,inR);</span><br><span class="line">	<span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">node* <span class="title">create</span><span class="params">(<span class="keyword">int</span> preL,<span class="keyword">int</span> preR,<span class="keyword">int</span> inL,<span class="keyword">int</span> inR)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(preL &gt; preR)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	node* root = <span class="keyword">new</span> node;</span><br><span class="line">	root-&gt;data = pre[preL];</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">for</span>(k = inL;k &lt;= inR;k++)&#123; <span class="comment">//在中序序列找到根结点 </span></span><br><span class="line">		<span class="keyword">if</span>(in[k] == pre[preL])&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> numLeft = k - inL;<span class="comment">//左子树结点个数</span></span><br><span class="line">	<span class="comment">//左子树先序区间为[preL+1,preL+numLeft],中序区间为[inL,k-1] </span></span><br><span class="line">	root-&gt;lchild = create(preL + <span class="number">1</span>,preL+numLeft,inL,k - <span class="number">1</span>);</span><br><span class="line">	root-&gt;rchild = create(preL + numLeft + <span class="number">1</span>,preR,k + <span class="number">1</span>,inR);</span><br><span class="line">	<span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -335,6 +336,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/02/23/PAT-%E7%94%B2%E7%BA%A7-1020-Tree-Traversals/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          PAT 甲级 1020 Tree Traversals
+        
+      </div>
+    </a>
   
   
     <a href="/2020/02/22/PAT-%E7%94%B2%E7%BA%A7-1091-Acute-Stroke-30%E5%88%86/" id="article-nav-older" class="article-nav-link-wrap">
@@ -478,6 +488,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">知识点总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">BFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">PAT</a>
               </li>
              
@@ -486,19 +508,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">栈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">队列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">知识点总结</a>
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,15 +520,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DFS</a>
+                <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">BFS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">树</a>
+                <a href="javascript:void(0)" class="js-tag color3">队列</a>
               </li>
             
             <div class="clearfix"></div>

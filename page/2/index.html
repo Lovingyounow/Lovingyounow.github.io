@@ -148,6 +148,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-PAT-甲级-1102-Invert-a-Binary-Tree-二叉树翻转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/24/PAT-%E7%94%B2%E7%BA%A7-1102-Invert-a-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BF%BB%E8%BD%AC/">PAT 甲级 1102 Invert a Binary Tree(二叉树翻转)</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/02/24/PAT-%E7%94%B2%E7%BA%A7-1102-Invert-a-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BF%BB%E8%BD%AC/" class="archive-article-date">
+  	<time datetime="2020-02-24T03:12:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The following is from Max Howell @twitter:</p>
+<blockquote>
+<p>Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.</p>
+</blockquote>
+<p>Now it’s your turn to prove that YOU CAN invert a binary tree!</p>
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line gives a positive integer N (≤10) which is the total number of nodes in the tree – and hence the nodes are numbered from 0 to N−1. Then N lines follow, each corresponds to a node from 0 to N−1, and gives the indices of the left and right children of the node. If the child does not exist, a - will be put at the position. Any pair of children are separated by a space.</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/24/PAT-%E7%94%B2%E7%BA%A7-1102-Invert-a-Binary-Tree-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%BF%BB%E8%BD%AC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-PAT-甲级-1086-Tree-Traversals-Again" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -878,92 +962,6 @@
 
 
   
-    <article id="post-链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/18/%E9%93%BE%E8%A1%A8/">链表</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/02/18/%E9%93%BE%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-02-18T03:53:52.394Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><ol>
-<li>链表节点一般由两部分构成，数据域，指针域。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct node&#123;</span><br><span class="line">    typename data;</span><br><span class="line">    node* next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>使用malloc或new为链表节点分配内存空间</li>
-</ol>
-<ul>
-<li><p>malloc函数<br>在stdlib.h头文件中，返回类型是申请的同变量类型的指针。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typename* p = (typename*)malloc(sizeof(typename))</span><br><span class="line">;</span><br><span class="line"><span class="keyword">int</span>* p = (<span class="keyword">int</span> *)malloc(sizeof(<span class="keyword">int</span>))</span><br><span class="line">node* p = (node *)malloc(sizeof(node))</span><br></pre></td></tr></table></figure>
-<p>malloc(sizeof(node)),malloc 向内存申请一块大小为sizeof(node)的空间，返回指向这片空间的指针<strong>void*</strong>,申请失败返回空指针NULL。</p></li></ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">知识点总结</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">链表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/18/%E9%93%BE%E8%A1%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1116,6 +1114,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">蓝桥杯</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
             
             <div class="clearfix"></div>

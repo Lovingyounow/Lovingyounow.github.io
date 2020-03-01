@@ -148,6 +148,189 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-PAT-甲级-1021-Deepest-Root" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/01/PAT-%E7%94%B2%E7%BA%A7-1021-Deepest-Root/">PAT 甲级 1021 Deepest Root</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/01/PAT-%E7%94%B2%E7%BA%A7-1021-Deepest-Root/" class="archive-article-date">
+  	<time datetime="2020-03-01T07:14:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root that results in a highest tree. Such a root is called the deepest root.</p>
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains a positive integer N (≤10^​4^​​ ) which is the number of nodes, and hence the nodes are numbered from 1 to N. Then N−1 lines follow, each describes an edge by given the two adjacent nodes’ numbers.</p>
+<h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, print each of the deepest roots in a line. If such a root is not unique, print them in increasing order of their numbers. In case that the given graph is not a tree, print Error: K components where K is the number of connected components in the graph.</p>
+<h3 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1:"></a>Sample Input 1:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1:"></a>Sample Output 1:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2:"></a>Sample Input 2:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">5</span></span><br><span class="line"><span class="number">3</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2:"></a>Sample Output 2:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: <span class="number">2</span> components</span><br></pre></td></tr></table></figure>
+<h4 id="解题思路：本题要求是判断图是否可以看做一棵树，若不可以，求出可以分成多少块。若可以求出把哪个结点当做根结点可以使树的高度最大，如果有多个答案，从小到大输出结点。本题先从任意结点开始用BFS计算出有几个块，当只有一个块时即遍历一次所有结点都遍历到，求出在这个过程中高度最高的所有结点存入set中，该结点一定在最后输出的结点中。然后从任意上一步求出的结点开始遍历，将高度最高的所有结点存在set中，将上述两个过程中set中的结点存入另一set中，最后输出即可。注意：如果输入1，需要输出1。"><a href="#解题思路：本题要求是判断图是否可以看做一棵树，若不可以，求出可以分成多少块。若可以求出把哪个结点当做根结点可以使树的高度最大，如果有多个答案，从小到大输出结点。本题先从任意结点开始用BFS计算出有几个块，当只有一个块时即遍历一次所有结点都遍历到，求出在这个过程中高度最高的所有结点存入set中，该结点一定在最后输出的结点中。然后从任意上一步求出的结点开始遍历，将高度最高的所有结点存在set中，将上述两个过程中set中的结点存入另一set中，最后输出即可。注意：如果输入1，需要输出1。" class="headerlink" title="解题思路：本题要求是判断图是否可以看做一棵树，若不可以，求出可以分成多少块。若可以求出把哪个结点当做根结点可以使树的高度最大，如果有多个答案，从小到大输出结点。本题先从任意结点开始用BFS计算出有几个块，当只有一个块时即遍历一次所有结点都遍历到，求出在这个过程中高度最高的所有结点存入set中，该结点一定在最后输出的结点中。然后从任意上一步求出的结点开始遍历，将高度最高的所有结点存在set中，将上述两个过程中set中的结点存入另一set中，最后输出即可。注意：如果输入1，需要输出1。"></a><font color="DeepSkyBlue">解题思路：本题要求是判断图是否可以看做一棵树，若不可以，求出可以分成多少块。若可以求出把哪个结点当做根结点可以使树的高度最大，如果有多个答案，从小到大输出结点。本题先从任意结点开始用BFS计算出有几个块，当只有一个块时即遍历一次所有结点都遍历到，求出在这个过程中高度最高的所有结点存入set中，该结点一定在最后输出的结点中。然后从任意上一步求出的结点开始遍历，将高度最高的所有结点存在set中，将上述两个过程中set中的结点存入另一set中，最后输出即可。<font color="red">注意：如果输入1，需要输出1。</font></font></h4><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> layer;</span><br><span class="line">	<span class="keyword">int</span> v;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; se,se1;</span><br><span class="line"><span class="built_in">vector</span>&lt;node&gt; adj[<span class="number">20000</span>];</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">20000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> maxlevel = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> maxroot;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;node&gt; q;</span><br><span class="line">	vis[n] = <span class="number">1</span>;</span><br><span class="line">	node start;</span><br><span class="line">	start.v = n;</span><br><span class="line">	start.layer = <span class="number">0</span>;</span><br><span class="line">	q.push(start);</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		node front = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">int</span> u = front.v;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; adj[u].size();i++)&#123;</span><br><span class="line">			node next = adj[u][i];</span><br><span class="line">			<span class="keyword">if</span>(vis[next.v] == <span class="number">0</span>)&#123;</span><br><span class="line">				next.layer = front.layer+<span class="number">1</span>;</span><br><span class="line">				vis[next.v] = <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">if</span>(next.layer &gt; maxlevel)&#123;</span><br><span class="line">					se.clear();</span><br><span class="line">					se.insert(next.v);</span><br><span class="line">					maxlevel = next.layer;</span><br><span class="line">					maxroot = next.v;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(next.layer == maxlevel)</span><br><span class="line">					se.insert(next.v);</span><br><span class="line">				q.push(next);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N,a,b;</span><br><span class="line">	<span class="keyword">int</span> cluster = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;N;</span><br><span class="line">	<span class="keyword">if</span>(N == <span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"1"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	node temp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N - <span class="number">1</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b;</span><br><span class="line">		temp.v = b;</span><br><span class="line">		adj[a].push_back(temp);</span><br><span class="line">		temp.v = a;</span><br><span class="line">		adj[b].push_back(temp);	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(vis[i] == <span class="number">0</span>)&#123;</span><br><span class="line">			BFS(i);</span><br><span class="line">			cluster++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(cluster &gt; <span class="number">1</span>)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Error: %d components"</span>,cluster);</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it = se.begin();it!=se.end();it++)</span><br><span class="line">			se1.insert(*it);</span><br><span class="line">		se.clear();</span><br><span class="line">		<span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">		BFS(maxroot);</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it =</span><br><span class="line">		 se.begin();it!=se.end();it++)</span><br><span class="line">			se1.insert(*it);</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it = se1.begin();it!=se1.end();it++)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,*it);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/01/PAT-%E7%94%B2%E7%BA%A7-1021-Deepest-Root/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-图知识点总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/28/%E5%9B%BE%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">图知识点总结</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/02/28/%E5%9B%BE%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-02-28T03:41:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h4><ul>
+<li>邻接矩阵(一般用于顶点数不超过1000)<strong>二维数组实现</strong><br>对无向图来说邻接矩阵是一个对称矩阵</li>
+<li>邻接表<strong>vector数组实现</strong><br>把每个顶点的所有出边放在一个列表中</li>
+</ul>
+<h4 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h4><ul>
+<li>DFS<br>连通分量:<font color="blue">无向图</font>中两个顶点之间可以互相到达，则这两个顶点<strong>连通</strong>。如果任意两个顶点都连通，则是<strong>连通图</strong>。否则为<strong>非连通图</strong>，称图中的极大连通子图为<strong>连通分量</strong><br>强连通分量：<font color="blue">有向图</font>中两个顶点各自有一条路径到达另一个顶点，称这两个顶点<strong>强连通</strong>。如果图中任意两个顶点都强连通，则为<strong>强连通图</strong>。否则为<strong>非强连通图</strong>，称其中的极大连通子图为<strong>强连通分量</strong>。</li>
+</ul>
+<h5 id="邻接矩阵法"><a href="#邻接矩阵法" class="headerlink" title="邻接矩阵法"></a>邻接矩阵法</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXV = <span class="number">1000</span>;<span class="comment">//最大顶点数</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">1000000000</span>;<span class="comment">// 设INF很大</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,G[MAXV][MAXV];</span><br><span class="line"><span class="keyword">bool</span> vis[MAXV] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> depth)</span></span>&#123;</span><br><span class="line">	vis[u] = <span class="literal">true</span>;</span><br><span class="line">	<span class="comment">//此处对u操作</span></span><br><span class="line">	<span class="comment">//以下对u所能到达的顶点进行枚举</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; n;v++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(vis[v] == <span class="literal">false</span> &amp;&amp; G[u][v]!=INF)&#123;</span><br><span class="line">			DFS(v,depth+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFSTrave</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; n;u++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(vid[u] == <span class="literal">false</span>)&#123;</span><br><span class="line">			DFS(u,<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="邻接表法"><a href="#邻接表法" class="headerlink" title="邻接表法"></a>邻接表法</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; Adj[MAXV];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">bool</span> vis[MAXV] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> depth)</span> </span>&#123;</span><br><span class="line">	vis[u] = <span class="literal">true</span>;</span><br><span class="line">	<span class="comment">//此处对u进行操作</span></span><br><span class="line">	<span class="comment">//以下对u能到达的顶点进行遍历</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; Adj[u].size();i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> v = Adj[u][i];</span><br><span class="line">		<span class="keyword">if</span>(vis[v] == <span class="literal">false</span>)&#123;</span><br><span class="line">			DFS(v,depth+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFSTrave</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; n;u++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(vis[u] == flase)&#123;</span><br><span class="line">			DFS(u,<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>BFS<h5 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n,G[MAXV][MAXV];</span><br><span class="line"><span class="keyword">bool</span> inq[MAXV] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">	q.push(u);</span><br><span class="line">	inq[u] = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">		<span class="keyword">int</span> u = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; n;v++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(inq[v] == <span class="literal">false</span>&amp;&amp;G[u][v]!=INF)&#123;</span><br><span class="line">				q.push(v);</span><br><span class="line">				inq[v] = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFSTrave</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; n;u++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(inq[u] == <span class="literal">false</span>)&#123;</span><br><span class="line">			BFS(q);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; Adj[MAXV];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">bool</span> inq[MAXV] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> u)</span></span>&#123;</span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">	q.push(u);</span><br><span class="line">	inq[u] = <span class="literal">true</span>;</span><br><span class="line">	whlie(!q.empty())&#123;</span><br><span class="line">		<span class="keyword">int</span> u = q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; Adj[u].size();i++)&#123;</span><br><span class="line">			<span class="keyword">int</span> v = Adj[u][i];</span><br><span class="line">			<span class="keyword">if</span>(inq[v] == <span class="literal">false</span>)&#123;</span><br><span class="line">				q.push(c);</span><br><span class="line">				inq[v] = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFSTrave</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; n;u++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(inq[i] == <span class="literal">false</span>)&#123;</span><br><span class="line">			BFS(q);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">知识点总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/28/%E5%9B%BE%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-PAT-甲级-1107-Social-Clusters" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -820,173 +1003,6 @@
 
 
   
-    <article id="post-PAT-甲级-1053-Path-of-Equal-Weight" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1053-Path-of-Equal-Weight/">PAT 甲级 1053 Path of Equal Weight </a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1053-Path-of-Equal-Weight/" class="archive-article-date">
-  	<time datetime="2020-02-25T02:16:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given a non-empty tree with root R, and with weight W​i​​ assigned to each tree node T​i​​ . The weight of a path from R to L is defined to be the sum of the weights of all the nodes along the path from R to any leaf node L.</p>
-<p>Now given any weighted tree, you are supposed to find all the paths with their weights equal to a given number. For example, let’s consider the tree showed in the following figure: for each node, the upper number is the node ID which is a two-digit number, and the lower number is the weight of that node. Suppose that the given number is 24, then there exists 4 different paths which have the same given weight: {10 5 2 7}, {10 4 10}, {10 3 3 6 2} and {10 3 3 6 2}, which correspond to the red edges in the figure.</p>
-<p><img src="/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1053-Path-of-Equal-Weight/A1053.jpg" alt></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DFS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1053-Path-of-Equal-Weight/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-表格填数-DFS及next-permutation函数的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/24/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E8%A1%A8%E6%A0%BC%E5%A1%AB%E6%95%B0-DFS%E5%8F%8Anext-permutation%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/">蓝桥杯 表格填数(DFS及next_permutation函数的使用)</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/02/24/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E8%A1%A8%E6%A0%BC%E5%A1%AB%E6%95%B0-DFS%E5%8F%8Anext-permutation%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-02-24T09:58:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>如下的10个格子<br><img src="/2020/02/24/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E8%A1%A8%E6%A0%BC%E5%A1%AB%E6%95%B0-DFS%E5%8F%8Anext-permutation%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/%E8%A1%A8%E6%A0%BC%E5%A1%AB%E6%95%B0.jpg" alt><br>填入0~9的数字。要求：连续的两个数字不能相邻。<br>（左右、上下、对角都算相邻）<br>一共有多少种可能的填数方案？<br>答案：1580</p>
-</blockquote>
-<h4 id="解题思路：通过next-permutation函数暴力枚举"><a href="#解题思路：通过next-permutation函数暴力枚举" class="headerlink" title="解题思路：通过next_permutation函数暴力枚举"></a>解题思路：<font color="DeepSkyBlue">通过next_permutation函数暴力枚举</font></h4>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DFS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/24/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E8%A1%A8%E6%A0%BC%E5%A1%AB%E6%95%B0-DFS%E5%8F%8Anext-permutation%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1143,6 +1159,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">并查集</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
               </li>
             
             <div class="clearfix"></div>

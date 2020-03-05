@@ -16,7 +16,7 @@
 <meta property="og:description" content="图的存储 邻接矩阵(一般用于顶点数不超过1000)二维数组实现对无向图来说邻接矩阵是一个对称矩阵 邻接表vector数组实现把每个顶点的所有出边放在一个列表中  图的遍历 DFS连通分量:无向图中两个顶点之间可以互相到达，则这两个顶点连通。如果任意两个顶点都连通，则是连通图。否则为非连通图，称图中的极大连通子图为连通分量强连通分量：有向图中两个顶点各自有一条路径到达另一个顶点，称这两个顶点强连通。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-28T03:41:15.000Z">
-<meta property="article:modified_time" content="2020-03-03T05:40:39.377Z">
+<meta property="article:modified_time" content="2020-03-05T03:31:06.393Z">
 <meta property="article:author" content="Codingboy">
 <meta property="article:tag" content="知识点总结">
 <meta property="article:tag" content="图">
@@ -203,35 +203,40 @@
 <li>每个点增加一个点权(每个城市能收集到的物资)，当最短路径有几条时要求点权之和最大或最小。<br>增加两个数组，weight[u]表示城市u中的物资数目。数组w[u]表示从起点s到u可以收集到的最大物资。初始w[s] = weight[u]，其余w[u] = 0。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; n;v++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(vis[v] == <span class="literal">false</span> &amp;&amp; G[u][v] != INF)&#123;</span><br><span class="line">		<span class="keyword">if</span>(d[u] + G[u][v] &lt; d[v])&#123;</span><br><span class="line">			d[v] = d[u] + G[u][v];</span><br><span class="line">			w[v] = w[u] + weight[v];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(d[u] + G[u][v] == d[v] &amp;&amp; w[u] + weight[v] &gt; w[v])&#123;</span><br><span class="line">			w[v] = w[u] + weight[v];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>求有多少条最短路径<br>增加一个数组num[]，令起点s到达顶点u的最短路径条数为num[u]，初始化时只有num[s]为1，其余num[u]为0。当d[u] + G[u][v] == d[v]时，将num[u]加到num[v]上。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; n;v++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(vis[v] == <span class="literal">false</span> &amp;&amp; G[u][v] != INF)&#123;</span><br><span class="line">		<span class="keyword">if</span>(d[u] + G[u][v] &lt; d[v])&#123;</span><br><span class="line">			d[v] = d[u] + G[u][v];</span><br><span class="line">			num[v] = num[u];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(d[u] + G[u][v] == d[v])&#123;</span><br><span class="line">			num[v] += num[u];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Dijkstra-DFS模板"><a href="#Dijkstra-DFS模板" class="headerlink" title="Dijkstra + DFS模板"></a>Dijkstra + DFS模板</h4>先记录下所有的最短路径，然后从这些路径中选出一条第二标尺最优的路径<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Dijkstra</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre[MAXV];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;<span class="comment">//s为起点 </span></span><br><span class="line">	fill(d,d+MAXV,INF);</span><br><span class="line">	d[s] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> u = <span class="number">-1</span>,MIN = INF;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(vis[j] == <span class="literal">false</span> &amp;&amp; d[j] &lt; MIN)&#123;</span><br><span class="line">			u = j;</span><br><span class="line">			MIN = d[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(u == <span class="number">-1</span>)	<span class="keyword">return</span>;</span><br><span class="line">		vis[u] = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; n;v++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(vis[v] == <span class="literal">false</span> &amp;&amp; G[u][v]!=INF)&#123;</span><br><span class="line">				<span class="keyword">if</span>(d[u] + G[u][v] &lt; d[v])&#123;</span><br><span class="line">					d[v] = d[u] + G[u][v];</span><br><span class="line">					pre[v].clear();</span><br><span class="line">					pre[v].push_back(u);</span><br><span class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(d[u] + G[u][v] == d[v])&#123;</span><br><span class="line">					pre[v].push_back(u);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//DFS</span></span><br><span class="line"><span class="keyword">int</span> optvalue <span class="comment">//第二标尺</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;  pre[MAXV];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; path,temppath;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;  <span class="comment">//v为当前访问结点 </span></span><br><span class="line">	<span class="comment">//递归边界 </span></span><br><span class="line">	<span class="keyword">if</span>(v == st) &#123; <span class="comment">//到达叶子结点 </span></span><br><span class="line">		temppath.push_back(v);</span><br><span class="line">		<span class="keyword">int</span> value;</span><br><span class="line">		<span class="comment">//计算路径temppath上的value值</span></span><br><span class="line">		<span class="keyword">if</span>(value优于opvalue) &#123;</span><br><span class="line">			opvalue = value;</span><br><span class="line">			path = temppath;</span><br><span class="line">		&#125;</span><br><span class="line">		temppath.pop_back();</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//递归式 </span></span><br><span class="line">	temppath.push_back(v);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; pre[v].size();i++)&#123;</span><br><span class="line">		DFS(pre[v][i]);</span><br><span class="line">	&#125;</span><br><span class="line">	temppath.pop_back();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</li>
+存放在temppath中的路径结点是逆序的，因此访问结点需要倒着进行。</li>
 </ol>
+<p><strong>计算边权</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> value = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = temppath.size() - <span class="number">1</span>;i &gt; <span class="number">0</span>;i--)&#123;</span><br><span class="line">	<span class="comment">//当前结点id,下一结点idnext</span></span><br><span class="line">	<span class="keyword">int</span> id = temppath[i],idnext = temppath[i - <span class="number">1</span>];</span><br><span class="line">	value += V[id][idnext];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>计算点权</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> value = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = temppath.size() - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--)&#123;</span><br><span class="line">	<span class="keyword">int</span> id = temppath[i];</span><br><span class="line">	value += W[id];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Bellman-Ford算法-BF算法"><a href="#Bellman-Ford算法-BF算法" class="headerlink" title="Bellman-Ford算法(BF算法)"></a>Bellman-Ford算法(BF算法)</h5><p>解决有负权边的图</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> v,dis;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;Node&gt; Adj[MAXV];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> d[MAXV];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Bellman</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	fill(d,d + MAXV,INF);</span><br><span class="line">	d[s] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n <span class="number">-1</span>;i++)&#123; <span class="comment">//n为顶点数,n-1轮操作</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; n;u++) &#123;	<span class="comment">//每轮遍历所有边 </span></span><br><span class="line">		</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; Adj[u].size();j++)&#123;</span><br><span class="line">				<span class="keyword">int</span> v = Adj[u][j].v;</span><br><span class="line">				<span class="keyword">int</span> dis = Adj[u][j].dis;</span><br><span class="line">				<span class="keyword">if</span>(d[u] + dis &lt; d[v])&#123;</span><br><span class="line">					d[v] = d[u] + dis;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; n;u++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; Adj[u].size();j++)&#123;</span><br><span class="line">			<span class="keyword">int</span> v = Adj[u][j].v;</span><br><span class="line">			<span class="keyword">int</span> dis = Adj[u][j].dis;</span><br><span class="line">			<span class="keyword">if</span>(d[u] + dis &lt; d[v])&#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       
 
@@ -495,7 +500,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DFS</a>
+                <a href="javascript:void(0)" class="js-tag color4">BFS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,6 +512,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DFS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">链表</a>
               </li>
              
@@ -515,7 +524,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">BFS</a>
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,14 +545,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">蓝桥杯</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">并查集</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
               </li>
             
             <div class="clearfix"></div>

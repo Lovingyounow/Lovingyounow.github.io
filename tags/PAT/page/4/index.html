@@ -6,24 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Lovingyounow.github.io">
-  <title>PAT 甲级 1053 Path of Equal Weight  | Codingboy的博客</title>
+  <title>Tag: PAT | Codingboy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Given a non-empty tree with root R, and with weight W​i​​ assigned to each tree node T​i​​ . The weight of a path from R to L is defined to be the sum of the weights of all the nodes along the path fr">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PAT 甲级 1053 Path of Equal Weight ">
-<meta property="og:url" content="https://lovingyounow.github.io/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1053-Path-of-Equal-Weight/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Codingboy的博客">
+<meta property="og:url" content="https://lovingyounow.github.io/tags/PAT/page/4/index.html">
 <meta property="og:site_name" content="Codingboy的博客">
-<meta property="og:description" content="Given a non-empty tree with root R, and with weight W​i​​ assigned to each tree node T​i​​ . The weight of a path from R to L is defined to be the sum of the weights of all the nodes along the path fr">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://lovingyounow.github.io/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1053-Path-of-Equal-Weight/A1053.jpg">
-<meta property="article:published_time" content="2020-02-25T02:16:27.000Z">
-<meta property="article:modified_time" content="2020-02-25T02:28:20.924Z">
 <meta property="article:author" content="Codingboy">
-<meta property="article:tag" content="PAT">
-<meta property="article:tag" content="DFS">
-<meta property="article:tag" content="树">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lovingyounow.github.io/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1053-Path-of-Equal-Weight/A1053.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Codingboy的博客" type="application/atom+xml">
   
@@ -155,74 +146,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PAT-甲级-1053-Path-of-Equal-Weight" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      PAT 甲级 1053 Path of Equal Weight 
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2020/01/25/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/" class="archive-article-date">
+  	<time datetime="2020-01-25T06:24:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/01/25/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/">PAT乙级 1005 继续(3n+1)猜想</a>
     </h1>
   
 
-        
-        
-	<!-- 不蒜子统计 -->
-	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-	</span>
-
-<a href="/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1053-Path-of-Equal-Weight/" class="archive-article-date">
-  	<time datetime="2020-02-25T02:16:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given a non-empty tree with root R, and with weight W​i​​ assigned to each tree node T​i​​ . The weight of a path from R to L is defined to be the sum of the weights of all the nodes along the path from R to any leaf node L.</p>
-<p>Now given any weighted tree, you are supposed to find all the paths with their weights equal to a given number. For example, let’s consider the tree showed in the following figure: for each node, the upper number is the node ID which is a two-digit number, and the lower number is the weight of that node. Suppose that the given number is 24, then there exists 4 different paths which have the same given weight: {10 5 2 7}, {10 4 10}, {10 3 3 6 2} and {10 3 3 6 2}, which correspond to the red edges in the figure.</p>
-<p><img src="/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1053-Path-of-Equal-Weight/A1053.jpg" alt></p>
-<a id="more"></a>
-
-<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. Each case starts with a line containing 0&lt;N≤100, the number of nodes in a tree, M (&lt;N), the number of non-leaf nodes, and 0&lt;S&lt;2^​30^, the given weight number. The next line contains N positive numbers where W​i​​(&lt;1000) corresponds to the tree node T​i. Then M lines follow, each in the format:<br>ID K ID[1] ID[2] … ID[K]</p>
-<p>where ID is a two-digit number representing a given non-leaf node, K is the number of its children, followed by a sequence of two-digit ID’s of its children. For the sake of simplicity, let us fix the root ID to be 00.</p>
-<h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, print all the paths with weight S in non-increasing order. Each path occupies a line with printed weights from the root to the leaf in order. All the numbers must be separated by a space with no extra space at the end of the line.</p>
-<p>Note: sequence {A​1​​ ,A​2​​ ,⋯,A​n​​ } is said to be greater than sequence {B​1​​ ,B​2​​ ,⋯,B​m​​ } if there exists 1≤k&lt;min{n,m} such that A​i​​ =B​i​​  for i=1,⋯,k,and A​k+1​​ &gt;B​k+1​​ .</p>
-<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">20</span> <span class="number">9</span> <span class="number">24</span></span><br><span class="line"><span class="number">10</span> <span class="number">2</span> <span class="number">4</span> <span class="number">3</span> <span class="number">5</span> <span class="number">10</span> <span class="number">2</span> <span class="number">18</span> <span class="number">9</span> <span class="number">7</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">3</span> <span class="number">12</span> <span class="number">1</span> <span class="number">8</span> <span class="number">6</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">00</span> <span class="number">4</span> <span class="number">01</span> <span class="number">02</span> <span class="number">03</span> <span class="number">04</span></span><br><span class="line"><span class="number">02</span> <span class="number">1</span> <span class="number">05</span></span><br><span class="line"><span class="number">04</span> <span class="number">2</span> <span class="number">06</span> <span class="number">07</span></span><br><span class="line"><span class="number">03</span> <span class="number">3</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span></span><br><span class="line"><span class="number">06</span> <span class="number">1</span> <span class="number">09</span></span><br><span class="line"><span class="number">07</span> <span class="number">2</span> <span class="number">08</span> <span class="number">10</span></span><br><span class="line"><span class="number">16</span> <span class="number">1</span> <span class="number">15</span></span><br><span class="line"><span class="number">13</span> <span class="number">3</span> <span class="number">14</span> <span class="number">16</span> <span class="number">17</span></span><br><span class="line"><span class="number">17</span> <span class="number">2</span> <span class="number">18</span> <span class="number">19</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> <span class="number">5</span> <span class="number">2</span> <span class="number">7</span></span><br><span class="line"><span class="number">10</span> <span class="number">4</span> <span class="number">10</span></span><br><span class="line"><span class="number">10</span> <span class="number">3</span> <span class="number">3</span> <span class="number">6</span> <span class="number">2</span></span><br><span class="line"><span class="number">10</span> <span class="number">3</span> <span class="number">3</span> <span class="number">6</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h4 id="解题思路：本题主要通过DFS对二叉树进行搜索，注意必须到根节点并且权值和满足题意才能输出其他都要返回，其次是sort函数的编写是按照孩子节点的权重从大到小排列。"><a href="#解题思路：本题主要通过DFS对二叉树进行搜索，注意必须到根节点并且权值和满足题意才能输出其他都要返回，其次是sort函数的编写是按照孩子节点的权重从大到小排列。" class="headerlink" title="解题思路：本题主要通过DFS对二叉树进行搜索，注意必须到根节点并且权值和满足题意才能输出其他都要返回，其次是sort函数的编写是按照孩子节点的权重从大到小排列。"></a><font color="DeepSkyBlue">解题思路：本题主要通过DFS对二叉树进行搜索，注意必须到根节点并且权值和满足题意才能输出其他都要返回，其次是sort函数的编写是按照孩子节点的权重从大到小排列。</font></h4><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; child;</span><br><span class="line">&#125;Node[<span class="number">100</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; line;  <span class="comment">//存符合要求节点的权重 </span></span><br><span class="line"><span class="keyword">int</span> N,M,S;</span><br><span class="line"><span class="keyword">int</span> sum;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span>  Node[a].data &gt; Node[b].data;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> root)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(Node[root].child.size() == <span class="number">0</span>&amp;&amp;sum == S)&#123;  <span class="comment">//为叶子节点并且权重和为S </span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d"</span>,line[<span class="number">0</span>]);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; line.size();i++)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">" %d"</span>,line[i]);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(Node[root].child.size() == <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(sum &gt; S)</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; Node[root].child.size();i++) <span class="comment">//遍历每个孩子 </span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> child = Node[root].child[i];</span><br><span class="line">		sum+=Node[child].data;				<span class="comment">//将孩子节点信息加入 </span></span><br><span class="line">		line.push_back(Node[child].data);</span><br><span class="line">		DFS(child);</span><br><span class="line">		line.pop_back();					<span class="comment">//完成后需要将孩子节点信息删去 </span></span><br><span class="line">		sum -= Node[child].data;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;N,&amp;M,&amp;S)	;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;Node[i].data);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> pos,childnum,tempch;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;pos,&amp;childnum);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; childnum;j++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;tempch);</span><br><span class="line">			Node[pos].child.push_back(tempch);</span><br><span class="line">		&#125;</span><br><span class="line">		sort(Node[pos].child.begin(),Node[pos].child.end(),cmp);  <span class="comment">//对孩子节点按权重从大到小排列 </span></span><br><span class="line">	&#125;</span><br><span class="line">	sum = Node[<span class="number">0</span>].data;  <span class="comment">//将根节点权重加入sum </span></span><br><span class="line">	line.push_back(sum);</span><br><span class="line">	DFS(<span class="number">0</span>);  <span class="comment">//根节点开始 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -232,124 +186,28 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DFS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://lovingyounow.github.io/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1053-Path-of-Equal-Weight/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/02/25/PAT-%E7%94%B2%E7%BA%A7-1079-Total-Sales-of-Supply-Chain/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          PAT 甲级 1079 Total Sales of Supply Chain
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/02/24/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E8%A1%A8%E6%A0%BC%E5%A1%AB%E6%95%B0-DFS%E5%8F%8Anext-permutation%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">蓝桥杯 表格填数(DFS及next_permutation函数的使用)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/PAT/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/tags/PAT/">1</a><a class="page-number" href="/tags/PAT/page/2/">2</a><a class="page-number" href="/tags/PAT/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
   
 
 
@@ -384,9 +242,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Lovingyounow.github.io">
-  <title>Archives: 2020/3 | Codingboy的博客</title>
+  <title>PAT 甲级 1018 Public Bike Management  | Codingboy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Codingboy的博客">
-<meta property="og:url" content="https://lovingyounow.github.io/archives/2020/03/index.html">
+  <meta name="description" content="There is a public bike service in Hangzhou City which provides great convenience to the tourists from all over the world. One may rent a bike at any station and return it to any other stations in the">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT 甲级 1018 Public Bike Management ">
+<meta property="og:url" content="https://lovingyounow.github.io/2020/03/06/PAT-%E7%94%B2%E7%BA%A7-1018-Public-Bike-Management/index.html">
 <meta property="og:site_name" content="Codingboy的博客">
+<meta property="og:description" content="There is a public bike service in Hangzhou City which provides great convenience to the tourists from all over the world. One may rent a bike at any station and return it to any other stations in the">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lovingyounow.github.io/2020/03/06/PAT-%E7%94%B2%E7%BA%A7-1018-Public-Bike-Management/1018.jpg">
+<meta property="article:published_time" content="2020-03-06T06:07:35.000Z">
+<meta property="article:modified_time" content="2020-03-06T06:29:59.392Z">
 <meta property="article:author" content="Codingboy">
+<meta property="article:tag" content="PAT">
+<meta property="article:tag" content="图">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lovingyounow.github.io/2020/03/06/PAT-%E7%94%B2%E7%BA%A7-1018-Public-Bike-Management/1018.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Codingboy的博客" type="application/atom+xml">
   
@@ -146,37 +154,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-PAT-甲级-1018-Public-Bike-Management" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      PAT 甲级 1018 Public Bike Management 
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+
+        
+        
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
 <a href="/2020/03/06/PAT-%E7%94%B2%E7%BA%A7-1018-Public-Bike-Management/" class="archive-article-date">
   	<time datetime="2020-03-06T06:07:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/06/PAT-%E7%94%B2%E7%BA%A7-1018-Public-Bike-Management/">PAT 甲级 1018 Public Bike Management </a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>There is a public bike service in Hangzhou City which provides great convenience to the tourists from all over the world. One may rent a bike at any station and return it to any other stations in the city.</p>
+<p>The Public Bike Management Center (PBMC) keeps monitoring the real-time capacity of all the stations. A station is said to be in perfect condition if it is exactly half-full. If a station is full or empty, PBMC will collect or send bikes to adjust the condition of that station to perfect. And more, all the stations on the way will be adjusted as well.</p>
+<p>When a problem station is reported, PBMC will always choose the shortest path to reach that station. If there are more than one shortest path, the one that requires the least number of bikes sent from PBMC will be chosen.<br><img src="/2020/03/06/PAT-%E7%94%B2%E7%BA%A7-1018-Public-Bike-Management/1018.jpg" alt></p>
+<a id="more"></a>
+<p>The above figure illustrates an example. The stations are represented by vertices and the roads correspond to the edges. The number on an edge is the time taken to reach one end station from another. The number written inside a vertex S is the current number of bikes stored at S. Given that the maximum capacity of each station is 10. To solve the problem at S<br>​3​​ , we have 2 different shortest paths:</p>
+<p>PBMC -&gt; S​1​​  -&gt; S​3​​ . In this case, 4 bikes must be sent from PBMC, because we can collect 1 bike from S​1​​  and then take 5 bikes to S​3​​ , so that both stations will be in perfect conditions.<br>PBMC -&gt; S​2​​  -&gt; S​3​​ . This path requires the same time as path 1, but only 3 bikes sent from PBMC and hence is the one that will be chosen.</p>
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains 4 numbers: C<br>​max(≤100), always an even number, is the maximum capacity of each station; N (≤500), the total number of stations; S​p​​ , the index of the problem station (the stations are numbered from 1 to N, and PBMC is represented by the vertex 0); and M, the number of roads. The second line contains N non-negative numbers C​i​​  (i=1,⋯,N) where each C​i​​  is the current number of bikes at S​i​​  respectively. Then M lines follow, each contains 3 numbers: S​i​​ , S​j​​ , and T​ij​​  which describe the time T​ij​​  taken to move betwen stations S​i​​  and S​j​​ . All the numbers in a line are separated by a space.</p>
+<h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, print your results in one line. First output the number of bikes that PBMC must send. Then after one space, output the path in the format: 0−&gt;S<br>​1​​ −&gt;⋯−&gt;S​p​​ . Finally after another space, output the number of bikes that we must take back to PBMC after the condition of S<br>​p​​  is adjusted to perfect.</p>
+<p>Note that if such a path is not unique, output the one that requires minimum number of bikes that we must take back to PBMC. The judge’s data guarantee that such a path is unique.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> <span class="number">3</span> <span class="number">3</span> <span class="number">5</span></span><br><span class="line"><span class="number">6</span> <span class="number">7</span> <span class="number">0</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">0</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">0</span> <span class="number">3</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">2</span> <span class="number">3</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">0</span>-&gt;<span class="number">2</span>-&gt;<span class="number">3</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="解题思路：本题意思是从PBMC出发到目标位置的过程中，如果某点的自行车容量少于最大容量的一半，则补充到一半，若多于，则带走。若最短路径相同选择需要从PBMC带走自行车数少的，若仍然相同选择带回PBMC数量少的路径。本题一开始我以为只有目标点自行车数会少于完美情况其余都多余，所以我将所有点的自行车数加起来然后再判断是需要从PBMC拿出还是带回自行车。这种做法是错误的。每一点的情况都可能多于或少于最大值的一半，所以必须对每一点进行判断，将路径存储再temppath中记得一定要从最后一点进行处理-该位置才是起点-。本题Dijkstra函数用于存储所有最短路径，DFS函数选出题意中最优解，用need存储每一条最短路径中需要自行车数，用remain存储需要带回的自行车树。"><a href="#解题思路：本题意思是从PBMC出发到目标位置的过程中，如果某点的自行车容量少于最大容量的一半，则补充到一半，若多于，则带走。若最短路径相同选择需要从PBMC带走自行车数少的，若仍然相同选择带回PBMC数量少的路径。本题一开始我以为只有目标点自行车数会少于完美情况其余都多余，所以我将所有点的自行车数加起来然后再判断是需要从PBMC拿出还是带回自行车。这种做法是错误的。每一点的情况都可能多于或少于最大值的一半，所以必须对每一点进行判断，将路径存储再temppath中记得一定要从最后一点进行处理-该位置才是起点-。本题Dijkstra函数用于存储所有最短路径，DFS函数选出题意中最优解，用need存储每一条最短路径中需要自行车数，用remain存储需要带回的自行车树。" class="headerlink" title="解题思路：本题意思是从PBMC出发到目标位置的过程中，如果某点的自行车容量少于最大容量的一半，则补充到一半，若多于，则带走。若最短路径相同选择需要从PBMC带走自行车数少的，若仍然相同选择带回PBMC数量少的路径。本题一开始我以为只有目标点自行车数会少于完美情况其余都多余，所以我将所有点的自行车数加起来然后再判断是需要从PBMC拿出还是带回自行车。这种做法是错误的。每一点的情况都可能多于或少于最大值的一半，所以必须对每一点进行判断，将路径存储再temppath中记得一定要从最后一点进行处理(该位置才是起点)。本题Dijkstra函数用于存储所有最短路径，DFS函数选出题意中最优解，用need存储每一条最短路径中需要自行车数，用remain存储需要带回的自行车树。"></a><font color="DeepSkyBlue">解题思路：本题意思是从PBMC出发到目标位置的过程中，如果某点的自行车容量少于最大容量的一半，则补充到一半，若多于，则带走。若最短路径相同选择需要从PBMC带走自行车数少的，若仍然相同选择带回PBMC数量少的路径。本题一开始我以为只有目标点自行车数会少于完美情况其余都多余，所以我将所有点的自行车数加起来然后再判断是需要从PBMC拿出还是带回自行车。这种做法是错误的。每一点的情况都可能多于或少于最大值的一半，所以必须对每一点进行判断，将路径存储再temppath中记得一定要从最后一点进行处理(该位置才是起点)。本题Dijkstra函数用于存储所有最短路径，DFS函数选出题意中最优解，用need存储每一条最短路径中需要自行车数，用remain存储需要带回的自行车树。</font></h4><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">1000000000</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXV = <span class="number">1000</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> v;</span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;node&gt; Adj[MAXV];</span><br><span class="line"><span class="keyword">int</span> d[MAXV];</span><br><span class="line"><span class="keyword">int</span> weight[MAXV];</span><br><span class="line"><span class="keyword">int</span> vis[MAXV] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> C,N,S,M;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre[MAXV],temppath,path;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	fill(d,d+MAXV,INF);</span><br><span class="line">	d[s] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N + <span class="number">1</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> u = <span class="number">-1</span>,MIN = INF;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; N + <span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(vis[j] == <span class="number">0</span> &amp;&amp; d[j] &lt; MIN)&#123;</span><br><span class="line">				MIN = d[j];</span><br><span class="line">				u = j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(u == <span class="number">-1</span>) <span class="keyword">return</span>;</span><br><span class="line">		vis[u] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; Adj[u].size();j++)&#123;</span><br><span class="line">			node v = Adj[u][j];</span><br><span class="line">			<span class="keyword">if</span>(d[u] + v.data &lt; d[v.v])&#123;</span><br><span class="line">				d[v.v] = d[u] + v.data;</span><br><span class="line">				pre[v.v].clear();</span><br><span class="line">				pre[v.v].push_back(u);</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(d[u] + v.data == d[v.v])&#123;</span><br><span class="line">				pre[v.v].push_back(u);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> minneed = INF;</span><br><span class="line"><span class="keyword">int</span> minremain = INF;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(v == <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">int</span> need = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> remain = <span class="number">0</span>;</span><br><span class="line">		temppath.push_back(v);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = temppath.size() - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--)&#123;</span><br><span class="line">			<span class="keyword">int</span> id = temppath[i];</span><br><span class="line">			<span class="keyword">if</span>(weight[id] &gt; <span class="number">0</span>)&#123;</span><br><span class="line">				remain+=weight[id];</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">if</span>(remain &gt; -weight[id])&#123;</span><br><span class="line">					remain += weight[id];</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					need += -weight[id] - remain;</span><br><span class="line">					remain = <span class="number">0</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(need &lt; minneed)&#123;</span><br><span class="line">			minneed = need;</span><br><span class="line">			minremain = remain;</span><br><span class="line">			path = temppath;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(need == minneed &amp;&amp; remain &lt; minremain)&#123;</span><br><span class="line">			minremain = remain;</span><br><span class="line">			path = temppath;</span><br><span class="line">		&#125;</span><br><span class="line">		temppath.pop_back();</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	temppath.push_back(v);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; pre[v].size();i++)&#123;</span><br><span class="line">		DFS(pre[v][i]);</span><br><span class="line">	&#125;</span><br><span class="line">	temppath.pop_back();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>,&amp;C,&amp;N,&amp;S,&amp;M);</span><br><span class="line">	weight[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> tempweight;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;tempweight);</span><br><span class="line">		weight[i] = tempweight - C / <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; M;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> a,b,temp;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>,&amp;a,&amp;b,&amp;temp);</span><br><span class="line">		node Node;</span><br><span class="line">		Node.v = b;</span><br><span class="line">		Node.data = temp;</span><br><span class="line">		Adj[a].push_back(Node);</span><br><span class="line">		Node.v = a;</span><br><span class="line">		Node.data = temp;</span><br><span class="line">		Adj[b].push_back(Node);</span><br><span class="line">	&#125;</span><br><span class="line">	Dijkstra(<span class="number">0</span>);</span><br><span class="line">	DFS(S);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d "</span>,minneed);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = path.size() - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d"</span>,path[i]);</span><br><span class="line">		<span class="keyword">if</span>(i!=<span class="number">0</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"-&gt;"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" %d"</span>,minremain);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -192,191 +241,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lovingyounow.github.io/2020/03/06/PAT-%E7%94%B2%E7%BA%A7-1018-Public-Bike-Management/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/05/%E8%93%9D%E6%A1%A5%E6%9D%AF-2013-I%E9%A2%98-%E5%89%AA%E6%A0%BC%E5%AD%90/" class="archive-article-date">
-  	<time datetime="2020-03-05T03:31:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/05/%E8%93%9D%E6%A1%A5%E6%9D%AF-2013-I%E9%A2%98-%E5%89%AA%E6%A0%BC%E5%AD%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">蓝桥杯 2013 I题 剪格子</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/05/%E8%93%9D%E6%A1%A5%E6%9D%AF-2013-I%E9%A2%98-%E5%89%AA%E6%A0%BC%E5%AD%90/">蓝桥杯 2013 I题 剪格子</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DFS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/03/PAT-%E7%94%B2%E7%BA%A7-1030-Travel-Plan/" class="archive-article-date">
-  	<time datetime="2020-03-03T07:09:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/03/PAT-%E7%94%B2%E7%BA%A7-1030-Travel-Plan/">PAT 甲级 1030 Travel Plan</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/02/PAT-%E7%94%B2%E7%BA%A7-1003-Emergency/" class="archive-article-date">
-  	<time datetime="2020-03-02T12:42:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/02/PAT-%E7%94%B2%E7%BA%A7-1003-Emergency/">PAT 甲级 1003 Emergency</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/01/PAT-%E7%94%B2%E7%BA%A7-1021-Deepest-Root/" class="archive-article-date">
-  	<time datetime="2020-03-01T07:14:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/01/PAT-%E7%94%B2%E7%BA%A7-1021-Deepest-Root/">PAT 甲级 1021 Deepest Root</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -410,8 +374,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

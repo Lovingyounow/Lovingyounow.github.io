@@ -148,6 +148,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-STL容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/14/STL%E5%AE%B9%E5%99%A8/">STL容器</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/02/14/STL%E5%AE%B9%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2020-02-14T03:58:49.958Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="STL总结"><a href="#STL总结" class="headerlink" title="STL总结"></a>STL总结</h1><h3 id="1-vector"><a href="#1-vector" class="headerlink" title="1. vector()"></a>1. vector()</h3><p>头文件：include&lt;vector&gt;</p>
+<h4 id="定义：动态数组"><a href="#定义：动态数组" class="headerlink" title="定义：动态数组"></a>定义：动态数组</h4><ul>
+<li>vector &lt;int&gt; name;</li>
+<li>vector &lt;int&gt; name[10];类似二维数组，一个维度长度固定</li>
+<li>vector &lt;vector&lt; int&gt; &gt; name;两个维度的长度都不固定</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">知识点总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/14/STL%E5%AE%B9%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-PAT-乙级1045-快速排序-甲级1101-Quick-Sort-25分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -881,90 +965,9 @@
 
 
   
-    <article id="post-PAT乙级 1005 继续(3n+1)猜想" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/25/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/">PAT乙级 1005 继续(3n+1)猜想</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/01/25/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/" class="archive-article-date">
-  	<time datetime="2020-01-25T06:24:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>卡拉兹(Callatz)猜想已经在1001中给出了描述。在这个题目里，情况稍微有些复杂。</p>
-<p>当我们验证卡拉兹猜想的时候，为了避免重复计算，可以记录下递推过程中遇到的每一个数。例如对 n=3 进行验证的时候，我们需要计算 3、5、8、4、2、1，则当我们对 n=5、8、4、2 进行验证的时候，就可以直接判定卡拉兹猜想的真伪，而不需要重复计算，因为这 4 个数已经在验证3的时候遇到过了，我们称 5、8、4、2 是被 3“覆盖”的数。我们称一个数列中的某个数 n 为“关键数”，如果 n 不能被数列中的其他数字所覆盖。</p>
-<p>现在给定一系列待验证的数字，我们只需要验证其中的几个关键数，就可以不必再重复验证余下的数字。你的任务就是找出这些关键数字，并按从大到小的顺序输出它们。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/25/PAT%E4%B9%99%E7%BA%A7%201005%20%E7%BB%A7%E7%BB%AD(3n+1)%E7%8C%9C%E6%83%B3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
     </nav>
   
 

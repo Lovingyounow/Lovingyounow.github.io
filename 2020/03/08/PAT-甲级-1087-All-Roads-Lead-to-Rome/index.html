@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Lovingyounow.github.io">
-  <title>Archives: 2020 | Codingboy的博客</title>
+  <title>PAT 甲级 1087 All Roads Lead to Rome | Codingboy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Codingboy的博客">
-<meta property="og:url" content="https://lovingyounow.github.io/archives/2020/page/4/index.html">
+  <meta name="description" content="Indeed there are many different tourist routes from our city to Rome. You are supposed to find your clients the route with the least cost while gaining the most happiness. Input Specification:Each inp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT 甲级 1087 All Roads Lead to Rome">
+<meta property="og:url" content="https://lovingyounow.github.io/2020/03/08/PAT-%E7%94%B2%E7%BA%A7-1087-All-Roads-Lead-to-Rome/index.html">
 <meta property="og:site_name" content="Codingboy的博客">
+<meta property="og:description" content="Indeed there are many different tourist routes from our city to Rome. You are supposed to find your clients the route with the least cost while gaining the most happiness. Input Specification:Each inp">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-08T05:08:14.000Z">
+<meta property="article:modified_time" content="2020-03-08T05:18:28.656Z">
 <meta property="article:author" content="Codingboy">
+<meta property="article:tag" content="PAT">
+<meta property="article:tag" content="图">
+<meta property="article:tag" content="Dijkstra">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Codingboy的博客" type="application/atom+xml">
@@ -146,84 +153,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-PAT-甲级-1087-All-Roads-Lead-to-Rome" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PAT 甲级 1087 All Roads Lead to Rome
+    </h1>
+  
+
+        
+        
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+<a href="/2020/03/08/PAT-%E7%94%B2%E7%BA%A7-1087-All-Roads-Lead-to-Rome/" class="archive-article-date">
+  	<time datetime="2020-03-08T05:08:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-08</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Indeed there are many different tourist routes from our city to Rome. You are supposed to find your clients the route with the least cost while gaining the most happiness.</p>
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains 2 positive integers N (2≤N≤200), the number of cities, and K, the total number of routes between pairs of cities; followed by the name of the starting city. The next N−1 lines each gives the name of a city and an integer that represents the happiness one can gain from that city, except the starting city. Then K lines follow, each describes a route between two cities in the format City1 City2 Cost. Here the name of a city is a string of 3 capital English letters, and the destination is always ROM which represents Rome.</p>
+<a id="more"></a>
+<h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, we are supposed to find the route with the least cost. If such a route is not unique, the one with the maximum happiness will be recommanded. If such a route is still not unique, then we output the one with the maximum average happiness – it is guaranteed by the judge that such a solution exists and is unique.</p>
+<p>Hence in the first line of output, you must print 4 numbers: the number of different routes with the least cost, the cost, the happiness, and the average happiness (take the integer part only) of the recommanded route. Then in the next line, you are supposed to print the route in the format City1-&gt;City2-&gt;…-&gt;ROM.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span> <span class="number">7</span> HZH</span><br><span class="line">ROM <span class="number">100</span></span><br><span class="line">PKN <span class="number">40</span></span><br><span class="line">GDN <span class="number">55</span></span><br><span class="line">PRS <span class="number">95</span></span><br><span class="line">BLN <span class="number">80</span></span><br><span class="line">ROM GDN <span class="number">1</span></span><br><span class="line">BLN ROM <span class="number">1</span></span><br><span class="line">HZH PKN <span class="number">1</span></span><br><span class="line">PRS ROM <span class="number">2</span></span><br><span class="line">BLN HZH <span class="number">2</span></span><br><span class="line">PKN GDN <span class="number">1</span></span><br><span class="line">HZH PRS <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">3</span> <span class="number">195</span> <span class="number">97</span></span><br><span class="line">HZH-&gt;PRS-&gt;ROM</span><br></pre></td></tr></table></figure>
+<h4 id="解题思路：本题给出几个城市以及他们之间的距离，要求找出路径最短的路线，若不唯一，选取路线中每个城市幸福值和最大的那条路线，若任然不唯一，选取平均幸福值最大的路线。本题比较因素较多适合现用Dijkstra将所有的最短路径选出，用DFS遍历所有最短路径是比较各个因素，用map存储每个城市对于的编号，直接将城市按照1-N进行编号也行。"><a href="#解题思路：本题给出几个城市以及他们之间的距离，要求找出路径最短的路线，若不唯一，选取路线中每个城市幸福值和最大的那条路线，若任然不唯一，选取平均幸福值最大的路线。本题比较因素较多适合现用Dijkstra将所有的最短路径选出，用DFS遍历所有最短路径是比较各个因素，用map存储每个城市对于的编号，直接将城市按照1-N进行编号也行。" class="headerlink" title="解题思路：本题给出几个城市以及他们之间的距离，要求找出路径最短的路线，若不唯一，选取路线中每个城市幸福值和最大的那条路线，若任然不唯一，选取平均幸福值最大的路线。本题比较因素较多适合现用Dijkstra将所有的最短路径选出，用DFS遍历所有最短路径是比较各个因素，用map存储每个城市对于的编号，直接将城市按照1-N进行编号也行。"></a><font color="DeepSkyBlue">解题思路：本题给出几个城市以及他们之间的距离，要求找出路径最短的路线，若不唯一，选取路线中每个城市幸福值和最大的那条路线，若任然不唯一，选取平均幸福值最大的路线。本题比较因素较多适合现用Dijkstra将所有的最短路径选出，用DFS遍历所有最短路径是比较各个因素，用map存储每个城市对于的编号，直接将城市按照1-N进行编号也行。</font></h4><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">100000000</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXV = <span class="number">30000</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> dis;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> N, K, S;</span><br><span class="line"><span class="built_in">string</span> start, END;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">change</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ans = (s[<span class="number">0</span>] - <span class="string">'A'</span>) * <span class="number">26</span> * <span class="number">26</span> + (s[<span class="number">1</span>] - <span class="string">'A'</span>) * <span class="number">26</span> + (s[<span class="number">2</span>] - <span class="string">'A'</span>);</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> happiness[<span class="number">30000</span>];</span><br><span class="line"><span class="keyword">int</span> vis[MAXV] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"><span class="keyword">int</span> d[MAXV];</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; s_int;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt; int_s;</span><br><span class="line"><span class="built_in">vector</span>&lt;node&gt; Adj[MAXV];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre[MAXV];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">	fill(d, d + MAXV, INF);</span><br><span class="line">	d[s] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> u = <span class="number">-1</span>, MIN = INF;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">30000</span>; j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (vis[j] == <span class="number">0</span> &amp;&amp; d[j] &lt; MIN) &#123;</span><br><span class="line">				MIN = d[j];</span><br><span class="line">				u = j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (u == <span class="number">-1</span>)	<span class="keyword">return</span>;</span><br><span class="line">		vis[u] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Adj[u].size(); j++) &#123;</span><br><span class="line">			node v = Adj[u][j];</span><br><span class="line">			<span class="keyword">if</span> (d[u] + v.dis &lt; d[v.n]) &#123;</span><br><span class="line">				d[v.n] = d[u] + v.dis;</span><br><span class="line">				pre[v.n].clear();</span><br><span class="line">				pre[v.n].push_back(u);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (d[u] + v.dis == d[v.n]) &#123;</span><br><span class="line">				pre[v.n].push_back(u);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temppath, path;</span><br><span class="line"><span class="keyword">int</span> maxhappiness = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> sumroad = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> avghappiness = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> tempsum = <span class="number">0</span>, tempavg = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span> (s == v) &#123;</span><br><span class="line">		sumroad++;</span><br><span class="line">		temppath.push_back(v);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; temppath.size(); i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> pos = temppath[i];</span><br><span class="line">			tempsum += happiness[pos];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (tempsum &gt; maxhappiness) &#123;</span><br><span class="line">			maxhappiness = tempsum;</span><br><span class="line">			path = temppath;</span><br><span class="line">			avghappiness = tempsum / (temppath.size() - <span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (tempsum == maxhappiness) &#123;</span><br><span class="line">			tempavg = tempsum / (temppath.size() - <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">if</span> (tempavg &gt; avghappiness) &#123;</span><br><span class="line">				avghappiness = tempavg;</span><br><span class="line">				path = temppath;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		temppath.pop_back();</span><br><span class="line">	&#125;</span><br><span class="line">	temppath.push_back(v);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pre[v].size(); i++) &#123;</span><br><span class="line">		DFS(s, pre[v][i]);</span><br><span class="line">	&#125;</span><br><span class="line">	temppath.pop_back();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; N &gt;&gt; K &gt;&gt; start;</span><br><span class="line">	<span class="keyword">int</span> S = change(start);</span><br><span class="line">	<span class="keyword">int</span> E = change(<span class="string">"ROM"</span>);</span><br><span class="line">	int_s[E] = <span class="string">"ROM"</span>;</span><br><span class="line">	int_s[S] = start;</span><br><span class="line">	happiness[S] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N - <span class="number">1</span>; i++) &#123;</span><br><span class="line">		<span class="built_in">string</span> temp;</span><br><span class="line">		<span class="keyword">int</span> hap;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; temp &gt;&gt; hap;</span><br><span class="line">		<span class="keyword">int</span> pos = change(temp);</span><br><span class="line">		happiness[pos] = hap;</span><br><span class="line">		int_s[pos] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; K; i++) &#123;</span><br><span class="line">		<span class="built_in">string</span> A, B;</span><br><span class="line">		<span class="keyword">int</span> length;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; A &gt;&gt; B &gt;&gt; length;</span><br><span class="line">		<span class="keyword">int</span> a = change(A);</span><br><span class="line">		<span class="keyword">int</span> b = change(B);</span><br><span class="line">		node Node;</span><br><span class="line">		Node.n = b;</span><br><span class="line">		Node.dis = length;</span><br><span class="line">		Adj[a].push_back(Node);</span><br><span class="line">		Node.n = a;</span><br><span class="line">		Node.dis = length;</span><br><span class="line">		Adj[b].push_back(Node);</span><br><span class="line">	&#125;</span><br><span class="line">	Dijkstra(S);</span><br><span class="line">	DFS(S,E);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d %d %d\n"</span>, sumroad, d[E], maxhappiness, avghappiness);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = path.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">		<span class="keyword">int</span> v = path[i];</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; int_s[v];</span><br><span class="line">		<span class="keyword">if</span> (i != <span class="number">0</span>)</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; <span class="string">"-&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/17/%E7%AE%80%E6%98%93%E8%AE%A1%E7%AE%97%E5%99%A8%EF%BC%88%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-02-17T09:23:06.425Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/17/%E7%AE%80%E6%98%93%E8%AE%A1%E7%AE%97%E5%99%A8%EF%BC%88%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%89/">简易计算器（栈与队列的使用）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">队列</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/16/PAT%20%E7%94%B2%E7%BA%A7%201051%20Pop%20Sequence/" class="archive-article-date">
-  	<time datetime="2020-02-16T13:19:50.819Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/16/PAT%20%E7%94%B2%E7%BA%A7%201051%20Pop%20Sequence/">PAT 甲级 1051 Pop Sequence</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -233,368 +226,115 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/14/STL%E5%AE%B9%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-02-14T03:58:49.958Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/14/STL%E5%AE%B9%E5%99%A8/">STL容器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">知识点总结</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Dijkstra</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lovingyounow.github.io/2020/03/08/PAT-%E7%94%B2%E7%BA%A7-1087-All-Roads-Lead-to-Rome/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/11/PAT-%E4%B9%99%E7%BA%A71045-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F-%E7%94%B2%E7%BA%A71101-Quick-Sort-25%E5%88%86/" class="archive-article-date">
-  	<time datetime="2020-02-11T05:12:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/07/PAT-%E7%94%B2%E7%BA%A7-1072-Gas-Station/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PAT 甲级 1072 Gas Station</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/11/PAT-%E4%B9%99%E7%BA%A71045-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F-%E7%94%B2%E7%BA%A71101-Quick-Sort-25%E5%88%86/">PAT 乙级1045 快速排序/甲级1101 Quick Sort (25分)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/10/PAT-%E7%94%B2%E7%BA%A71089-Insert-or-Merge-25%E5%88%86/" class="archive-article-date">
-  	<time datetime="2020-02-10T07:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/10/PAT-%E7%94%B2%E7%BA%A71089-Insert-or-Merge-25%E5%88%86/">PAT 甲级1089 Insert or Merge (25分)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/07/PAT%E7%94%B2%E7%BA%A71033%20To%20Fill%20or%20Not%20to%20Fill%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-02-07T04:12:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/07/PAT%E7%94%B2%E7%BA%A71033%20To%20Fill%20or%20Not%20to%20Fill%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/">PAT甲级1033 To Fill or Not to Fill 贪心算法的使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/06/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/" class="archive-article-date">
-  	<time datetime="2020-02-06T09:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/PAT%20%E7%94%B2%E7%BA%A7%201038%20Recover%20the%20Smallest%20Number/">Recover the Smallest Number</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/05/PAT%20%E4%B9%99%E7%BA%A7%201030%20%E5%AE%8C%E7%BE%8E%E6%95%B0%E5%88%97(%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%20%E5%8F%8A%20upper_bound%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8)/" class="archive-article-date">
-  	<time datetime="2020-02-05T07:44:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/05/PAT%20%E4%B9%99%E7%BA%A7%201030%20%E5%AE%8C%E7%BE%8E%E6%95%B0%E5%88%97(%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%20%E5%8F%8A%20upper_bound%EF%BC%88%EF%BC%89%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8)/">PAT 乙级 1030 完美数列(二分查找 及 upper_bound（）函数的使用)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/04/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/" class="archive-article-date">
-  	<time datetime="2020-02-04T09:44:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/04/PAT%20%E7%94%B2%E7%BA%A7%201075%20PAT%20Judge(%E7%AC%AC5%E4%B8%AA%E6%B5%8B%E8%AF%95%E7%82%B9%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)/">PAT 甲级 1075 PAT Judge(第5个测试点解决方法)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/02/02/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/" class="archive-article-date">
-  	<time datetime="2020-02-02T01:23:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/02/PAT%20%E4%B9%99%E7%BA%A7%201048%20%E6%95%B0%E5%AD%97%E5%8A%A0%E5%AF%86%20/">PAT 乙级 1048 数字加密 </a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><a class="page-number" href="/archives/2020/page/2/">2</a><a class="page-number" href="/archives/2020/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/2020/page/5/">5</a><a class="extend next" rel="next" href="/archives/2020/page/5/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -629,8 +369,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

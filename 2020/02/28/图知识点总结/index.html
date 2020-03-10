@@ -16,7 +16,7 @@
 <meta property="og:description" content="图的存储 邻接矩阵(一般用于顶点数不超过1000)二维数组实现对无向图来说邻接矩阵是一个对称矩阵 邻接表vector数组实现把每个顶点的所有出边放在一个列表中  图的遍历 DFS连通分量:无向图中两个顶点之间可以互相到达，则这两个顶点连通。如果任意两个顶点都连通，则是连通图。否则为非连通图，称图中的极大连通子图为连通分量强连通分量：有向图中两个顶点各自有一条路径到达另一个顶点，称这两个顶点强连通。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-28T03:41:15.000Z">
-<meta property="article:modified_time" content="2020-03-05T12:56:51.410Z">
+<meta property="article:modified_time" content="2020-03-08T06:20:08.973Z">
 <meta property="article:author" content="Codingboy">
 <meta property="article:tag" content="知识点总结">
 <meta property="article:tag" content="图">
@@ -212,31 +212,12 @@
 <h5 id="Bellman-Ford算法-BF算法"><a href="#Bellman-Ford算法-BF算法" class="headerlink" title="Bellman-Ford算法(BF算法)"></a>Bellman-Ford算法(BF算法)</h5><p>解决有负权边的图</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> v,dis;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;Node&gt; Adj[MAXV];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> d[MAXV];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Bellman</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	fill(d,d + MAXV,INF);</span><br><span class="line">	d[s] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n <span class="number">-1</span>;i++)&#123; <span class="comment">//n为顶点数,n-1轮操作</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; n;u++) &#123;	<span class="comment">//每轮遍历所有边 </span></span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; Adj[u].size();j++)&#123;</span><br><span class="line">				<span class="keyword">int</span> v = Adj[u][j].v;</span><br><span class="line">				<span class="keyword">int</span> dis = Adj[u][j].dis;</span><br><span class="line">				<span class="keyword">if</span>(d[u] + dis &lt; d[v])&#123;</span><br><span class="line">					d[v] = d[u] + dis;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> u = <span class="number">0</span>;u &lt; n;u++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; Adj[u].size();j++)&#123;</span><br><span class="line">			<span class="keyword">int</span> v = Adj[u][j].v;</span><br><span class="line">			<span class="keyword">int</span> dis = Adj[u][j].dis;</span><br><span class="line">			<span class="keyword">if</span>(d[u] + dis &lt; d[v])&#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h4 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h4><ul>
+<li>prim(普林姆算法)<br>每次找到与集合s最短的路径，与Dijkstra算法类似。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n G[MAXV][MAXV]; <span class="comment">//n为顶点数 </span></span><br><span class="line"><span class="keyword">int</span> d[MAXV];<span class="comment">//起点到各个点的最短路径</span></span><br><span class="line"><span class="keyword">bool</span> vis[MAXV]  = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">prim</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123; <span class="comment">//s为起点 </span></span><br><span class="line">	fill(d,d+MAXV,INF);</span><br><span class="line">	d[s] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>;<span class="comment">//存放最小生成树边权</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> u = <span class="number">-1</span>,MIN = INF;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(vis[j] == <span class="literal">false</span> &amp;&amp; d[j] &lt; MIN)&#123;</span><br><span class="line">				u = j;</span><br><span class="line">				MIN = d[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//找不到小于INF的d[u]，说明剩下的顶点和起点不连通</span></span><br><span class="line">		<span class="keyword">if</span>(u == <span class="number">-1</span>) 	<span class="keyword">return</span>;</span><br><span class="line">		vis[u] = <span class="literal">true</span>;</span><br><span class="line">		ans += d[u];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; n;v++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(vis[v] == <span class="literal">false</span> &amp;&amp; G[u][v] != INF &amp;&amp; G[u][v] &lt; d[v])&#123;</span><br><span class="line">				d[v] = G[u][v];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="邻接表-2"><a href="#邻接表-2" class="headerlink" title="邻接表"></a>邻接表</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> v,dis;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="built_in">vector</span>&lt;Node&gt; Adj[MAXV];</span><br><span class="line"><span class="keyword">int</span> n;<span class="comment">//n为顶点数</span></span><br><span class="line"><span class="keyword">int</span> d[MAXV];</span><br><span class="line"><span class="keyword">bool</span> vis[MAXV] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">prim</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;</span><br><span class="line">	fill(d,d+MAXV,INF);</span><br><span class="line">	d[s] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> u = <span class="number">-1</span>,MIN = INF;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(vis[j] == <span class="literal">false</span> &amp;&amp; d[j] &lt; MIN)&#123;</span><br><span class="line">				u = j;</span><br><span class="line">				MIN = d[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(u == <span class="number">-1</span>)	<span class="keyword">return</span>;</span><br><span class="line">		vis[u] = <span class="literal">true</span>;</span><br><span class="line">		ans += d[u]</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; Adj[u].size();j++)&#123;</span><br><span class="line">			<span class="keyword">int</span> v = Adj[u][j].v;</span><br><span class="line">			<span class="keyword">if</span>(vis[v] == <span class="literal">false</span> &amp;&amp; Adj[u][j].dis &lt; d[v])&#123;</span><br><span class="line">				d[v] = Adj[u][j].dis;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+prim算法适合稠密图（边多），kruskal适合稀疏图（边少）</li>
+<li>kruskal</li>
+</ul>
 
       
 
@@ -520,11 +501,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">树</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">图</a>
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Dijkstra</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,10 +534,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">蓝桥杯</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Dijkstra</a>
               </li>
             
             <div class="clearfix"></div>

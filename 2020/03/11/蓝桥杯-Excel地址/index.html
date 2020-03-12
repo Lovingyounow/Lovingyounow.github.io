@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Lovingyounow.github.io">
-  <title>Tag: Dijkstra | Codingboy的博客</title>
+  <title>蓝桥杯 Excel地址 | Codingboy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Codingboy的博客">
-<meta property="og:url" content="https://lovingyounow.github.io/tags/Dijkstra/index.html">
+  <meta name="description" content="问题描述　　Excel单元格的地址表示很有趣，它使用字母来表示列号。　　比如，　　A表示第1列，　　B表示第2列，　　Z表示第26列，　　AA表示第27列，　　AB表示第28列，　　BA表示第53列，　　…. 　　当然Excel的最大列号是有限度的，所以转换起来不难。　　如果我们想把这种表示法一般化，可以把很大的数字转换为很长的字母序列呢？ 　　本题目即是要求对输入的数字, 输出其对应的Excel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯 Excel地址">
+<meta property="og:url" content="https://lovingyounow.github.io/2020/03/11/%E8%93%9D%E6%A1%A5%E6%9D%AF-Excel%E5%9C%B0%E5%9D%80/index.html">
 <meta property="og:site_name" content="Codingboy的博客">
+<meta property="og:description" content="问题描述　　Excel单元格的地址表示很有趣，它使用字母来表示列号。　　比如，　　A表示第1列，　　B表示第2列，　　Z表示第26列，　　AA表示第27列，　　AB表示第28列，　　BA表示第53列，　　…. 　　当然Excel的最大列号是有限度的，所以转换起来不难。　　如果我们想把这种表示法一般化，可以把很大的数字转换为很长的字母序列呢？ 　　本题目即是要求对输入的数字, 输出其对应的Excel">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-11T07:40:30.000Z">
+<meta property="article:modified_time" content="2020-03-11T07:44:35.056Z">
 <meta property="article:author" content="Codingboy">
+<meta property="article:tag" content="蓝桥杯">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Codingboy的博客" type="application/atom+xml">
@@ -146,116 +151,191 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-蓝桥杯-Excel地址" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/08/PAT-%E7%94%B2%E7%BA%A7-1087-All-Roads-Lead-to-Rome/" class="archive-article-date">
-  	<time datetime="2020-03-08T05:08:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/08/PAT-%E7%94%B2%E7%BA%A7-1087-All-Roads-Lead-to-Rome/">PAT 甲级 1087 All Roads Lead to Rome</a>
+    <h1 class="article-title" itemprop="name">
+      蓝桥杯 Excel地址
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+<a href="/2020/03/11/%E8%93%9D%E6%A1%A5%E6%9D%AF-Excel%E5%9C%B0%E5%9D%80/" class="archive-article-date">
+  	<time datetime="2020-03-11T07:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　Excel单元格的地址表示很有趣，它使用字母来表示列号。<br>　　比如，<br>　　A表示第1列，<br>　　B表示第2列，<br>　　Z表示第26列，<br>　　AA表示第27列，<br>　　AB表示第28列，<br>　　BA表示第53列，<br>　　….</p>
+<p>　　当然Excel的最大列号是有限度的，所以转换起来不难。<br>　　如果我们想把这种表示法一般化，可以把很大的数字转换为很长的字母序列呢？</p>
+<p>　　本题目即是要求对输入的数字, 输出其对应的Excel地址表示方式。</p>
+<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">26</span></span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Z</span><br></pre></td></tr></table></figure>
+<h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2054</span></span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BZZ</span><br></pre></td></tr></table></figure>
+<p>数据规模和约定<br>　　我们约定，输入的整数范围[1,2147483647]</p>
+<p>　　峰值内存消耗（含虚拟机） &lt; 256M<br>　　CPU消耗 &lt; 1000ms</p>
+<p>　　请严格按要求输出，不要画蛇添足地打印类似：“请您输入…” 的多余内容。<br><font color="#6495ed" size="5">解题思路：本题和进制转换很像,即将十进制转换为26进制，但是唯一一点不同是这里没有0，所以将数字取模后若结果为0则当做’Z’,即在’A’的基础上加上25。</font></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	ll a;</span><br><span class="line">	<span class="keyword">int</span> b[<span class="number">1000</span>];</span><br><span class="line">	<span class="keyword">int</span> start = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">	<span class="keyword">while</span>(a)&#123;</span><br><span class="line">		ll mod = a % <span class="number">26</span>;</span><br><span class="line">		<span class="keyword">if</span>(mod == <span class="number">0</span>)&#123;</span><br><span class="line">			b[start++] = <span class="number">25</span>;</span><br><span class="line">			a = a / <span class="number">26</span> - <span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			a = a / <span class="number">26</span>;</span><br><span class="line">			b[start++] = mod - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = start - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--) </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%c"</span>,<span class="string">'A'</span> + b[i]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Dijkstra</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lovingyounow.github.io/2020/03/11/%E8%93%9D%E6%A1%A5%E6%9D%AF-Excel%E5%9C%B0%E5%9D%80/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/07/PAT-%E7%94%B2%E7%BA%A7-1072-Gas-Station/" class="archive-article-date">
-  	<time datetime="2020-03-07T12:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-K%E5%80%8D%E5%8C%BA%E9%97%B4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          蓝桥杯 K倍区间
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/03/10/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E8%B7%B3%E9%A9%AC%E8%BD%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">蓝桥杯 跳马车</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/07/PAT-%E7%94%B2%E7%BA%A7-1072-Gas-Station/">PAT 甲级 1072 Gas Station</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Dijkstra</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -289,9 +369,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

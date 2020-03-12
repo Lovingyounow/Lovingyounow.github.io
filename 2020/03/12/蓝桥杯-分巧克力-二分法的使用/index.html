@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Lovingyounow.github.io">
-  <title>Tag: Dijkstra | Codingboy的博客</title>
+  <title>蓝桥杯 分巧克力(二分法的使用) | Codingboy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Codingboy的博客">
-<meta property="og:url" content="https://lovingyounow.github.io/tags/Dijkstra/index.html">
+  <meta name="description" content="先介绍二分法的模板例题:洛谷P1577 题目描述有N条绳子，它们的长度分别为Li。如果从它们中切割出K条长度相同的 绳子，这K条绳子每条最长能有多长？答案保留到小数点后2位(直接舍掉2为后的小数)。 输入格式第一行两个整数N和K，接下来N行，描述了每条绳子的长度Li。 输出格式切割后每条绳子的最大长度。说明&#x2F;提示对于100%的数据 0&lt;Li&lt;&#x3D;100000.00 0&lt;n&lt;&#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯 分巧克力(二分法的使用)">
+<meta property="og:url" content="https://lovingyounow.github.io/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E5%88%86%E5%B7%A7%E5%85%8B%E5%8A%9B-%E4%BA%8C%E5%88%86%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Codingboy的博客">
+<meta property="og:description" content="先介绍二分法的模板例题:洛谷P1577 题目描述有N条绳子，它们的长度分别为Li。如果从它们中切割出K条长度相同的 绳子，这K条绳子每条最长能有多长？答案保留到小数点后2位(直接舍掉2为后的小数)。 输入格式第一行两个整数N和K，接下来N行，描述了每条绳子的长度Li。 输出格式切割后每条绳子的最大长度。说明&#x2F;提示对于100%的数据 0&lt;Li&lt;&#x3D;100000.00 0&lt;n&lt;&#x3D;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-12T11:28:23.000Z">
+<meta property="article:modified_time" content="2020-03-12T12:05:26.729Z">
 <meta property="article:author" content="Codingboy">
 <meta name="twitter:card" content="summary">
   
@@ -146,116 +150,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-蓝桥杯-分巧克力-二分法的使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/08/PAT-%E7%94%B2%E7%BA%A7-1087-All-Roads-Lead-to-Rome/" class="archive-article-date">
-  	<time datetime="2020-03-08T05:08:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/08/PAT-%E7%94%B2%E7%BA%A7-1087-All-Roads-Lead-to-Rome/">PAT 甲级 1087 All Roads Lead to Rome</a>
+    <h1 class="article-title" itemprop="name">
+      蓝桥杯 分巧克力(二分法的使用)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Dijkstra</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+	<!-- 不蒜子统计 -->
+	<span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/03/07/PAT-%E7%94%B2%E7%BA%A7-1072-Gas-Station/" class="archive-article-date">
-  	<time datetime="2020-03-07T12:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
+<a href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E5%88%86%E5%B7%A7%E5%85%8B%E5%8A%9B-%E4%BA%8C%E5%88%86%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-03-12T11:28:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
 </a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先介绍二分法的模板例题:洛谷P1577</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有N条绳子，它们的长度分别为Li。如果从它们中切割出K条长度相同的</p>
+<p>绳子，这K条绳子每条最长能有多长？答案保留到小数点后2位(直接舍掉2为后的小数)。</p>
+<p>输入格式<br>第一行两个整数N和K，接下来N行，描述了每条绳子的长度Li。</p>
+<p>输出格式<br>切割后每条绳子的最大长度。<br>说明/提示<br>对于100%的数据 0&lt;Li&lt;=100000.00 0&lt;n&lt;=10000 0&lt;k&lt;=10000</p>
+<a id="more"></a>
+<h3 id="输入："><a href="#输入：" class="headerlink" title="输入："></a>输入：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> <span class="number">11</span></span><br><span class="line"><span class="number">8.02</span></span><br><span class="line"><span class="number">7.43</span></span><br><span class="line"><span class="number">4.57</span></span><br><span class="line"><span class="number">5.39</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.00</span></span><br></pre></td></tr></table></figure>
+<p><font color="#6495ed" size="5">二分法介绍：通过不断选择左右边界来获取最大值,通过指定循环次数可以有效避免浮点小数精度问题导致的死循环。100次循环可以将精度达到10^-30^。</font></p>
+<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> <span class="keyword">const</span> INF = <span class="number">100000000</span>;</span><br><span class="line"><span class="keyword">int</span> N,K;</span><br><span class="line"><span class="keyword">double</span> a[<span class="number">10010</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judge</span><span class="params">(<span class="keyword">double</span> mid)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)&#123;</span><br><span class="line">		sum += <span class="built_in">floor</span>(a[i] / mid);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum &gt;= K;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;N,&amp;K);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lf"</span>,&amp;a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">double</span> lb = <span class="number">0</span>,rb = INF,mid;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">100</span>;i++)&#123;</span><br><span class="line">		mid = (lb + rb) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(judge(mid))</span><br><span class="line">			lb = mid;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			rb = mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%.2f"</span>,<span class="built_in">floor</span>(mid*<span class="number">100</span>) / <span class="number">100.0</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　儿童节那天有K位小朋友到小明家做客。小明拿出了珍藏的巧克力招待小朋友们。<br>　　小明一共有N块巧克力，其中第i块是Hi x Wi的方格组成的长方形。</p>
+<p>　　为了公平起见，小明需要从这 N 块巧克力中切出K块巧克力分给小朋友们。切出的巧克力需要满足：</p>
+<p>　　1. 形状是正方形，边长是整数<br>　　2. 大小相同</p>
+<p>　　例如一块6x5的巧克力可以切出6块2x2的巧克力或者2块3x3的巧克力。</p>
+<p>　　当然小朋友们都希望得到的巧克力尽可能大，你能帮小Hi计算出最大的边长是多少么？<br>输入格式<br>　　第一行包含两个整数N和K。(1 &lt;= N, K &lt;= 100000)<br>　　以下N行每行包含两个整数Hi和Wi。(1 &lt;= Hi, Wi &lt;= 100000)<br>　　输入保证每位小朋友至少能获得一块1x1的巧克力。<br>输出格式<br>　　输出切出的正方形巧克力最大可能的边长。</p>
+<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> <span class="number">10</span></span><br><span class="line"><span class="number">6</span> <span class="number">5</span></span><br><span class="line"><span class="number">5</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>数据规模和约定<br>　　峰值内存消耗（含虚拟机） &lt; 256M<br>　　CPU消耗 &lt; 1000ms</p>
+<p>　　请严格按要求输出，不要画蛇添足地打印类似：“请您输入…” 的多余内容。</p>
+<p>　　注意：<br>　　main函数需要返回0;<br>　　只使用ANSI C/ANSI C++ 标准;<br>　　不要调用依赖于编译环境或操作系统的特殊函数。<br>　　所有依赖的函数必须明确地在源文件中 #include <xxx><br>　　不能通过工程设置而省略常用头文件。</xxx></p>
+<p>　　提交程序时，注意选择所期望的语言类型和编译器类型。<br><font color="#6495ed" size="5">解题思路:本题是对二分法的使用,逼近最大值，要注意的是本题巧克力边长的选择只能是整数。</font></p>
+<h4 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">100010</span>][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">int</span> N,K;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">100000000</span>;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">judge</span><span class="params">(<span class="keyword">double</span> mid)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)&#123;</span><br><span class="line">		sum += <span class="built_in">floor</span>(a[i][<span class="number">0</span>] / mid) * <span class="built_in">floor</span>(a[i][<span class="number">1</span>] / mid);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum &gt;= K;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;N,&amp;K);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a[i][<span class="number">0</span>],&amp;a[i][<span class="number">1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">double</span> lb = <span class="number">0</span>,rb = INF;</span><br><span class="line">	<span class="keyword">double</span> mid;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">100</span>;i++)&#123;</span><br><span class="line">		mid = (lb + rb) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(judge(mid))</span><br><span class="line">			lb = mid;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			rb = mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,<span class="keyword">int</span>(mid));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/07/PAT-%E7%94%B2%E7%BA%A7-1072-Gas-Station/">PAT 甲级 1072 Gas Station</a>
-    </h1>
-  
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PAT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">图</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Dijkstra</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://lovingyounow.github.io/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E5%88%86%E5%B7%A7%E5%85%8B%E5%8A%9B-%E4%BA%8C%E5%88%86%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-K%E5%80%8D%E5%8C%BA%E9%97%B4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">蓝桥杯 K倍区间</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -289,9 +360,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

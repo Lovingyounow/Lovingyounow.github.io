@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://Lovingyounow.github.io">
   <title>链表 | Codingboy的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="链表 链表节点一般由两部分构成，数据域，指针域。1234struct node&amp;#123;    typename data;    node* next;&amp;#125; 使用malloc或new为链表节点分配内存空间   malloc函数在stdlib.h头文件中，返回类型是申请的同变量类型的指针。 1234typename* p &#x3D; (typename*)malloc(sizeof(typena">
+  <meta name="description" content="链表 链表节点一般由两部分构成，数据域，指针域。1234struct node&amp;#123;    typename data;    node* next;&amp;#125; 使用malloc或new为链表节点分配内存空间   malloc函数在stdlib.h头文件中，返回类型是申请的同变量类型的指针。 123typename* p &#x3D; (typename*)malloc(sizeof(typenam">
 <meta property="og:type" content="article">
 <meta property="og:title" content="链表">
 <meta property="og:url" content="https://lovingyounow.github.io/2020/02/18/%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Codingboy的博客">
-<meta property="og:description" content="链表 链表节点一般由两部分构成，数据域，指针域。1234struct node&amp;#123;    typename data;    node* next;&amp;#125; 使用malloc或new为链表节点分配内存空间   malloc函数在stdlib.h头文件中，返回类型是申请的同变量类型的指针。 1234typename* p &#x3D; (typename*)malloc(sizeof(typena">
+<meta property="og:description" content="链表 链表节点一般由两部分构成，数据域，指针域。1234struct node&amp;#123;    typename data;    node* next;&amp;#125; 使用malloc或new为链表节点分配内存空间   malloc函数在stdlib.h头文件中，返回类型是申请的同变量类型的指针。 123typename* p &#x3D; (typename*)malloc(sizeof(typenam">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-18T03:53:52.394Z">
-<meta property="article:modified_time" content="2020-02-19T02:54:10.862Z">
+<meta property="article:modified_time" content="2020-03-17T08:34:57.177Z">
 <meta property="article:author" content="Codingboy">
 <meta property="article:tag" content="知识点总结">
 <meta property="article:tag" content="链表">
@@ -184,7 +184,7 @@
 </ol>
 <ul>
 <li><p>malloc函数<br>在stdlib.h头文件中，返回类型是申请的同变量类型的指针。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typename* p = (typename*)malloc(sizeof(typename))</span><br><span class="line">;</span><br><span class="line"><span class="keyword">int</span>* p = (<span class="keyword">int</span> *)malloc(sizeof(<span class="keyword">int</span>))</span><br><span class="line">node* p = (node *)malloc(sizeof(node))</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">typename* p = (typename*)malloc(sizeof(typename));</span><br><span class="line"><span class="keyword">int</span>* p = (<span class="keyword">int</span> *)malloc(sizeof(<span class="keyword">int</span>))</span><br><span class="line">node* p = (node *)malloc(sizeof(node))</span><br></pre></td></tr></table></figure>
 <p>malloc(sizeof(node)),malloc 向内存申请一块大小为sizeof(node)的空间，返回指向这片空间的指针<strong>void*</strong>,申请失败返回空指针NULL。</p>
 <a id="more"></a>
 </li>
@@ -530,6 +530,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">前缀和</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DP</a>
               </li>
             
             <div class="clearfix"></div>

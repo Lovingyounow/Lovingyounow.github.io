@@ -148,6 +148,314 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-targin算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/22/targin%E7%AE%97%E6%B3%95/">targin算法</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/22/targin%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-03-22T03:26:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>伪代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">tarjan(u)</span><br><span class="line">&#123;</span><br><span class="line">    DFN[u]=Low[u]=++Index        <span class="comment">// 为节点u设定次序编号和Low初值</span></span><br><span class="line">    Stack.push(u)                <span class="comment">// 将节点u压入栈中</span></span><br><span class="line">    <span class="keyword">for</span> each (u, v) in E         <span class="comment">// 枚举每一条边</span></span><br><span class="line">        <span class="keyword">if</span> (v is <span class="keyword">not</span> visted)        <span class="comment">// 如果节点v未被访问过</span></span><br><span class="line">            tarjan(v)                  <span class="comment">// 继续向下找</span></span><br><span class="line">            Low[u] = min(Low[u], Low[v])</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (v in S)            <span class="comment">// </span></span><br><span class="line">            Low[u] = min(Low[u], DFN[v])</span><br><span class="line">    <span class="keyword">if</span> (DFN[u] == Low[u])        <span class="comment">// 如果节点u是强连通分量的根</span></span><br><span class="line">        repeat</span><br><span class="line">            v = S.pop                 <span class="comment">// 将v退栈，为该强连通分量中一个顶点</span></span><br><span class="line">            print v</span><br><span class="line">        until (u== v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">知识点总结</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">targin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/22/targin%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-蓝桥杯-算法训练-方格取数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/20/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0/">蓝桥杯 算法训练 方格取数</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/20/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-03-20T08:59:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　设有N<em>N的方格图(N&lt;=10),我们将其中的某些方格中填入正整数,而其他的方格中则放入数字0。<br>　　某人从图的左上角的A 点(1,1)出发，可以向下行走，也可以向右走，直到到达右下角的B点(N,N)。在走过的路上，他可以取走方格中的数（取走后的方格中将变为数字0）。<br>　　此人从A点到B 点共走两次，试找出2条这样的路径，使得取得的数之和为最大。<br>输入格式<br>　　输入的第一行为一个整数N（表示N</em>N的方格图），接下来的每行有三个整数，前两个表示位置，第三个数为该位置上所放的数。一行单独的0表示输入结束。<br>输出格式<br>　　只需输出一个整数，表示2条路径上取得的最大的和。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/20/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-蓝桥杯-算法训练-表达式计算-有括号运算符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/20/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97-%E6%9C%89%E6%8B%AC%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6/">蓝桥杯 算法训练 表达式计算(有括号运算符)</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/20/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97-%E6%9C%89%E6%8B%AC%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6/" class="archive-article-date">
+  	<time datetime="2020-03-20T01:05:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　输入一个只包含加减乖除和括号的合法表达式，求表达式的值。其中除表示整除。<br>输入格式<br>　　输入一行，包含一个表达式。<br>输出格式<br>　　输出这个表达式的值。</p>
+<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="number">-2</span>+<span class="number">3</span>*(<span class="number">4</span><span class="number">-5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">-4</span></span><br></pre></td></tr></table></figure>
+<p>数据规模和约定<br>　　表达式长度不超过100，表达式运算合法且运算过程都在int内进行。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/20/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97-%E6%9C%89%E6%8B%AC%E5%8F%B7%E8%BF%90%E7%AE%97%E7%AC%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-蓝桥杯-算法训练-数的划分" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E6%95%B0%E7%9A%84%E5%88%92%E5%88%86/">蓝桥杯 算法训练 数的划分</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E6%95%B0%E7%9A%84%E5%88%92%E5%88%86/" class="archive-article-date">
+  	<time datetime="2020-03-18T09:08:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　将整数n分成k份，且每份不能为空，任意两份不能相同(不考虑顺序)。<br>　　例如：n=7，k=3，下面三种分法被认为是相同的。<br>　　1，1，5; 1，5，1; 5，1，1;<br>　　问有多少种不同的分法。<br>输入格式<br>　　n，k<br>输出格式<br>　　一个整数，即不同的分法</p>
+<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">7</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> &#123;四种分法为：<span class="number">1</span>，<span class="number">1</span>，<span class="number">5</span>;<span class="number">1</span>，<span class="number">2</span>，<span class="number">4</span>;<span class="number">1</span>，<span class="number">3</span>，<span class="number">3</span>;<span class="number">2</span>，<span class="number">2</span>，<span class="number">3</span>;&#125;</span><br></pre></td></tr></table></figure>
+<p>数据规模和约定<br>　　6&lt;n&lt;=200，2&lt;=k&lt;=6</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E6%95%B0%E7%9A%84%E5%88%92%E5%88%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-蓝桥杯-算法训练-乘积最大" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -169,6 +477,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　今年是国际数学联盟确定的“2000——世界数学年”，又恰逢我国著名数学家华罗庚先生诞辰90周年。在华罗庚先生的家乡江苏金坛，组织了一场别开生面的数学智力竞赛的活动，你的一个好朋友XZ也有幸得以参加。活动中，主持人给所有参加活动的选手出了这样一道题目：</p>
+<p>　　设有一个长度为N的数字串，要求选手使用K个乘号将它分成K+1个部分，找出一种分法，使得这K+1个部分的乘积能够为最大。</p>
+<p>　　同时，为了帮助选手能够正确理解题意，主持人还举了如下的一个例子：</p>
+<p>　　有一个数字串：312， 当N=3，K=1时会有以下两种分法：</p>
+<p>　　3<em>12=36<br>　　31</em>2=62</p>
+<p>　　这时，符合题目要求的结果是：31*2=62</p>
+<p>　　现在，请你帮助你的好朋友XZ设计一个程序，求得正确的答案。</p>
         
       
 
@@ -177,6 +492,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -233,11 +563,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　题目很简单，给出N个数字，不改变它们的相对位置，在中间加入K个乘号和N-K-1个加号，（括号随便加）使最终结果尽量大。因为乘号和加号一共就是N-1个了，所以恰好每两个相邻数字之间都有一个符号。例如：<br>　　N=5，K=2，5个数字分别为1、2、3、4、5，可以加成：<br>　　1<em>2</em>(3+4+5)=24<br>　　1<em>(2+3)</em>(4+5)=45<br>　　(1<em>2+3)</em>(4+5)=45<br>　　……<br>输入格式<br>　　输入文件共有二行，第一行为两个有空格隔开的整数，表示N和K，其中（2&lt;=N&lt;=15, 0&lt;=K&lt;=N-1）。第二行为 N个用空格隔开的数字（每个数字在0到9之间）。<br>输出格式<br>　　输出文件仅一行包含一个整数，表示要求的最大的结果</p>
-<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">2</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
-<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">120</span></span><br></pre></td></tr></table></figure>
-<p>样例说明<br>　　(1+2+3)* 4* 5=120<br><font color="#6495ed" size="5">解题思路：</font>本题通过动态规划来做，我们用dp[i][j]表示前i位数字有j个乘号时的最大值。用sum数组记录前缀和，通过枚举最后一个乘号出现的位置，我们来完成dp数组的记录。我们来分析需要用到多少次循环，首先是从2–N位数字需要枚举，之后我们对乘号需要从1–K枚举，我们对于最后一个乘号的位置从乘号数量+1到N开始枚举，所以一共需要用到三重循环。状态转移方程为</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j] = max(dp[i][j],dp[l<span class="number">-1</span>][j<span class="number">-1</span>] * (sum(i) - sum(l - <span class="number">1</span>)));</span><br></pre></td></tr></table></figure>
-<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N,K;</span><br><span class="line">	<span class="keyword">int</span> sum[<span class="number">20</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> dp[<span class="number">20</span>][<span class="number">20</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;N,&amp;K);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> num;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;num);</span><br><span class="line">		sum[i] = sum[i - <span class="number">1</span>] + num;</span><br><span class="line">		dp[i][<span class="number">0</span>] = sum[i]; <span class="comment">//前i个数0个乘号最大值即为前i个数的和 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= N;i++)&#123;  <span class="comment">//从第二个数开始 </span></span><br><span class="line">		<span class="keyword">int</span> mut = min(i - <span class="number">1</span>,K);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= mut;j++)&#123; 	<span class="comment">//乘号的数量递增到mut </span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> l = j+<span class="number">1</span>;l &lt;= i;l++)&#123; <span class="comment">//当有j个乘号时，最后一个乘号最少在j+1位前面，循环截止是到i</span></span><br><span class="line">				dp[i][j] = max(dp[i][j],dp[l<span class="number">-1</span>][j<span class="number">-1</span>]*(sum[i]-sum[l<span class="number">-1</span>]));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld"</span>,dp[N][K]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
       
 
       
@@ -587,322 +913,9 @@
 
 
   
-    <article id="post-快速乘-快速幂" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/15/%E5%BF%AB%E9%80%9F%E4%B9%98-%E5%BF%AB%E9%80%9F%E5%B9%82/">快速乘 快速幂</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/15/%E5%BF%AB%E9%80%9F%E4%B9%98-%E5%BF%AB%E9%80%9F%E5%B9%82/" class="archive-article-date">
-  	<time datetime="2020-03-15T03:19:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h4><p>计算a<sup>b</sup>%m时如果a,b的数值过大直接计算可能会溢出,这种情况就要用到快速幂。<br>快速幂的迭代写法:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line">ll a,b,m;</span><br><span class="line">ll ans = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(b)&#123;</span><br><span class="line">	<span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">		ans = ans * a % m;</span><br><span class="line">	a = a * a % m; <span class="comment">//得到a平方</span></span><br><span class="line">	b = b &gt;&gt; <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>计算快速幂的过程如下图:<br>以a<sup>13</sup>为例<br>|b|b&amp;1|a|ans|<br>|:–:|:–:|:–:|:–:|<br>||||1|<br>|1101|1|a|a|<br>|110|0|a<sup>2</sup>|a|<br>|11|1|a<sup>4</sup>|a<sup>5</sup>|<br>|1|1|a<sup>8</sup>|a<sup>13</sup>|</p>
-<h4 id="快速乘"><a href="#快速乘" class="headerlink" title="快速乘"></a>快速乘</h4><p>计算a*b%m</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line">ll a,b,m;</span><br><span class="line">ll ans = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span>(b)&#123;</span><br><span class="line">	<span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">		ans = (ans + a) % m;</span><br><span class="line">	a = a &lt;&lt; <span class="number">1</span> % m;<span class="comment">//将a乘以2</span></span><br><span class="line">	b = b &gt;&gt; <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>计算快速乘的过程如下图:<br>以a*13为例<br>|b|b&amp;1|a|ans|<br>|:–:|:–:|:–:|:–:|<br>||||0|<br>|1101|1|a|a|<br>|110|0|2a|a|<br>|11|1|4a|5a|<br>|1|1|8a|13a|</p>
-<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p>输入n，计算从1到n的和，结果对1e+7取余。<br>数据规模：n &lt;= 10<sup>18</sup>。</p>
-<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">const</span> ll mod = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	ll n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;n);</span><br><span class="line">	ll a,b;</span><br><span class="line">	<span class="keyword">if</span>(n % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">		a = n / <span class="number">2</span> % mod;</span><br><span class="line">		b = (n + <span class="number">1</span>) % mod;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		a = (n + <span class="number">1</span>) / <span class="number">2</span> % mod;</span><br><span class="line">		b = n % mod;</span><br><span class="line">	&#125;</span><br><span class="line">	ll ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(a)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)</span><br><span class="line">			ans = (ans + a) % mod;</span><br><span class="line">		a = a&lt;&lt;<span class="number">1</span> % mod;</span><br><span class="line">		b = b&gt;&gt;<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%lld"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/15/%E5%BF%AB%E9%80%9F%E4%B9%98-%E5%BF%AB%E9%80%9F%E5%B9%82/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-算法提高-change" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E6%8F%90%E9%AB%98-change/">蓝桥杯 算法提高 change</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E6%8F%90%E9%AB%98-change/" class="archive-article-date">
-  	<time datetime="2020-03-14T23:55:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　数组A中共有n个元素，初始全为0。你可以对数组进行两种操作：1、将数组中的一个元素加1；2、将数组中所有元素乘2。求将数组A从初始状态变为目标状态B所需要的最少操作数。<br>输入格式<br>　　第一行一个正整数n表示数组中元素的个数</p>
-<p>　　第二行n个正整数表示目标状态B中的元素<br>输出格式<br>　　输出一行表示最少操作数</p>
-<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">7</span> <span class="number">8</span></span><br></pre></td></tr></table></figure>
-<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">7</span></span><br></pre></td></tr></table></figure>
-<p>数据规模和约定<br>　　n&lt;=50，B[i]&lt;=1000<br><font color="#6495ed" size="5">解题思路：看到题目第一反应就是套路题bfs做就行，结果成功超时。本题只需要判断存在数不为0就进行while循环，首先先将不是偶数的数减一，然后判断是否都为零这一步一定要写因为这一步可能就结束了。如果有不为零的将数组所有元素除2即可。</font></p>
-<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">not_zero</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> N)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(a[i]!=<span class="number">0</span>)		</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">100</span>];</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(not_zero(a,N))&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i]%<span class="number">2</span>!=<span class="number">0</span>)&#123;</span><br><span class="line">				a[i]--;</span><br><span class="line">				ans++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!not_zero(a,N))</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)&#123;</span><br><span class="line">			a[i] /= <span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		ans++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E6%8F%90%E9%AB%98-change/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-包子凑数-动态规划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/13/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E5%8C%85%E5%AD%90%E5%87%91%E6%95%B0-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">蓝桥杯 包子凑数(动态规划)</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/13/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E5%8C%85%E5%AD%90%E5%87%91%E6%95%B0-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="archive-article-date">
-  	<time datetime="2020-03-13T08:14:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　小明几乎每天早晨都会在一家包子铺吃早餐。他发现这家包子铺有N种蒸笼，其中第i种蒸笼恰好能放Ai个包子。每种蒸笼都有非常多笼，可以认为是无限笼。</p>
-<p>　　每当有顾客想买X个包子，卖包子的大叔就会迅速选出若干笼包子来，使得这若干笼中恰好一共有X个包子。比如一共有3种蒸笼，分别能放3、4和5个包子。当顾客想买11个包子时，大叔就会选2笼3个的再加1笼5个的（也可能选出1笼3个的再加2笼4个的）。</p>
-<p>　　当然有时包子大叔无论如何也凑不出顾客想买的数量。比如一共有3种蒸笼，分别能放4、5和6个包子。而顾客想买7个包子时，大叔就凑不出来了。</p>
-<p>　　小明想知道一共有多少种数目是包子大叔凑不出来的。<br>输入格式<br>　　第一行包含一个整数N。(1 &lt;= N &lt;= 100)<br>　　以下N行每行包含一个整数Ai。(1 &lt;= Ai &lt;= 100)<br>输出格式<br>　　一个整数代表答案。如果凑不出的数目有无限多个，输出INF。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/13/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E5%8C%85%E5%AD%90%E5%87%91%E6%95%B0-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-正则问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%AD%A3%E5%88%99%E9%97%AE%E9%A2%98/">蓝桥杯 正则问题</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%AD%A3%E5%88%99%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-03-12T14:59:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　考虑一种简单的正则表达式：<br>　　只由 x ( ) | 组成的正则表达式。<br>　　小明想求出这个正则表达式能接受的最长字符串的长度。</p>
-<p>　　例如 ((xx|xxx)x|(x|xx))xx 能接受的最长字符串是： xxxxxx，长度是6。<br>输入格式<br>　　一个由x()|组成的正则表达式。输入长度不超过100，保证合法。<br>输出格式<br>　　这个正则表达式能接受的最长字符串的长度。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DFS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E6%AD%A3%E5%88%99%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1076,6 +1089,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">targin</a>
               </li>
             
             <div class="clearfix"></div>

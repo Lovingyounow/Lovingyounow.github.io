@@ -16,7 +16,7 @@
 <meta property="og:description" content="###题目连接在家上了一个多月的网课，JM同学迎来了人生第一次网课月考。 由于网课的缘故，JM同学总是在上课的时候，偷偷的写代码，努力变强。So,月考成绩可想而知~  那叫一个惨不忍睹啊~ 把班主任，各科老师给气的… 一点办法没有~ 嗐 等到开学了，班主任为了不让JM以及班上其他成绩不好的同学落下，决定借鉴“一带一路”政策，在班级也来一个“一带一路，相互扶持”的政策。 调坐班级同学座位，让成绩靠前">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-30T16:20:17.000Z">
-<meta property="article:modified_time" content="2020-03-30T16:46:54.257Z">
+<meta property="article:modified_time" content="2020-03-30T16:49:05.643Z">
 <meta property="article:author" content="Codingboy">
 <meta property="article:tag" content="蓝桥杯">
 <meta property="article:tag" content="DP">
@@ -192,6 +192,7 @@
 <p>输入<br>第一行输入一个整数N，表示有N对同桌。</p>
 <p>第二行输入2N个整数，表示从左到右每一张桌子上同学的成绩</p>
 <p>输出<br>输出一个整数表示最少需要几个同学出列调整。</p>
+<a id="more"></a>
 <h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">16</span> <span class="number">2</span> <span class="number">1</span> <span class="number">7</span> <span class="number">5</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
 <h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p><font color="#6495ed" size="5">解题思路来自题目来源网站：本题首先计算每个人的排名例如n = 3样例：<br>16,2,1,7,5,10<br>对应的排名为：<br>1,5,6,3,4,2<br>所以每一个人对应的所在的桌子为：<br>1,2,1,3,3,2<br>我们是需要转成<br>1,1,2,2,3,3<br>的形式,求最少移动次数。<br><strong>最长不下降子序列长度</strong>即为最多有这么多人不需要移动。<br>所以答案为：2*n - 2∗n − 最长不下降子序列长度</font></p>

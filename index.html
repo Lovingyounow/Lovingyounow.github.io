@@ -148,6 +148,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-同桌的你-LIS-O-NlogN-的写法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/31/%E5%90%8C%E6%A1%8C%E7%9A%84%E4%BD%A0-LIS-O-NlogN-%E7%9A%84%E5%86%99%E6%B3%95/">同桌的你(LIS O(NlogN)的写法)</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/31/%E5%90%8C%E6%A1%8C%E7%9A%84%E4%BD%A0-LIS-O-NlogN-%E7%9A%84%E5%86%99%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-03-30T16:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###<br><a href="http://oj.hzjingma.com/contest/problem?id=89&pid=8" target="_blank" rel="noopener">题目连接</a><br>在家上了一个多月的网课，JM同学迎来了人生第一次网课月考。</p>
+<p>由于网课的缘故，JM同学总是在上课的时候，偷偷的写代码，努力变强。So,月考成绩可想而知~ </p>
+<p>那叫一个惨不忍睹啊~ 把班主任，各科老师给气的… 一点办法没有<del>~ 嗐</del></p>
+<p>等到开学了，班主任为了不让JM以及班上其他成绩不好的同学落下，决定借鉴“一带一路”政策，在班级也来一个“一带一路，相互扶持”的政策。</p>
+<p>调坐班级同学座位，让成绩靠前的同学和成绩靠后的同学坐一起，一个帮助一个。</p>
+<p>班级里的人数刚好可以拼坐成N对同桌(2人同桌)，即总共有2N张课桌，</p>
+<p>由于教室形状特殊，所有同学的课桌摆成一排，编号1,2,3,……,2N编号1,2为第一桌，编号3,4为第二桌……依次类推。</p>
+<p>wlxsq老师决定让月考成绩第1名的和第2n名的同学坐第一桌，第2名的和第2n−1名的同学第2桌,…,第i名的名和第2n-i+1名的坐第i桌，依次类推。</p>
+<p>现在wlxsq按照座位从左往右依次给你班上2N名同学的成绩,由于教室比较窄，一次只能一个同学搬课桌出列插入到其他位置。</p>
+<p>wlxsq老师现在想知道，最少需要几个同学搬课桌出列调整才能够让所有同学和自己对应的同学坐同桌呢？请你来帮帮wlxsq吧~</p>
+<p>注意：第一名和最后一名只要是同桌即可，谁坐左边谁坐右边都可以,以此类推。</p>
+<p>输入<br>第一行输入一个整数N，表示有N对同桌。</p>
+<p>第二行输入2N个整数，表示从左到右每一张桌子上同学的成绩</p>
+<p>输出<br>输出一个整数表示最少需要几个同学出列调整。</p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">16</span> <span class="number">2</span> <span class="number">1</span> <span class="number">7</span> <span class="number">5</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p><font color="#6495ed" size="5">解题思路来自题目来源网站：本题首先计算每个人的排名例如n = 3样例：<br>16,2,1,7,5,10<br>对应的排名为：<br>1,5,6,3,4,2<br>所以每一个人对应的所在的桌子为：<br>1,2,1,3,3,2<br>我们是需要转成<br>1,1,2,2,3,3<br>的形式,求最少移动次数。<br><strong>最长不下降子序列长度</strong>即为最多有这么多人不需要移动。<br>所以答案为：2*n - 2∗n − 最长不下降子序列长度</font></p>
+<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><p>本题最大数据规模达10<sup>5</sup>所以O(N*N)的LIS对部分数据通过不了，先贴上这种方法的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> grade;</span><br><span class="line">	<span class="keyword">int</span> pos;</span><br><span class="line">	<span class="keyword">int</span> seat;</span><br><span class="line">&#125;a[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.grade &gt; b.grade;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.pos &lt; b.pos;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N * <span class="number">2</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i].grade);</span><br><span class="line">		a[i].pos = i;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+<span class="number">2</span>*N,cmp);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N;i++)&#123;</span><br><span class="line">		a[i].seat = i + <span class="number">1</span>;</span><br><span class="line">		a[<span class="number">2</span> * N-i<span class="number">-1</span>].seat = i + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+<span class="number">2</span>*N,cmp1);</span><br><span class="line">	<span class="keyword">int</span> dp[<span class="number">100010</span>];</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>*N;i++)&#123;</span><br><span class="line">		dp[i] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i ;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i].seat &gt;= a[j].seat &amp;&amp;dp[j]+<span class="number">1</span>&gt;dp[i])</span><br><span class="line">				dp[i] = dp[j] + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		ans = max(ans,dp[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,<span class="number">2</span> * N - ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以采用时间复杂度为O(Nlog(N))的LIS，主要通过动态数组来维护最长不下降子序列，如果当前的数比动态数组最后一个元素大直接加在末尾，否则去替换动态数组中第一个比他大的数，配合二分法的使用降低时间复杂度。<br><a href="https://www.cnblogs.com/milky-w/p/8431333.html" target="_blank" rel="noopener">这里关于最长不下降子序列解释较详细</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> grade;</span><br><span class="line">	<span class="keyword">int</span> pos;</span><br><span class="line">	<span class="keyword">int</span> seat;</span><br><span class="line">&#125;a[<span class="number">200010</span>];</span><br><span class="line"><span class="keyword">int</span> b[<span class="number">200010</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.grade &gt; b.grade;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(node a,node b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.pos &lt; b.pos;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vt;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> N;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N * <span class="number">2</span>;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i].grade);</span><br><span class="line">		a[i].pos = i;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+<span class="number">2</span>*N,cmp);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N;i++)&#123;</span><br><span class="line">		a[i].seat = i + <span class="number">1</span>;</span><br><span class="line">		a[<span class="number">2</span> * N-i<span class="number">-1</span>].seat = i + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a,a+<span class="number">2</span>*N,cmp1);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>*N;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(vt.size() == <span class="number">0</span> || a[i].seat &gt;= vt[vt.size()<span class="number">-1</span>])</span><br><span class="line">			vt.push_back(a[i].seat);</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			*(upper_bound(vt.begin(),vt.end(),a[i].seat)) =  a[i].seat;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,<span class="number">2</span> * N - vt.size());</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/31/%E5%90%8C%E6%A1%8C%E7%9A%84%E4%BD%A0-LIS-O-NlogN-%E7%9A%84%E5%86%99%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-targin算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -809,81 +908,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%B4%A0%E5%9B%A0%E5%AD%90%E5%8E%BB%E9%87%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-算法训练-审美课-位运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E5%AE%A1%E7%BE%8E%E8%AF%BE-%E4%BD%8D%E8%BF%90%E7%AE%97/">蓝桥杯 算法训练 审美课(位运算)</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E5%AE%A1%E7%BE%8E%E8%AF%BE-%E4%BD%8D%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2020-03-15T11:09:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　《审美的历程》课上有n位学生，帅老师展示了m幅画，其中有些是梵高的作品，另外的都出自五岁小朋友之手。老师请同学们分辨哪些画的作者是梵高，但是老师自己并没有答案，因为这些画看上去都像是小朋友画的……老师只想知道，有多少对同学给出的答案完全相反，这样他就可以用这个数据去揭穿披着皇帝新衣的抽象艺术了（支持帅老师^_^）。<br>　　答案完全相反是指对每一幅画的判断都相反。<br>输入格式<br>　　第一行两个数n和m，表示学生数和图画数；<br>　　接下来是一个n*m的01矩阵A：<br>　　如果aij=0，表示学生i觉得第j幅画是小朋友画的；<br>　　如果aij=1，表示学生i觉得第j幅画是梵高画的。<br>输出格式<br>　　输出一个数ans：表示有多少对同学的答案完全相反。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E5%AE%A1%E7%BE%8E%E8%AF%BE-%E4%BD%8D%E8%BF%90%E7%AE%97/">展开全文 >></a>
         </p>
       
 

@@ -148,6 +148,388 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-蓝桥杯-算法训练-乘积最大" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/">蓝桥杯 算法训练 乘积最大</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/" class="archive-article-date">
+  	<time datetime="2020-03-18T06:58:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　今年是国际数学联盟确定的“2000——世界数学年”，又恰逢我国著名数学家华罗庚先生诞辰90周年。在华罗庚先生的家乡江苏金坛，组织了一场别开生面的数学智力竞赛的活动，你的一个好朋友XZ也有幸得以参加。活动中，主持人给所有参加活动的选手出了这样一道题目：</p>
+<p>　　设有一个长度为N的数字串，要求选手使用K个乘号将它分成K+1个部分，找出一种分法，使得这K+1个部分的乘积能够为最大。</p>
+<p>　　同时，为了帮助选手能够正确理解题意，主持人还举了如下的一个例子：</p>
+<p>　　有一个数字串：312， 当N=3，K=1时会有以下两种分法：</p>
+<p>　　3<em>12=36<br>　　31</em>2=62</p>
+<p>　　这时，符合题目要求的结果是：31*2=62</p>
+<p>　　现在，请你帮助你的好朋友XZ设计一个程序，求得正确的答案。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E4%B9%98%E7%A7%AF%E6%9C%80%E5%A4%A7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-蓝桥杯-算法训练-最大的算式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E6%9C%80%E5%A4%A7%E7%9A%84%E7%AE%97%E5%BC%8F/">蓝桥杯 算法训练 最大的算式</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E6%9C%80%E5%A4%A7%E7%9A%84%E7%AE%97%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2020-03-18T04:19:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　题目很简单，给出N个数字，不改变它们的相对位置，在中间加入K个乘号和N-K-1个加号，（括号随便加）使最终结果尽量大。因为乘号和加号一共就是N-1个了，所以恰好每两个相邻数字之间都有一个符号。例如：<br>　　N=5，K=2，5个数字分别为1、2、3、4、5，可以加成：<br>　　1<em>2</em>(3+4+5)=24<br>　　1<em>(2+3)</em>(4+5)=45<br>　　(1<em>2+3)</em>(4+5)=45<br>　　……<br>输入格式<br>　　输入文件共有二行，第一行为两个有空格隔开的整数，表示N和K，其中（2&lt;=N&lt;=15, 0&lt;=K&lt;=N-1）。第二行为 N个用空格隔开的数字（每个数字在0到9之间）。<br>输出格式<br>　　输出文件仅一行包含一个整数，表示要求的最大的结果</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/18/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E6%9C%80%E5%A4%A7%E7%9A%84%E7%AE%97%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-蓝桥杯-算法训练-K好数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/17/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-K%E5%A5%BD%E6%95%B0/">蓝桥杯 算法训练 K好数</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/17/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-K%E5%A5%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-03-17T15:41:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>如果一个自然数N的K进制表示中任意的相邻的两位都不是相邻的数字，那么我们就说这个数是K好数。求L位K进制数中K好数的数目。例如K = 4，L = 2的时候，所有K好数为11、13、20、22、30、31、33 共7个。由于这个数目很大，请你输出它对1000000007取模后的值。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/17/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-K%E5%A5%BD%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-蓝桥杯-算法训练-二元函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/16/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0/">蓝桥杯 算法训练 二元函数</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/16/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-03-16T11:12:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　令二元函数f(x,y)=ax+by，a和b为整数，求一个表达式S的值。<br>　　只有满足以下要求的表达式才是合法的：<br>　　1.任意整数x是一个合法的表达式；<br>　　2.如果A和B都是合法的表达式，则f(A,B)也是一个合法的表达式。<br>输入格式<br>　　第一行两个数a和b；<br>　　第二行一个字符串S表示要求的表达式。<br>输出格式<br>　　一行一个数表示表达式S的值。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/16/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-蓝桥杯-算法训练-素因子去重" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%B4%A0%E5%9B%A0%E5%AD%90%E5%8E%BB%E9%87%8D/">蓝桥杯 算法训练 素因子去重</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%B4%A0%E5%9B%A0%E5%AD%90%E5%8E%BB%E9%87%8D/" class="archive-article-date">
+  	<time datetime="2020-03-15T14:32:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　给定一个正整数n，求一个正整数p，满足p仅包含n的所有素因子，且每个素因子的次数不大于1<br>输入格式<br>　　一个整数，表示n<br>输出格式<br>　　输出一行，包含一个整数p。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%B4%A0%E5%9B%A0%E5%AD%90%E5%8E%BB%E9%87%8D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-蓝桥杯-算法训练-审美课-位运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -536,397 +918,6 @@
 
 
   
-    <article id="post-蓝桥杯-分巧克力-二分法的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E5%88%86%E5%B7%A7%E5%85%8B%E5%8A%9B-%E4%BA%8C%E5%88%86%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/">蓝桥杯 分巧克力(二分法的使用)</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E5%88%86%E5%B7%A7%E5%85%8B%E5%8A%9B-%E4%BA%8C%E5%88%86%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-03-12T11:28:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>先介绍二分法的模板例题:洛谷P1577</p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有N条绳子，它们的长度分别为Li。如果从它们中切割出K条长度相同的</p>
-<p>绳子，这K条绳子每条最长能有多长？答案保留到小数点后2位(直接舍掉2为后的小数)。</p>
-<p>输入格式<br>第一行两个整数N和K，接下来N行，描述了每条绳子的长度Li。</p>
-<p>输出格式<br>切割后每条绳子的最大长度。<br>说明/提示<br>对于100%的数据 0&lt;Li&lt;=100000.00 0&lt;n&lt;=10000 0&lt;k&lt;=10000</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E5%88%86%E5%B7%A7%E5%85%8B%E5%8A%9B-%E4%BA%8C%E5%88%86%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-K倍区间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-K%E5%80%8D%E5%8C%BA%E9%97%B4/">蓝桥杯 K倍区间</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-K%E5%80%8D%E5%8C%BA%E9%97%B4/" class="archive-article-date">
-  	<time datetime="2020-03-12T03:27:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="资源限制"><a href="#资源限制" class="headerlink" title="资源限制"></a>资源限制</h3><p>时间限制：2.0s   内存限制：256.0MB</p>
-<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　给定一个长度为N的数列，A1, A2, … AN，如果其中一段连续的子序列Ai, Ai+1, … Aj(i &lt;= j)之和是K的倍数，我们就称这个区间[i, j]是K倍区间。</p>
-<p>　　你能求出数列中总共有多少个K倍区间吗？<br>输入格式<br>　　第一行包含两个整数N和K。(1 &lt;= N, K &lt;= 100000)<br>　　以下N行每行包含一个整数Ai。(1 &lt;= Ai &lt;= 100000)<br>输出格式<br>　　输出一个整数，代表K倍区间的数目。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">前缀和</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/12/%E8%93%9D%E6%A1%A5%E6%9D%AF-K%E5%80%8D%E5%8C%BA%E9%97%B4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-Excel地址" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/11/%E8%93%9D%E6%A1%A5%E6%9D%AF-Excel%E5%9C%B0%E5%9D%80/">蓝桥杯 Excel地址</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/11/%E8%93%9D%E6%A1%A5%E6%9D%AF-Excel%E5%9C%B0%E5%9D%80/" class="archive-article-date">
-  	<time datetime="2020-03-11T07:40:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　Excel单元格的地址表示很有趣，它使用字母来表示列号。<br>　　比如，<br>　　A表示第1列，<br>　　B表示第2列，<br>　　Z表示第26列，<br>　　AA表示第27列，<br>　　AB表示第28列，<br>　　BA表示第53列，<br>　　….</p>
-<p>　　当然Excel的最大列号是有限度的，所以转换起来不难。<br>　　如果我们想把这种表示法一般化，可以把很大的数字转换为很长的字母序列呢？</p>
-<p>　　本题目即是要求对输入的数字, 输出其对应的Excel地址表示方式。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/11/%E8%93%9D%E6%A1%A5%E6%9D%AF-Excel%E5%9C%B0%E5%9D%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-跳马车" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/10/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E8%B7%B3%E9%A9%AC%E8%BD%A6/">蓝桥杯 跳马车</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/10/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E8%B7%B3%E9%A9%AC%E8%BD%A6/" class="archive-article-date">
-  	<time datetime="2020-03-10T12:34:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　小的时候，你玩过纸牌游戏吗？<br>　　有一种叫做“拉马车”的游戏，规则很简单，却很吸引小朋友。</p>
-<p>　　其规则简述如下：<br>　　假设参加游戏的小朋友是A和B，游戏开始的时候，他们得到的随机的纸牌序列如下：<br>　　A方：[K, 8, X, K, A, 2, A, 9, 5, A]<br>　　B方：[2, 7, K, 5, J, 5, Q, 6, K, 4]</p>
-<p>　　其中的X表示“10”，我们忽略了纸牌的花色。</p>
-<p>　　从A方开始，A、B双方轮流出牌。</p>
-<p>　　当轮到某一方出牌时，他从自己的纸牌队列的头部拿走一张，放到桌上，并且压在最上面一张纸牌上（如果有的话）。</p>
-<p>　　此例中，游戏过程：<br>　　A出K，B出2，A出8，B出7，A出X，此时桌上的序列为：</p>
-<p>　　K,2,8,7,X</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/10/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E8%B7%B3%E9%A9%AC%E8%BD%A6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-青蛙跳杯子-BFS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/10/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E9%9D%92%E8%9B%99%E8%B7%B3%E6%9D%AF%E5%AD%90-BFS/">蓝桥杯 青蛙跳杯子(BFS)</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/10/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E9%9D%92%E8%9B%99%E8%B7%B3%E6%9D%AF%E5%AD%90-BFS/" class="archive-article-date">
-  	<time datetime="2020-03-10T07:55:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>　　X星球的流行宠物是青蛙，一般有两种颜色：白色和黑色。<br>　　X星球的居民喜欢把它们放在一排茶杯里，这样可以观察它们跳来跳去。<br>　　如下图，有一排杯子，左边的一个是空着的，右边的杯子，每个里边有一只青蛙。</p>
-<blockquote>
-<p>　*WWWBBB</p>
-</blockquote>
-<p>　　其中，W字母表示白色青蛙，B表示黑色青蛙，*表示空杯子。</p>
-<p>　　X星的青蛙很有些癖好，它们只做3个动作之一：<br>　　1. 跳到相邻的空杯子里。<br>　　2. 隔着1只其它的青蛙（随便什么颜色）跳到空杯子里。<br>　　3. 隔着2只其它的青蛙（随便什么颜色）跳到空杯子里。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BFS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/10/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E9%9D%92%E8%9B%99%E8%B7%B3%E6%9D%AF%E5%AD%90-BFS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1107,6 +1098,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">targin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
               </li>
             
             <div class="clearfix"></div>

@@ -148,6 +148,277 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-打印" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/%E6%89%93%E5%8D%B0/">打印</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/04/01/%E6%89%93%E5%8D%B0/" class="archive-article-date">
+  	<time datetime="2020-04-01T13:47:01.867Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Dijkstra + DFS模板</strong><br>先记录下所有的最短路径，然后从这些路径中选出一条第二标尺最优的路径</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Dijkstra</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre[MAXV];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;<span class="comment">//s为起点 </span></span><br><span class="line">	fill(d,d+MAXV,INF);</span><br><span class="line">	d[s] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> u = <span class="number">-1</span>,MIN = INF;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(vis[j] == <span class="literal">false</span> &amp;&amp; d[j] &lt; MIN)&#123;</span><br><span class="line">			u = j;</span><br><span class="line">			MIN = d[j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(u == <span class="number">-1</span>)	<span class="keyword">return</span>;</span><br><span class="line">		vis[u] = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> v = <span class="number">0</span>;v &lt; n;v++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(vis[v] == <span class="literal">false</span> &amp;&amp; G[u][v]!=INF)&#123;</span><br><span class="line">				<span class="keyword">if</span>(d[u] + G[u][v] &lt; d[v])&#123;</span><br><span class="line">					d[v] = d[u] + G[u][v];</span><br><span class="line">					pre[v].clear();</span><br><span class="line">					pre[v].push_back(u);</span><br><span class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(d[u] + G[u][v] == d[v])&#123;</span><br><span class="line">					pre[v].push_back(u);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//DFS</span></span><br><span class="line"><span class="keyword">int</span> optvalue <span class="comment">//第二标尺</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;  pre[MAXV];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; path,temppath;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> v)</span></span>&#123;  <span class="comment">//v为当前访问结点 </span></span><br><span class="line">	<span class="comment">//递归边界 </span></span><br><span class="line">	<span class="keyword">if</span>(v == st) &#123; <span class="comment">//到达叶子结点 </span></span><br><span class="line">		temppath.push_back(v);</span><br><span class="line">		<span class="keyword">int</span> value;</span><br><span class="line">		<span class="comment">//计算路径temppath上的value值</span></span><br><span class="line">		<span class="keyword">if</span>(value优于opvalue) &#123;</span><br><span class="line">			opvalue = value;</span><br><span class="line">			path = temppath;</span><br><span class="line">		&#125;</span><br><span class="line">		temppath.pop_back();</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//递归式 </span></span><br><span class="line">	temppath.push_back(v);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; pre[v].size();i++)&#123;</span><br><span class="line">		DFS(pre[v][i]);</span><br><span class="line">	&#125;</span><br><span class="line">	temppath.pop_back();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>存放在temppath中的路径结点是逆序的，因此访问结点需要倒着进行。<br><strong>计算边权</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> value = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = temppath.size() - <span class="number">1</span>;i &gt; <span class="number">0</span>;i--)&#123;</span><br><span class="line">	<span class="comment">//当前结点id,下一结点idnext</span></span><br><span class="line">	<span class="keyword">int</span> id = temppath[i],idnext = temppath[i - <span class="number">1</span>];</span><br><span class="line">	value += V[id][idnext];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>计算点权</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> value = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = temppath.size() - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--)&#123;</span><br><span class="line">	<span class="keyword">int</span> id = temppath[i];</span><br><span class="line">	value += W[id];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/01/%E6%89%93%E5%8D%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-纪念品-完全背包模型转化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/%E7%BA%AA%E5%BF%B5%E5%93%81-%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E6%A8%A1%E5%9E%8B%E8%BD%AC%E5%8C%96/">纪念品(完全背包模型转化)</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/04/01/%E7%BA%AA%E5%BF%B5%E5%93%81-%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E6%A8%A1%E5%9E%8B%E8%BD%AC%E5%8C%96/" class="archive-article-date">
+  	<time datetime="2020-04-01T08:12:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>小伟突然获得一种超能力，他知道未来 T 天 N 种纪念品每天的价格。</p>
+<p>某个纪念品的价格是指购买一个该纪念品所需的金币数量，以及卖出一个该纪念品换回的金币数量。</p>
+<p>每天，小伟可以进行以下两种交易无限次：</p>
+<p>任选一个纪念品，若手上有足够金币，以当日价格购买该纪念品，注意同一个纪念品可以在同一天重复买；<br>卖出持有的任意一个纪念品，以当日价格换回金币。<br>每天卖出纪念品换回的金币可以立即用于购买纪念品，当日购买的纪念品也可以当日卖出换回金币。</p>
+<p>当然，一直持有纪念品也是可以的。</p>
+<p>T 天之后，小伟的超能力消失。</p>
+<p>因此他一定会在第 T 天卖出所有纪念品换回金币。</p>
+<p>小伟现在有 M 枚金币，他想要在超能力消失后拥有尽可能多的金币。</p>
+<p>输入格式<br>第一行包含三个正整数 T,N,M，相邻两数之间以一个空格分开，分别代表未来天数 T，纪念品数量 N，小伟现在拥有的金币数量 M。</p>
+<p>接下来 T 行，每行包含 N 个正整数，相邻两数之间以一个空格分隔。第 i 行的 N 个正整数分别为 Pi,1，Pi,2,……,Pi,N，其中 Pi,j 表示第 i 天第 j 种纪念品的价格。</p>
+<p>输出格式<br>输出仅一行，包含一个正整数，表示小伟在超能力消失后最多能拥有的金币数量。</p>
+<p>数据范围<br>对于 10% 的数据，T=1。</p>
+<p>对于 30% 的数据，T≤4,N≤4,M≤100，所有价格 10≤Pi,j≤100。</p>
+<p>对于 15% 的数据，T≤100,N=1。</p>
+<p>对于 15% 的数据，T=2,N≤100。</p>
+<p>对于 100% 的数据，T≤100,N≤100,M≤103，所有价格 1≤Pi,j≤104，数据保证任意时刻，小明手上的金币数不可能超过 104。</p>
+<h3 id="输入样例1："><a href="#输入样例1：" class="headerlink" title="输入样例1："></a>输入样例1：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span> <span class="number">1</span> <span class="number">100</span></span><br><span class="line"><span class="number">50</span></span><br><span class="line"><span class="number">20</span></span><br><span class="line"><span class="number">25</span></span><br><span class="line"><span class="number">20</span></span><br><span class="line"><span class="number">25</span></span><br><span class="line"><span class="number">50</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="输出样例1："><a href="#输出样例1：" class="headerlink" title="输出样例1："></a>输出样例1：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">305</span></span><br></pre></td></tr></table></figure>
+<h3 id="输入样例2："><a href="#输入样例2：" class="headerlink" title="输入样例2："></a>输入样例2：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">3</span> <span class="number">100</span></span><br><span class="line"><span class="number">10</span> <span class="number">20</span> <span class="number">15</span></span><br><span class="line"><span class="number">15</span> <span class="number">17</span> <span class="number">13</span></span><br><span class="line"><span class="number">15</span> <span class="number">25</span> <span class="number">16</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出样例2："><a href="#输出样例2：" class="headerlink" title="输出样例2："></a>输出样例2：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">217</span></span><br></pre></td></tr></table></figure>
+<p>样例解释<br>样例#1：<br>最佳策略是：</p>
+<p>第二天花光所有 100 枚金币买入 5 个纪念品 1；</p>
+<p>第三天卖出 5 个纪念品 1，获得金币 125 枚；</p>
+<p>第四天买入 6 个纪念品 1，剩余 5 枚金币；</p>
+<p>第六天必须卖出所有纪念品换回 300 枚金币，第四天剩余 5 枚金币,共 305 枚金币。</p>
+<p>超能力消失后，小伟最多拥有 305 枚金币。</p>
+<p>样例#2：<br>最佳策略是：</p>
+<p>第一天花光所有金币买入 10 个纪念品 1；</p>
+<p>第二天卖出全部纪念品 1 得到 150 枚金币并买入 8 个纪念品 2 和 1 个纪念品 3，剩余 1 枚金币；</p>
+<p>第三天必须卖出所有纪念品换回 216 枚金币，第二天剩余 1 枚金币，共 217 枚金币。</p>
+<p>超能力消失后，小伟最多拥有 217 枚金币。<br><font color="#6495ed" size="5">解题思路：本题是贪心+完全背包，首先我们每次使第二天的金币数最多，那么最后就能得到最多的金币，在代码中a[i]这里的背包问题，最大容量为每次的m，每次获得的收益是第二天的价格减去今天的价格(所以这里可以优化一下，只有第二天价格高于今天的价格才进行背包的循环)<br><a href="https://www.acwing.com/solution/acwing/content/6407/" target="_blank" rel="noopener">这里附上y总的详细解释</a></font></p>
+<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">110</span>][<span class="number">110</span>];</span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">10010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> t,n,m;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; t &gt;&gt; n &gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= t;i++ )</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= n;j++ )</span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; a[i][j];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; t;i++)&#123;     <span class="comment">//这里注意循环t-1次，因为最后一天全部卖出了</span></span><br><span class="line">		<span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i+<span class="number">1</span>][j]&gt;a[i][j])</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> v = a[i][j];v &lt;= m;v++)&#123;</span><br><span class="line">					dp[v] = max(dp[v],dp[v - a[i][j]]+a[i+<span class="number">1</span>][j]-a[i][j]);</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		m += dp[m];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; m;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/01/%E7%BA%AA%E5%BF%B5%E5%93%81-%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E6%A8%A1%E5%9E%8B%E8%BD%AC%E5%8C%96/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-同桌的你-LIS-O-NlogN-的写法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/31/%E5%90%8C%E6%A1%8C%E7%9A%84%E4%BD%A0-LIS-O-NlogN-%E7%9A%84%E5%86%99%E6%B3%95/">同桌的你(LIS O(NlogN)的写法)</a>
+    </h1>
+  
+
+        
+        
+<a href="/2020/03/31/%E5%90%8C%E6%A1%8C%E7%9A%84%E4%BD%A0-LIS-O-NlogN-%E7%9A%84%E5%86%99%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-03-30T16:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###<br><a href="http://oj.hzjingma.com/contest/problem?id=89&pid=8" target="_blank" rel="noopener">题目连接</a><br>在家上了一个多月的网课，JM同学迎来了人生第一次网课月考。</p>
+<p>由于网课的缘故，JM同学总是在上课的时候，偷偷的写代码，努力变强。So,月考成绩可想而知~ </p>
+<p>那叫一个惨不忍睹啊~ 把班主任，各科老师给气的… 一点办法没有<del>~ 嗐</del></p>
+<p>等到开学了，班主任为了不让JM以及班上其他成绩不好的同学落下，决定借鉴“一带一路”政策，在班级也来一个“一带一路，相互扶持”的政策。</p>
+<p>调坐班级同学座位，让成绩靠前的同学和成绩靠后的同学坐一起，一个帮助一个。</p>
+<p>班级里的人数刚好可以拼坐成N对同桌(2人同桌)，即总共有2N张课桌，</p>
+<p>由于教室形状特殊，所有同学的课桌摆成一排，编号1,2,3,……,2N编号1,2为第一桌，编号3,4为第二桌……依次类推。</p>
+<p>wlxsq老师决定让月考成绩第1名的和第2n名的同学坐第一桌，第2名的和第2n−1名的同学第2桌,…,第i名的名和第2n-i+1名的坐第i桌，依次类推。</p>
+<p>现在wlxsq按照座位从左往右依次给你班上2N名同学的成绩,由于教室比较窄，一次只能一个同学搬课桌出列插入到其他位置。</p>
+<p>wlxsq老师现在想知道，最少需要几个同学搬课桌出列调整才能够让所有同学和自己对应的同学坐同桌呢？请你来帮帮wlxsq吧~</p>
+<p>注意：第一名和最后一名只要是同桌即可，谁坐左边谁坐右边都可以,以此类推。</p>
+<p>输入<br>第一行输入一个整数N，表示有N对同桌。</p>
+<p>第二行输入2N个整数，表示从左到右每一张桌子上同学的成绩</p>
+<p>输出<br>输出一个整数表示最少需要几个同学出列调整。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DP</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/31/%E5%90%8C%E6%A1%8C%E7%9A%84%E4%BD%A0-LIS-O-NlogN-%E7%9A%84%E5%86%99%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-targin算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -699,220 +970,6 @@
 
 
   
-    <article id="post-蓝桥杯-算法训练-二元函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/16/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0/">蓝桥杯 算法训练 二元函数</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/16/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-03-16T11:12:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　令二元函数f(x,y)=ax+by，a和b为整数，求一个表达式S的值。<br>　　只有满足以下要求的表达式才是合法的：<br>　　1.任意整数x是一个合法的表达式；<br>　　2.如果A和B都是合法的表达式，则f(A,B)也是一个合法的表达式。<br>输入格式<br>　　第一行两个数a和b；<br>　　第二行一个字符串S表示要求的表达式。<br>输出格式<br>　　一行一个数表示表达式S的值。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/16/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E4%BA%8C%E5%85%83%E5%87%BD%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-算法训练-素因子去重" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%B4%A0%E5%9B%A0%E5%AD%90%E5%8E%BB%E9%87%8D/">蓝桥杯 算法训练 素因子去重</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%B4%A0%E5%9B%A0%E5%AD%90%E5%8E%BB%E9%87%8D/" class="archive-article-date">
-  	<time datetime="2020-03-15T14:32:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　给定一个正整数n，求一个正整数p，满足p仅包含n的所有素因子，且每个素因子的次数不大于1<br>输入格式<br>　　一个整数，表示n<br>输出格式<br>　　输出一行，包含一个整数p。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E7%B4%A0%E5%9B%A0%E5%AD%90%E5%8E%BB%E9%87%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯-算法训练-审美课-位运算" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E5%AE%A1%E7%BE%8E%E8%AF%BE-%E4%BD%8D%E8%BF%90%E7%AE%97/">蓝桥杯 算法训练 审美课(位运算)</a>
-    </h1>
-  
-
-        
-        
-<a href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E5%AE%A1%E7%BE%8E%E8%AF%BE-%E4%BD%8D%E8%BF%90%E7%AE%97/" class="archive-article-date">
-  	<time datetime="2020-03-15T11:09:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>　　《审美的历程》课上有n位学生，帅老师展示了m幅画，其中有些是梵高的作品，另外的都出自五岁小朋友之手。老师请同学们分辨哪些画的作者是梵高，但是老师自己并没有答案，因为这些画看上去都像是小朋友画的……老师只想知道，有多少对同学给出的答案完全相反，这样他就可以用这个数据去揭穿披着皇帝新衣的抽象艺术了（支持帅老师^_^）。<br>　　答案完全相反是指对每一幅画的判断都相反。<br>输入格式<br>　　第一行两个数n和m，表示学生数和图画数；<br>　　接下来是一个n*m的01矩阵A：<br>　　如果aij=0，表示学生i觉得第j幅画是小朋友画的；<br>　　如果aij=1，表示学生i觉得第j幅画是梵高画的。<br>输出格式<br>　　输出一个数ans：表示有多少对同学的答案完全相反。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">蓝桥杯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/15/%E8%93%9D%E6%A1%A5%E6%9D%AF-%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83-%E5%AE%A1%E7%BE%8E%E8%AF%BE-%E4%BD%8D%E8%BF%90%E7%AE%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
@@ -1105,6 +1162,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">思路</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">二分</a>
               </li>
             
             <div class="clearfix"></div>
